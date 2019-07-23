@@ -32,21 +32,16 @@ Things you may want to cover:
 |image|string||
 |email|string|null: false, unique: true|
 |first_name|string|null: false|
-|family_name|string|null: false|
+|last_name|string|null: false|
 |first_kana|string|null: false|
 |family_kana|string|null: false|
 |birthday|date|null: false|
-|postalcode|integer|null: false|
+|postalcode|string|null: false|
 |address_prefecture|string|null: false|
 |address_city|string|null: false|
 |address_number|string|null: false|
 |address_building|string|null: false|
 |phone_number|string|null: false, unique: true|
-|send_postalcode|integer||
-|send_address_prefecture|string||
-|send_address_city|string||
-|send_address_number|string||
-|send_address_building|string||
 |provider|string||
 |uid|string||
 
@@ -59,9 +54,9 @@ Things you may want to cover:
 - validates :nickname, presence: true
 - validates :email, presence: true, uniqueness: true
 - validates :first_name, presence: true
-- validates :family_name, presence: true
+- validates :last_name, presence: true
 - validates :first_kana, presence: true
-- validates :family_kana, presence: true
+- validates :last_kana, presence: true
 - validates :birthday, presence: true
 - validates :postalcode, presence: true
 - validates :address_prefecture, presence: true
