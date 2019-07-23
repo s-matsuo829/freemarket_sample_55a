@@ -98,11 +98,13 @@ Things you may want to cover:
 |delivery_days|integer|null: false|
 |price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_one :trading
 - belongs_to :user
 - has_many :likes, dependent: :destroy
+- belongs_to :category
 
 - with_options presence: true do
 -   validates :image
@@ -132,6 +134,21 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
 
 - validates :transaction, presence: true
+
+
+
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|parent_id|references|index: true|
+
+### Association
+- has_many :items
+<!-- 自己完結モデル -->
+- belongs_to :parent, class_name: :Category
+- has_many :children, class_name: :Category, foreign_key: :parent_id
 
 
 
