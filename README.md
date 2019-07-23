@@ -36,16 +36,11 @@ Things you may want to cover:
 |first_kana|string|null: false|
 |family_kana|string|null: false|
 |birthday|date|null: false|
-|postalcode|string|null: false|
-|address_prefecture|string|null: false|
-|address_city|string|null: false|
-|address_number|string|null: false|
-|address_building|string|null: false|
-|phone_number|string|null: false, unique: true|
 |provider|string||
 |uid|string||
 
 ### Association
+- has_one :address
 - has_many :items
 - has_one :card
 - has_many :likes, dependent: :destroy
@@ -58,6 +53,24 @@ Things you may want to cover:
 - validates :first_kana, presence: true
 - validates :last_kana, presence: true
 - validates :birthday, presence: true
+
+
+
+## addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|postalcode|string|null: false|
+|address_prefecture|string|null: false|
+|address_city|string|null: false|
+|address_number|string|null: false|
+|address_building|string|null: false|
+|phone_number|string|null: false, unique: true|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
 - validates :postalcode, presence: true
 - validates :address_prefecture, presence: true
 - validates :address_city, presence: true
@@ -96,7 +109,6 @@ Things you may want to cover:
 - validates :delivery_region, presence: true
 - validates :delivery_days, presence: true
 - validates :price, presence: true
-- validates :user_id, presence: true
 
 
 
@@ -106,17 +118,14 @@ Things you may want to cover:
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
 |transaction|integer|null: false|
-|rating|integer|null: false|
+|rating|integer||
 |buyer_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
 - belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
 
-- validates :item_id, presence: true
 - validates :transaction, presence: true
-- validates :rating, presence: true
-- validates :buyer_id, presence: true
 
 
 
@@ -131,10 +140,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-- validates :user_id, presence: true
-- validates :customer_id, presence: true
-- validates :card_id, presence: true
-
 
 
 ## likesテーブル
@@ -147,6 +152,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-
-- validates :user_id, presence: true
-- validates :item_id, presence: true
