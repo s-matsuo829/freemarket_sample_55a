@@ -46,13 +46,15 @@ Things you may want to cover:
 - has_many :likes, dependent: :destroy
 - has_many :buyer_tradings, class_name: 'Trading', :foreign_key => 'buyer_id'
 
-- validates :nickname, presence: true
 - validates :email, presence: true, uniqueness: true
-- validates :first_name, presence: true
-- validates :last_name, presence: true
-- validates :first_kana, presence: true
-- validates :last_kana, presence: true
-- validates :birthday, presence: true
+- with_options presence: true do
+-   validates :nickname
+-   validates :first_name
+-   validates :last_name
+-   validates :first_kana
+-   validates :last_kana
+-   validates :birthday
+- end
 
 
 
@@ -71,12 +73,14 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-- validates :postalcode, presence: true
-- validates :address_prefecture, presence: true
-- validates :address_city, presence: true
-- validates :address_number, presence: true
-- validates :address_building, presence: true
 - validates :phone_number, presence: true, uniqueness: true
+- with_options presence: true do
+-   validates :postalcode
+-   validates :address_prefecture
+-   validates :address_city
+-   validates :address_number
+-   validates :address_building
+- end
 
 
 
@@ -100,15 +104,17 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :likes, dependent: :destroy
 
-- validates :image, presence: true
-- validates :name, presence: true
-- validates :description, presence: true
-- validates :item_status, presence: true
-- validates :payment, presence: true
-- validates :delivery_type, presence: true
-- validates :delivery_region, presence: true
-- validates :delivery_days, presence: true
-- validates :price, presence: true
+- with_options presence: true do
+-   validates :image
+-   validates :name
+-   validates :description
+-   validates :item_status
+-   validates :payment
+-   validates :delivery_type
+-   validates :delivery_region
+-   validates :delivery_days
+-   validates :price
+- end
 
 
 
