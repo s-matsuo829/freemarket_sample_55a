@@ -29,6 +29,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, index: true|
+|image|string||
 |email|string|null: false, unique: true|
 |first_name|string|null: false|
 |family_name|string|null: false|
@@ -74,7 +75,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
+|image|string|null: false|
 |name|string|null: false, index: true|
 |description|text|null: false, index: true|
 |item_status|integer|null: false|
