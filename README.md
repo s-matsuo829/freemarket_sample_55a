@@ -54,6 +54,7 @@ Things you may want to cover:
 - has_many :items
 - has_one :card
 - has_many :likes, dependent: :destroy
+- has_many :buyer_tradings, class_name: 'Trading', :foreign_key => 'buyer_id'
 
 - validates :nickname, presence: true
 - validates :email, presence: true, uniqueness: true
@@ -110,16 +111,16 @@ Things you may want to cover:
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
 |transaction|integer|null: false|
-|score|integer|null: false|
+|rating|integer|null: false|
 |buyer_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
-- belongs_to :buyer, class_name: 'User', foreign_key: :user_id
+- belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
 
 - validates :item_id, presence: true
 - validates :transaction, presence: true
-- validates :score, presence: true
+- validates :rating, presence: true
 - validates :buyer_id, presence: true
 
 
