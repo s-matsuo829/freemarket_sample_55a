@@ -66,8 +66,8 @@ Things you may want to cover:
 |address_prefecture|string|null: false|
 |address_city|string|null: false|
 |address_number|string|null: false|
-|address_building|string|null: false|
-|phone_number|string|null: false, unique: true|
+|address_building|string||
+|phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
