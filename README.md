@@ -44,7 +44,7 @@ Things you may want to cover:
 - has_many :items
 - has_one :card
 - has_many :likes, dependent: :destroy
-- has_many :buyer_tradings, class_name: 'Trading', :foreign_key => 'buyer_id'
+- has_many :buyer_tradings, class_name: 'Trading', foreign_key: 'buyer_id'
 
 - validates :email, presence: true, uniqueness: true
 - with_options presence: true do
