@@ -55,7 +55,7 @@ set :default_env, {
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
 
-server "http://3.113.85.119/", user: "ec2-user", roles: %w{app db web}
+server "3.113.85.119", user: "ec2-user", roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"
