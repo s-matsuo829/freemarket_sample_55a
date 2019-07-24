@@ -34,7 +34,7 @@ Things you may want to cover:
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_kana|string|null: false|
-|family_kana|string|null: false|
+|last_kana|string|null: false|
 |birthday|date|null: false|
 |provider|string||
 |uid|string||
