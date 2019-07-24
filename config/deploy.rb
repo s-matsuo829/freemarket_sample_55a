@@ -53,8 +53,14 @@ set :default_env, {
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"]
+  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
 
+server "http://3.113.85.119/", user: "ec2-user", roles: %w{app db web}
+
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
 
 
 # config valid for current version and patch releases of Capistrano
