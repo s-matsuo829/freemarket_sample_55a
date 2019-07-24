@@ -21,7 +21,8 @@ set :ssh_options, auth_methods: ['publickey'],
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
-append :linked_files, "config/database.yml", "config/master.key"
+# append :linked_files, "config/database.yml", "config/master.key"
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # Unicornの設定ファイルの場所
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
@@ -50,11 +51,11 @@ end
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+  AWS_ACCESS_KEY_ID: Rails.application.credentials.aws[:access_key_id],
+  AWS_SECRET_ACCESS_KEY: Rails.application.credentials.aws[:secret_access_key]
 }
 
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
+
 
 # config valid for current version and patch releases of Capistrano
 # lock "~> 3.11.0"
