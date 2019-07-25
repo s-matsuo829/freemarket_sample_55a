@@ -12,7 +12,7 @@ class User < ApplicationRecord
   # reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
   # reg_intger_14or16_characters = /\A[0-9]{14,16}+\z/
   # reg_intger_3or4_characters = /\A[0-9]{3,4}+\z/
-  reg_date_year = /\d{4}-\d{1,2}-\d{1,2}+\z/
+  reg_date_year = /\A\d{4}-\d{2}-\d{2}\z/
 
   validates :nickname,
     presence: true

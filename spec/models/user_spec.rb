@@ -77,5 +77,25 @@ describe User do
       user.valid?
       expect(user.errors[:first_kana][0]).to include("is invalid")
     end
+    it "last_kanaが空だと登録不可" do
+      user = build(:user, last_kana: nil)
+      user.valid?
+      expect(user.errors[:last_kana]).to include("can't be blank")
+    end
+    it "last_kanaにカナ以外が含まれると登録不可 " do
+      user = build(:user, last_kana: "カナa")
+      user.valid?
+      expect(user.errors[:last_kana][0]).to include("is invalid")
+    end
+    it "birthdayが空だと登録不可" do
+      user = build(:user, birthday: nil)
+      user.valid?
+      expect(user.errors[:birthday]).to include("can't be blank")
+    end
+    it "birthdayがdate型データXXXX-XX-XXではない場合登録不可 " do
+      user = build(:user, birthday: 1989)
+      user.valid?
+      expect(user.errors[:birthday][0]).to include("is invalid")
+    end
   end
 end
