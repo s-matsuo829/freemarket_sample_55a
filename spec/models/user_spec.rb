@@ -37,10 +37,25 @@ describe User do
       user.valid?
       expect(user.errors[:email][0]).to include("is invalid")
     end
-    it "emailに英数字と記号以外の文字が含まれると登録できない" do
+    it "emailに英数字と記号以外の文字が含まれると登録不可" do
       user = build(:user, email: "aaあa@aaa")
       user.valid?
       expect(user.errors[:email][0]).to include("is invalid")
+    end
+    it "passwordが空だと登録不可" do
+      user = build(:user, password: nil)
+      user.valid?
+      expect(user.errors[:password]).to include("can't be blank")
+    end
+    it "passwordはあってもpassword_confirmationが空だと登録不可" do
+      user = build(:user, password_confirmation: "")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+    end
+    it "passwordが6文字未満だと登録不可" do
+      user = build(:user, password: "00000", password_confirmation: "00000")
+      user.valid?
+      expect(user.errors[:password][0]).to include("is too short")
     end
   end
 end

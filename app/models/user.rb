@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
-  reg_alphanumeric_8characters = /\A[a-zA-Z0-9]{8,}+\z/
+  reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
   # reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
   reg_only_kana = /\A[ァ-ヴ]+\z/
   # reg_zip_code = /\A[0-9]{3}\-[0-9]{4}+\z/
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   validates :password,
     presence: true,
     confirmation: true,
-    format: { with: reg_alphanumeric_8characters }
+    format: { with: reg_alphanumeric_6characters }
   validates :first_name,
     presence: true
   validates :last_name,
