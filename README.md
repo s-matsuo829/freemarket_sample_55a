@@ -125,7 +125,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|transaction|integer|null: false|
+|status|integer|null: false|
 |rating|integer||
 |buyer_id|references|null: false, foreign_key: true|
 
