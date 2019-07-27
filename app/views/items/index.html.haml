@@ -1,328 +1,213 @@
 -# %div Hello, World!
 
-<main class=" l-container clearfix">
-  <div class="l-content">
-    <section class="mypage-user-icon">
-      <a href="https://www.mercari.com/jp/u/335741478/">
-        <figure>
-          <img src="//static.mercdn.net/images/member_photo_noimage_thumb.png" alt="" width="60" height="60">
-        </figure>
-              <h2 class="bold">にゃん太</h2>
-        <div class="mypage-number">
-          <div>評価 <span class="bold">0</span></div>
-          <div>出品数 <span class="bold">0</span></div>
-        </div>
-      </a>
-    </section>
+%main.l-container.clearfix
+  .l-content
 
-    <section class="mypage-tab-container-notification-todo">
-      <ul class="mypage-tabs">
-        <li class="active">
-          <h3>
-            <a href="#mypage-tab-notification" data-toggle="tab">
+    %section.mypage-user-icon
+      %a{href: "https://www.mercari.com/jp/u/335741478/"}
+        %figure
+          %img{alt: "", height: "60", src: "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"}/
+        %h2.bold にゃん太
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 0
+
+
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-notification"}
               お知らせ
-              <span class="mypage-nav-number hidden-large">
+              %span.mypage-nav-number.hidden-large
                 2
-              </span>
-            </a>
-          </h3>
-        </li>
-
-        <li class="">
-          <h3>
-            <a
-              href="#mypage-tab-todo"
-              data-toggle="tab">
+        %li
+          %h3
+            %a{"data-toggle" => "tab", href: "#mypage-tab-todo"}
               やることリスト
-            </a>
-          </h3>
-        </li>
-      </ul>
 
-      <div class="tab-content">
-        <ul id="mypage-tab-notification" class="mypage-item-list tab-pane active">
-          <li>
-            <a href="" class="mypage-item-link" data-open="modal" data-modal="banner">
-              <figure>
-                <img data-src="//static.mercdn.net/images/mercari_profile.png" class="lazyload" alt="">
-              </figure>
-              <div class="mypage-item-body">
-                <div class="mypage-item-text">《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪</div>
-                <time><i class="icon-time"></i><span>47 分前</span></time>
-              </div>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.mercari.com/jp/mypage/news/" class="mypage-item-link">
-              <figure>
-                <img data-src="//static.mercdn.net/images/mercari_profile.png" class="lazyload" alt="">
-              </figure>
-              <div class="mypage-item-body">
-                <div class="mypage-item-text">事務局から個別メッセージ「【ご意見をお聞かせください】メルカリのご利用に関するアンケート」</div>
-                <time><i class="icon-time"></i><span>20 時間前</span></time>
-              </div>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.mercari.com/jp/mypage/news/" class="mypage-item-link">
-              <figure>
-                <img data-src="//static.mercdn.net/images/mercari_profile.png" class="lazyload" alt="">
-              </figure>
-              <div class="mypage-item-body">
-                <div class="mypage-item-text">事務局から個別メッセージ「ログイン通知」</div>
-                <time><i class="icon-time"></i><span>1 日前</span></time>
-              </div>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-          <li>
-            <a
-              href="" class="mypage-item-link" data-open="modal" data-modal="banner">
-              <figure>
-                <img data-src="//static.mercdn.net/images/mercari_profile.png" class="lazyload" alt="">
-              </figure>
-              <div class="mypage-item-body">
-                <div class="mypage-item-text">《ご登録記念》¥1,000の商品を「実質1円」でご購入いただけます！</div>
-                <time><i class="icon-time"></i><span>1 日前</span></time>
-              </div>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.mercari.com/jp/mypage/news/" class="mypage-item-link">
-              <figure>
-                <img data-src="//static.mercdn.net/images/mercari_profile.png" class="lazyload" alt="">
-              </figure>
-              <div class="mypage-item-body">
-                <div class="mypage-item-text">事務局から個別メッセージ「ログイン通知」</div>
-                <time><i class="icon-time"></i><span>1 日前</span></time>
-              </div>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-          <li class="mypage-go-list">
-            <a href="/jp/mypage/notification/">一覧を見る</a>
-          </li>
-        </ul>
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", href: ""}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                %time
+                  %i.icon-time
+                  %span 47 分前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「【ご意見をお聞かせください】メルカリのご利用に関するアンケート」
+                %time
+                  %i.icon-time
+                  %span 20 時間前
+              %i.icon-arrow-right
 
-        <ul id="mypage-tab-todo" class="mypage-item-list tab-pane">
-          <li class="mypage-item-not-found bold">現在、やることリストはありません</li>
-        </ul>
-      </div>
-    </section>
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 《ご登録記念》¥1,000の商品を「実質1円」でご購入いただけます！
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+          %li
+            %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
+              %figure
+                %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+              .mypage-item-body
+                .mypage-item-text 事務局から個別メッセージ「ログイン通知」
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+          %li.mypage-go-list
+            %a{:href => "/jp/mypage/notification/"} 一覧を見る
 
-    <section class="mypage-tab-container">
-      <h2 class="mypage-tab-head">購入した商品</h2>
-        <ul class="mypage-tabs">
-          <li class="active">
-            <h3>
-              <a href="#mypage-tab-transaction-now" data-toggle="tab">
-                取引中
-              </a>
-            </h3>
-          </li>
-          <li class="">
-            <h3>
-              <a href="#mypage-tab-transaction-old" data-toggle="tab">
-                過去の取引
-              </a>
-            </h3>
-          </li>
-        </ul>
-      <div class="tab-content">
-        <ul id="mypage-tab-transaction-now" class="mypage-item-list tab-pane active">
-          <li class="mypage-item-not-found bold">取引中の商品がありません</li>
-        </ul>
+        %ul#mypage-tab-todo.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 現在、やることリストはありません
 
-        <ul id="mypage-tab-transaction-old" class="mypage-item-list tab-pane">
-          <li class="mypage-item-not-found bold">過去に取引した商品がありません</li>
-        </ul>
-      </div>
-    </section>
-  </div>
+    %section.mypage-tab-container
+      %h2.mypage-tab-head 購入した商品
+      %ul.mypage-tabs
+        %li.active
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
+              取引中
+        %li
+          %h3
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
+              過去の取引
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold 取引中の商品がありません
+        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+          %li.mypage-item-not-found.bold 過去に取引した商品がありません
 
-  <div class="l-side">
-    <nav class="mypage-nav">
-
-    
-      <ul class="mypage-nav-list">
-        <li>
-          <a href="/jp/mypage/" class="mypage-nav-list-item active">
-            マイページ
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/notification/" class="mypage-nav-list-item ">
-            お知らせ
-            <span class="mypage-nav-number">
-              2
-            </span>
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/todo/" class="mypage-nav-list-item ">
-            やることリスト
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/like/history/" class="mypage-nav-list-item ">
-            いいね！一覧
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/sell/" class="mypage-nav-list-item">
-            出品する
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/listings/listing/" class="mypage-nav-list-item ">
-            出品した商品 - 出品中
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/listings/in_progress/" class="mypage-nav-list-item ">
-            出品した商品 - 取引中
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/listings/completed/" class="mypage-nav-list-item ">
-            出品した商品 - 売却済み
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-        
-        <li>
-          <a href="/jp/mypage/purchase/" class="mypage-nav-list-item ">
-            購入した商品 - 取引中
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/purchased/" class="mypage-nav-list-item ">
-            購入した商品 - 過去の取引
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/news/" class="mypage-nav-list-item ">
-            ニュース一覧
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/review/history/" class="mypage-nav-list-item ">
-            評価一覧
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-    
-        <li>
-          <a href="/jp/help_center/" class="mypage-nav-list-item">
-            ガイド
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/support/" class="mypage-nav-list-item ">
-            お問い合わせ
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-      </ul>
-
-      <h3 class="mypage-nav-head">メルペイ</h3>
-        <ul class="mypage-nav-list">
-          <li>
-            <a href="/jp/mypage/sales/" class="mypage-nav-list-item ">
-              売上・振込申請
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="/jp/mypage/point/" class="mypage-nav-list-item ">
-              ポイント
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-        </ul>
-
-    
-        <h3 class="mypage-nav-head">設定</h3>
-        <ul class="mypage-nav-list">
-          <li>
-            <a href="/jp/mypage/profile/" class="mypage-nav-list-item ">
-              プロフィール
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="/jp/mypage/deliver_address/" class="mypage-nav-list-item ">
-              発送元・お届け先住所変更
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="/jp/mypage/card/" class="mypage-nav-list-item ">
-              支払い方法
-              <i class="icon-arrow-right"></i>
-            </a>
-          </li>
-
-        <li>
-          <a href="/jp/mypage/email_password/" class="mypage-nav-list-item ">
-            メール/パスワード
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/identification/" class="mypage-nav-list-item ">
-            本人情報
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
-
-        <li>
-          <a href="/jp/mypage/sms_confirmation/" class="mypage-nav-list-item ">
-            電話番号の確認
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li> 
-
-        <li>
-          <a href="/jp/logout/" class="mypage-nav-list-item ">
-            ログアウト
-            <i class="icon-arrow-right"></i>
-          </a>
-        </li>
+  .l-side
+    %nav.mypage-nav
       
-      </ul>
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item.active{:href => "/jp/mypage/"}
+            マイページ
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/notification/"}
+            お知らせ
+            %span.mypage-nav-number
+              2
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/todo/"}
+            やることリスト
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/like/history/"}
+            いいね！一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/sell/"}
+            出品する
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/listing/"}
+            出品した商品 - 出品中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/in_progress/"}
+            出品した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/listings/completed/"}
+            出品した商品 - 売却済み
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/purchase/"}
+            購入した商品 - 取引中
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/purchased/"}
+            購入した商品 - 過去の取引
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/news/"}
+            ニュース一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/review/history/"}
+            評価一覧
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/help_center/"}
+            ガイド
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/support/"}
+            お問い合わせ
+            %i.icon-arrow-right
 
-    </nav>
-  </div>
-</main>
+      %h3.mypage-nav-head メルペイ
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/sales/"}
+            売上・振込申請
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/point/"}
+            ポイント
+            %i.icon-arrow-right
+    
+      %h3.mypage-nav-head 設定
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/profile/"}
+            プロフィール
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/deliver_address/"}
+            発送元・お届け先住所変更
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/card/"}
+            支払い方法
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/email_password/"}
+            メール/パスワード
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/identification/"}
+            本人情報
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/mypage/sms_confirmation/"}
+            電話番号の確認
+            %i.icon-arrow-right
+        %li
+          %a.mypage-nav-list-item{:href => "/jp/logout/"}
+            ログアウト
+            %i.icon-arrow-right
 
