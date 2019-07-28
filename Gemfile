@@ -75,3 +75,5 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
+gem 'font-awesome-rails'

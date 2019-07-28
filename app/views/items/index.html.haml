@@ -1,205 +1,201 @@
--# %div Hello, World!
+/ %div Hello, World!
 
-%main.l-container.clearfix
-  .l-content
+%main.mypage_container.clearfix
 
-    %section.mypage-user-icon
-      = link_to "https://www.mercari.com/jp/u/335741478/", data:{turbolinks: :false} do
+  .user-show_right-content
+    %section.user_info
+      = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_info__link', data:{turbolinks: :false} do
         %figure
-          = image_tag{"member_photo_noimage_thumb.png", class: 'member_photo', size: '60x60', alt: ""}
-        %h2.bold にゃん太
-        .mypage-number
+          = image_tag "member_nophoto.jpg", class: 'user_info__link__photo', size: '60x60', alt: ""
+        %h2.user_info__link__nickname.bold にゃん太
+        .user_info__link__number
           %div
             評価
             %span.bold 0
-          %div
+          %div.user_info__link__number__right
             出品数
             %span.bold 0
 
-
-    %section.mypage-tab-container-notification-todo
-      %ul.mypage-tabs
+    %section.user_notification_todo
+      %ul.user_notification_todo__tabs
         %li.active
           %h3
-            = link_to "お知らせ", "#mypage-tab-notification", data:{toggle: "tab"}, data:{turbolinks: :false}
-              %span.mypage-nav-number.hidden-large
-                2
+            = link_to "お知らせ", "#mypage_notification", class: 'user_notification_todo__tabs__link bold', data:{toggle: "tab"}, data:{turbolinks: :false}
         %li
           %h3
-            = link_to "やることリスト", "#mypage-tab-todo", data:{toggle: "tab"}, data:{turbolinks: :false}
+            = link_to "やることリスト", "#mypage-tab-todo", class: 'user_notification_todo__tabs__link bold', data: {toggle: "tab"}, data:{turbolinks: :false}
 
-      .tab-content
-        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+      .user_notification_todo__content
+        %ul#mypage_notification.user_notification_todo__content__list.tab-pane.active
           %li
-            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'mypage-item-link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
               %figure
-                = image_tag{"mercari_profile.png", class: 'lazyload', size: '48x48', alt: ""}
-              .mypage-item-body
-                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
+              .user_notification_todo__content__list__link__body
+                .user_notification_todo__content__list__link__body__text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
                 %time
-                  %i.icon-time
+                  = fa_icon 'clock-o', class: 'icon-clock-o'
                   %span 47 分前
-              %i.icon-arrow-right
+              = fa_icon 'angle-right 2x', class: 'icon-angle-right'
           %li
-            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'mypage-item-link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
               %figure
-                = image_tag{"mercari_profile.png", class: 'lazyload', size: '48x48', alt: ""}
-              .mypage-item-body
-                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
+              .user_notification_todo__content__list__link__body
+                .user_notification_todo__content__list__link__body__text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
                 %time
-                  %i.icon-time
+                  = fa_icon 'clock-o', class: 'icon-clock-o'
                   %span 47 分前
-              %i.icon-arrow-right
+              = fa_icon 'angle-right 2x', class: 'icon-angle-right'
           %li
-            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'mypage-item-link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
               %figure
-                = image_tag{"mercari_profile.png", class: 'lazyload', size: '48x48', alt: ""}
-              .mypage-item-body
-                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
+              .user_notification_todo__content__list__link__body
+                .user_notification_todo__content__list__link__body__text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
                 %time
-                  %i.icon-time
+                  = fa_icon 'clock-o', class: 'icon-clock-o'
                   %span 47 分前
-              %i.icon-arrow-right
+              = fa_icon 'angle-right 2x', class: 'icon-angle-right'
           %li
-            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'mypage-item-link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
               %figure
-                = image_tag{"mercari_profile.png", class: 'lazyload', size: '48x48', alt: ""}
-              .mypage-item-body
-                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
+              .user_notification_todo__content__list__link__body
+                .user_notification_todo__content__list__link__body__text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
                 %time
-                  %i.icon-time
+                  = fa_icon 'clock-o', class: 'icon-clock-o'
                   %span 47 分前
-              %i.icon-arrow-right
+              = fa_icon 'angle-right 2x', class: 'icon-angle-right'
           %li
-            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'mypage-item-link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
               %figure
-                = image_tag{"mercari_profile.png", class: 'lazyload', size: '48x48', alt: ""}
-              .mypage-item-body
-                .mypage-item-text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
+                = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
+              .user_notification_todo__content__list__link__body
+                .user_notification_todo__content__list__link__body__text 《もう参加した？》今なら最大”P1500”もらえる！詳しくはこちらから♪
                 %time
-                  %i.icon-time
+                  = fa_icon 'clock-o', class: 'icon-clock-o'
                   %span 47 分前
-              %i.icon-arrow-right
-          %li.mypage-go-list
-            = link_to '一覧を見る', "/jp/mypage/notification/", data:{turbolinks: :false}
+              = fa_icon 'angle-right 2x', class: 'icon-angle-right'
+          %li.user_notification_todo__content__list--go
+            = link_to '一覧を見る', "/jp/mypage/notification/", class: 'user_notification_todo__content__list--go__link', data:{turbolinks: :false}
 
-        %ul#mypage-tab-todo.mypage-item-list.tab-pane
-          %li.mypage-item-not-found.bold 現在、やることリストはありません
+        %ul#mypage_todo.user_notification_todo__content__list.tab-pane
+          %li.user-item-not-found.bold 現在、やることリストはありません
 
-    %section.mypage-tab-container
-      %h2.mypage-tab-head 購入した商品
-      %ul.mypage-tabs
+    %section.user_tradings
+      %h2.user_tradings__head 購入した商品
+      %ul.user_tradings__tabs
         %li.active
           %h3
-            = link_to '取引中', "#mypage-tab-transaction-now", data:{toggle: "tab"}, data:{turbolinks: :false}
+            = link_to '取引中', "#mypage_trading_tab-now", class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
         %li
           %h3
-            = link_to '過去の取引', "#mypage-tab-transaction-old", data:{toggle: "tab"}, data:{turbolinks: :false}
-      .tab-content
-        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-          %li.mypage-item-not-found.bold 取引中の商品がありません
-        %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-          %li.mypage-item-not-found.bold 過去に取引した商品がありません
+            = link_to '過去の取引', "#mypage_trading_tab-old", class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
+      .user_tradings__contents
+        %ul#mypage_trading-now.user_tradings__contents__list.tab-pane.active
+          %li.user-item-not-found.bold 取引中の商品がありません
+        %ul#mypage_trading-old.user_tradings__contents__list.tab-pane
+          %li.user-item-not-found.bold 過去に取引した商品がありません
 
-  .l-side
-    %nav.mypage-nav      
-      %ul.mypage-nav-list
+  .user-show_left-content
+    %nav.mypage-nav
+      %ul.mypage-nav__list
         %li
-          = link_to "/jp/mypage/", class: 'mypage-nav-list-item active', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/", class: 'mypage-nav__list__item active', data:{turbolinks: :false} do
             マイページ
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/notification/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/notification/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             お知らせ
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/todo/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/todo/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             やることリスト
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/like/history/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/like/history/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             いいね！一覧
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/sell/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/sell/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             出品する
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/listings/listing/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/listings/listing/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             出品した商品 - 出品中
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/listings/in_progress/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/listings/in_progress/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             出品した商品 - 取引中
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/listings/completed/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/listings/completed/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             出品した商品 - 売却済み
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/purchase/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/purchase/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             購入した商品 - 取引中
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/purchased/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/purchased/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             購入した商品 - 過去の取引
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/news/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/news/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             ニュース一覧
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/review/history/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/review/history/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             評価一覧
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/help_center/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/help_center/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             ガイド
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/support/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/support/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             お問い合わせ
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
 
-      %h3.mypage-nav-head メルペイ
-      %ul.mypage-nav-list
+      %h3.mypage-nav__head メルペイ
+      %ul.mypage-nav__list
         %li
-          = link_to "/jp/mypage/sales/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/sales/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             売上・振込申請
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/point/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/point/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             ポイント
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
     
-      %h3.mypage-nav-head 設定
-      %ul.mypage-nav-list
+      %h3.mypage-nav__head 設定
+      %ul.mypage-nav__list
         %li
-          = link_to "/jp/mypage/profile/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/profile/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             プロフィール
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/deliver_address/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/deliver_address/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             発送元・お届け先住所変更
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/card/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/card/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             支払い方法
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/email_password/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/email_password/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             メール/パスワード
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/identification/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/identification/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             本人情報
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/mypage/sms_confirmation/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/mypage/sms_confirmation/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             電話番号の確認
-            %i.icon-arrow-right
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
         %li
-          = link_to "/jp/logout/", class: 'mypage-nav-list-item', data:{turbolinks: :false} do
+          = link_to "/jp/logout/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
             ログアウト
-            %i.icon-arrow-right
-
+            = fa_icon 'angle-right 2x', class: 'icon-angle-right'
