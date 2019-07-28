@@ -34,7 +34,7 @@ Things you may want to cover:
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_kana|string|null: false|
-|family_kana|string|null: false|
+|last_kana|string|null: false|
 |birthday|date|null: false|
 |provider|string||
 |uid|string||
@@ -44,7 +44,7 @@ Things you may want to cover:
 - has_many :items
 - has_one :card
 - has_many :likes, dependent: :destroy
-- has_many :buyer_tradings, class_name: 'Trading', :foreign_key => 'buyer_id'
+- has_many :buyer_tradings, class_name: 'Trading', foreign_key: 'buyer_id'
 
 - validates :email, presence: true, uniqueness: true
 - with_options presence: true do
@@ -66,8 +66,8 @@ Things you may want to cover:
 |address_prefecture|string|null: false|
 |address_city|string|null: false|
 |address_number|string|null: false|
-|address_building|string|null: false|
-|phone_number|string|null: false, unique: true|
+|address_building|string||
+|phone_number|string|unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -125,7 +125,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|transaction|integer|null: false|
+|status|integer|null: false|
 |rating|integer||
 |buyer_id|references|null: false, foreign_key: true|
 
