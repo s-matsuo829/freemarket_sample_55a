@@ -3,94 +3,91 @@
     %header.pc-header.visible-pc
       .pc-header-inner
         .pc-header-top
-          %h1
+          .pc-header-top__logo
             = link_to "/" do
-              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134×36", alt: "mercari"
-         
-          %form.pc-header-form{ action: " /search/"}
-            %input.input-default{ name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}
-            %i.icon-search
+              = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
+          
+          = form_tag('/search', method: :get, class: 'pc-header-search-form') do
+            %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
+            = fa_icon "search",class: "pc-header-search-form__input__icon"
        
         .pc-header-nav-box.clearfix
           %nav.pc-header-nav-box__left
             %ul.pc-header-nav
-              %li
-                %h2
-                  = link_to "", class: "pc-header-nav-root.list-parent" do
-                    %i.icon-list.pc-header-cat-brand-icon
-                    %span カテゴリーから探す
-                %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
-                  %li.pc-header-nav__parent
-                    %h3
-                      = link_to "レディース", "" 
-                    %ul.pc-header-nav__child-wrap{data: {mega: 2}}
-                      %li.pc-header-nav__child
-                        = link_to "トップス", "" 
-                        %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
-                          %li.pc-header-nav__grand-child
-                            = link_to "Tシャツ/カットソー(半袖/袖なし)", "" 
-                    %h3
-                      = link_to "カテゴリー一覧", "" 
+              %li.pc-header-nav__list
+                %h4
+                  = link_to "", class: "pc-header-nav__list__link.list-parent" do
+                    = fa_icon "list-ul", text: "カテゴリーから探す", class: "pc-header-nav__list__link__icon"
+                    
+                -# %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
+                  -# %li.pc-header-nav__parent
+                    -# %h3
+                      -# = link_to "レディース", "" 
+                    -# %ul.pc-header-nav__child-wrap{data: {mega: 2}}
+                      -# %li.pc-header-nav__child
+                        -# = link_to "トップス", "" 
+                        -# %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
+                          -# %li.pc-header-nav__grand-child
+                            -# = link_to "Tシャツ/カットソー(半袖/袖なし)", "" 
+                    -# %h3
+                      -# = link_to "カテゴリー一覧", "" 
              
-              %li
-                %h2
-                  = link_to "", class: "pc-header-nav-root.list-parent" do
-                    %i.icon-tag.pc-header-cat-brand-icon
-                    %span ブランドから探す
-                  %ul.pc-header-nav__parent-wrap
-                    %li.pc-header-nav__parent
-                      %h3
-                        = link_to "シャネル", "" 
+              %li.pc-header-nav__list
+                %h4
+                  = link_to "", class: "pc-header-nav__list__link.list-parent" do
+                    = fa_icon "tag", text: "ブランドから探す", class: "pc-header-nav__list__link__icon"
+                  -# %ul.pc-header-nav__parent-wrap
+                    -# %li.pc-header-nav__parent
+                      -# %h3
+                        -# = link_to "シャネル", "" 
                     
           .pc-header-nav-box__right
             %ul.pc-header-user-nav
               %li.liked-items__link
                 = link_to "", class: "pc-header-menu__link" do
-                  %i.icon-like-border
-                  %span いいね！一覧
+                  = fa_icon "heart", text: "いいね！一覧", class: "pc-header-menu__link__icon"
+                 
               %li{ data: {id: "pc-header-user-nav", key: "notification_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
                 = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
-                  %i.icon-bell
-                  %span お知らせ
-                %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{"data-id": "pc-header-user-items"}
+                  = fa_icon "bell", text: "お知らせ", class: "pc-header-menu__link__icon"
+                 
+                %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
               %li{ data: {id: "pc-header-user-nav", key: "todo_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
                 = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
-                  %i.icon-check
-                  %span やることリスト
+                  = fa_icon "check", text: "やることリスト",class: "pc-header-menu__link__icon"
+                  
                 %ul.pc-header-user-box.pc-header-todo-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
               %li
-                = link_to "", class: "pc-header-user__icon.pc-header-menu__link" do
-                  %figure
-                    %div
-                      = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: ""
+                = link_to "", class: "pc-header-menu__link" do
+                  = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
                   %span マイページ
                
-                .pc-header-use-box.pc-header-mypage__box
-                  .pc-header-mypage__state.text-center
-                    %figure
-                      %div
-                        = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", alt: ""
-                      %figcaption 侍の兄
-                    %ul.pc-header-mypage__review-listing
-                      %li
-                        = link_to "評価:2", "",class: "pc-header-mypage__link"
-                      %li
-                        = link_to "出品数: 3", "", class: "pc-header-mypage__link"
-                    %ul.pc-header-mypage__sales-point
-                      %li
-                        = link_to "", class: "pc-header-mypage__link clearfix" do
-                          .pc-header-mypage__sales-point--left
-                            売上金
-                          .pc-header-mypage__sales-pointl--right
-                            ¥ 780
-                            %i.icon-arrow-right
-                      %li
-                        = link_to "", class: "pc-header-mypage__link clearfix" do
-                          .pc-header-mypage__sales-point--left 
-                            ポイント
-                          .pc-header-mypage__sales-pointl--right
-                            P 0
-                            %i.icon-arrow-right
+                -# .pc-header-use-box.pc-header-mypage__box
+                  -# .pc-header-mypage__state.text-center
+                    -# %figure
+                      -# %div
+                        -# = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", alt: ""
+                      -# %figcaption 侍の兄
+                    -# %ul.pc-header-mypage__review-listing
+                      -# %li
+                        -# = link_to "評価:2", "",class: "pc-header-mypage__link"
+                      -# %li
+                        -# = link_to "出品数: 3", "", class: "pc-header-mypage__link"
+                    -# %ul.pc-header-mypage__sales-point
+                      -# %li
+                        -# = link_to "", class: "pc-header-mypage__link clearfix" do
+                          -# .pc-header-mypage__sales-point--left
+                            -# 売上金
+                          -# .pc-header-mypage__sales-pointl--right
+                            -# ¥ 780
+                            -# %i.icon-arrow-right
+                      -# %li
+                        -# = link_to "", class: "pc-header-mypage__link clearfix" do
+                          -# .pc-header-mypage__sales-point--left 
+                            -# ポイント
+                          -# .pc-header-mypage__sales-pointl--right
+                            -# P 0
+                            -# %i.icon-arrow-right
               
                   %ul.pc-header-mypage__nav-list
                     %li
