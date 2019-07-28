@@ -1,7 +1,7 @@
-%footer.global-footer
+%footer.all-page-footer
   %nav.clearfix
-    .footer-cell
-      %h2.footer-cell__head メルカリについて
+    .footer-part
+      %h2.footer-part__head メルカリについて
       %ul
         %li
           = link_to "https://about.mercari.com/" do
@@ -18,14 +18,14 @@
         %li
           = link_to "https://www.mercari.com/jp/logo-guidelines/" do
             メルカリロゴ利用ガイドライン
-        %li.footer-social-link
+        %li.footer-part__head--footer-social-link
           = link_to "https://twitter.com/mercari_jp", target: "_blank" do
-            %i.icon-twitter
-        %li.footer-social-link
+            = fa_icon 'twitter'
+        %li.footer-part__head--footer-social-link
           = link_to "https://www.facebook.com/mercarijp", target: "_blank" do
-            %i.icon-facebook
-    .footer-cell
-      %h2.footer-cell__head ヘルプ＆ガイド
+            = fa_icon 'facebook-square'
+    .footer-part
+      %h2.footer-part__head ヘルプ＆ガイド
       %ul
         %li
           = link_to "https://www.mercari.com/jp/help_center/" do
@@ -51,38 +51,39 @@
         %li
           = link_to "https://www.mercari.com/jp/box/" do
             メルカリボックス
-    .footer-cell.full-width
-      %h2.footer-cell__head プライバシーと利用規約
-      .fotter-cell__head--inner-footer-cell
-        %ul
-          %li
-            = link_to "https://www.mercari.com/jp/privacy/" do
-              プライバシーポリシー
-          %li
-            = link_to "https://www.mercari.com/jp/tos/" do
-              メルカリ利用規約
-          %li
-            = link_to "https://www.mercari.com/jp/tos_smartphone_support/" do
-              あんしんスマホサポート制度に関する利用特約
-          %li
-            = link_to "https://www.mercari.com/jp/compliance/" do
-              コンプライアンスポリシー
-      .fotter-cell__head--inner-footer-cell
-        %ul
-          %li
-            = link_to "https://www.mercari.com/jp/data_security/" do
-              個人データの安全管理に係る基本方針
-          %li
-            = link_to "https://www.mercari.com/jp/tokutei/" do
-              特定商取引に関する表記
-          %li
-            = link_to "https://www.mercari.com/jp/shikin_kessai/" do
-              資金決済法に基づく表示
-          %li
-            = link_to "https://about.mercari.com/csr/safety/" do
-              法令順守と犯罪抑止のために
-    .footer-cell.footer-nav-lang
-      %h2.footer-cell__head 国
+    .footer-part.full-width
+      %h2.footer-part__head プライバシーと利用規約
+      .footer-part__inner-footer-part
+        .footer-part__inner-footer-part--left
+          %ul
+            %li
+              = link_to "https://www.mercari.com/jp/privacy/" do
+                プライバシーポリシー
+            %li
+              = link_to "https://www.mercari.com/jp/tos/" do
+                メルカリ利用規約
+            %li
+              = link_to "https://www.mercari.com/jp/tos_smartphone_support/" do
+                あんしんスマホサポート制度に関する利用特約
+            %li
+              = link_to "https://www.mercari.com/jp/compliance/" do
+                コンプライアンスポリシー
+        .footer-part__inner-footer-part--right
+          %ul
+            %li
+              = link_to "https://www.mercari.com/jp/data_security/" do
+                個人データの安全管理に係る基本方針
+            %li
+              = link_to "https://www.mercari.com/jp/tokutei/" do
+                特定商取引に関する表記
+            %li
+              = link_to "https://www.mercari.com/jp/shikin_kessai/" do
+                資金決済法に基づく表示
+            %li
+              = link_to "https://about.mercari.com/csr/safety/" do
+                法令順守と犯罪抑止のために
+    .footer-part.footer-nav-lang
+      %h2.footer-part__head 国
       %ul
         %li
           = link_to "https://www.mercari.com/jp/", class: "active" do
@@ -90,15 +91,15 @@
         %li
           = link_to "https://www.mercari.com/" do
             United States
-  .footer-bottom
+  .footer-lower
     = link_to "https://www.mercari.com/jp/", class: "footer-logo" do
       = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?891577966", size:"124×33", alt: "mercari"
     %span.footer-copyright
       %small © 2019 Mercari
-
-= link_to "https://www.mercari.com/jp/sell/", class: "footer-sell-btn" do
+= link_to "https://www.mercari.com/jp/sell/", class: "footer-exhibition-button" do
   %div 出品
-  %i.icon-camera
+  %i.footer-exhibition-button__icon-camera
+    = fa_icon 'camera'
 
 -# .custom-banner.custom-banner-ios.banner-pattern1.clearfix
 -#   %figure
