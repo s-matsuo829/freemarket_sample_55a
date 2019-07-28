@@ -1,0 +1,170 @@
+main {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  background-color: #f5f5f5;
+
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #b3d4fc;
+    text-decoration: underline;
+  }
+
+}
+
+.main-header {
+  height: 390px;
+  background: url('https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg');
+  background-position: center;
+}
+
+.main-content {
+  padding: 40px 0;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 26px 0;
+    text-align: center;
+  }
+
+}
+
+.list {
+  width: 940px;
+  height: 330px;
+  margin: auto;
+  display: flex;
+}
+
+.container {
+  width: 213px;
+  height: 330px;
+  background-color: #fff;
+  margin-left: 20px;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+}
+
+.image {
+  width: 213px;
+  height: 213px;
+}
+
+.detail {
+  margin: 16px;
+  color: #333;
+
+  h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    text-align: left;
+  }
+
+  &__info {
+    display: flex;
+    margin-top: 8px;
+    font-size: 16px;
+  
+    &__price {
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    &__like {
+      width: 100%;
+      text-align: right;
+    
+      .fa {
+        color: #ccc;
+      }
+    
+    }
+  
+  }
+
+}
+
+.view-all {
+  width: 940px;
+  margin: auto;
+  padding: 20px 0 30px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.main-footer {
+  width: calc(100% - 298px);
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  padding: 0 149px;
+  background: url('https://www.mercari.com//jp/assets/img/common/jp/top/download_bg_pc.jpg?70099751');
+}
+
+.left {
+  width: 420px;
+  color: #fff;
+  margin: auto 30px auto 0;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 35px;
+  }
+
+}
+
+.logo {
+  margin-top: 10px;
+  display: flex;
+
+  &__mercari img {
+    margin: 0 10px 0 0;
+    width: 68px;
+  }
+  
+  &__apple-google {
+    line-height: 68px;
+
+    a:hover {
+      text-decoration: none;
+    }
+  
+    img {
+      margin-left: 13px;
+      vertical-align: middle;
+    }
+  
+    img:hover {
+      opacity: 0.7;
+    }
+  
+  }
+  
+}
+
+.right img {
+  width: 297px;
+  height: 260px;
+}
