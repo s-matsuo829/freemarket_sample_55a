@@ -95,7 +95,6 @@ header {
   position:relative;
   &__icon {
   color:gray;
-  
   }
 }
 .pc-header-user__icon {
@@ -106,4 +105,40 @@ header {
 
 .pc-heade-user-box__mypage {
   margin-left:10px;
+}
+
+.pc-header-nav-box-before-login {
+  width:570px;
+  margin-top: 8px;
+  height:32px;
+  display:block;
+}
+
+.pc-header-user-log-nav {
+  float:right;
+  
+  text-align: center;
+  
+  line-height:32px;
+  &__sign-up {
+    border-radius: 4px;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    padding-top:20px;
+
+  &__link {
+  color:white;
+  
+  }
+}
+  &__log-in {
+  border-radius: 4px;
+  border: 1px solid blue;
+  margin-left:8px;
+  &__link {
+  color:blue;
+  
+  }
+}
 }
