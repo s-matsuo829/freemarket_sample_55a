@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     # :omniauth_callbacks => "users/omniauth_callbacks" 
   }
 
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :edit]
   resources :items, only: [:index]
 
 end
