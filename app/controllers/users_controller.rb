@@ -4,4 +4,7 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def mypage_identification
+  end
 end
