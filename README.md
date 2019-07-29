@@ -76,10 +76,9 @@ Things you may want to cover:
 - validates :phone_number, presence: true, uniqueness: true
 - with_options presence: true do
 -   validates :postalcode
--   validates :address_prefecture
--   validates :address_city
--   validates :address_number
--   validates :address_building
+-   validates :prefecture
+-   validates :city
+-   validates :number
 - end
 
 
