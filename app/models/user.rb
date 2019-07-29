@@ -38,4 +38,5 @@ class User < ApplicationRecord
     presence: true,
     format: { with: reg_date_year }
 
+    enum status: { deleted: 0, draft: 1, published: 2 }
 end
