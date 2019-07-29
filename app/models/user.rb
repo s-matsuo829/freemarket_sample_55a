@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-         :omniauthable, niauth_providers: [:facebook, :google_oauth2]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
   reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
@@ -40,7 +40,7 @@ class User < ApplicationRecord
     format: { with: reg_date_year }
 
 
-    self.find_oauth(auth)
+   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
