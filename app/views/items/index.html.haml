@@ -5,22 +5,26 @@
   =render partial: 'users/left-content'
 
   .card_show_right-content
-    %h2.mi_head 支払い方法
+    %h2.cs_head 支払い方法
 
     .cs_group
 
       .cs_group__title
-        %h3 クレジットカード一覧
+        %h3.bold クレジットカード一覧
 
-      %ul.cs_group__list
-        %li.cs_group__list__info
-          = image_tag "logo_visa.gif", class: 'cs_group__list__info__image', size: '49x32', alt: ""
-          .cs_group__list__info__pay_num ************1234
-          .cs_group__list__info__pay_num 08 / 19
-          = form_with url: 'https://www.mercari.com/jp/mypage/card/delete/', method: :post, local: true, id: 'charge-form', class: 'mi_form' do |f|
-            =f.text_field type: "hidden", name: "card_id", value: "", class: 'cs_form__card_id'
-            = f.submit '登録する',class: 'cs_form__submit_btn'
+      .cs_group__list
+        = image_tag "logo_visa.gif", class: 'cs_group__list__image', size: '49x32', alt: ""
+        .cs_group__list__pay_num ************1234
+        .cs_group__list__pay_num 08 / 19
+        = form_with url: 'https://www.mercari.com/jp/mypage/card/delete/', method: :post, local: true, id: 'charge-form', class: 'cs_form' do |f|
+          =f.text_field :card_id, type: "hidden", name: "card_id", value: "", class: 'cs_form__card_id'
+          = f.submit '削除する',class: 'cs_form__submit_btn'
 
+      .cs_group__info
+        %p.text-right
+          = link_to "https://www.mercari.com/jp/help_center/category/6/", class: 'cs_group__info__link', target: "_blank", data:{turbolinks: :false} do
+            支払い方法について
+            = fa_icon 'angle-right', class: 'icon-angle-right bold'
 / %label 登録クレジットカード情報
 / %br
 / = "**** **** **** " + @default_card_information.last4

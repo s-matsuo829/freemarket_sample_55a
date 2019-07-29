@@ -1,0 +1,64 @@
+.card_show_right-content {
+  float: right;
+  width: 700px;
+  background: #fff;
+  padding-bottom: 40px;
+  .cs_head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 2px solid #f5f5f5;
+    text-align: center;
+    font-weight: bold;
+    line-height: 33px;
+  }
+  .cs_group {
+    padding: 64px;
+    &__title {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    &__list {
+      max-width: 572px;
+      margin: 0 auto;
+      padding: 24px 126px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      &__image {
+        vertical-align: middle;
+      }
+      &__pay_num {
+        margin-top: 8px;
+      }
+      .cs_form {
+        &__card_id {
+          display: none;
+        }
+        &__submit_btn {
+          position: absolute;
+          top: 24px;
+          right: 126px;
+          padding: 4px 6px;
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #ea352d;
+          color: #ea352d;
+          width: 70px;
+          height: 24px;
+          -webkit-appearance: button;
+          overflow: visible;
+          line-height: 18px;
+        }
+      }
+    }
+    &__info {
+      display: block;
+      margin: 40px 0 0;
+      text-align: right;
+      &__link {
+        color: #0099e8;
+        text-decoration: none;
+        touch-action: manipulation;
+      }
+    }
+  }
+}
