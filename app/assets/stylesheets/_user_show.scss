@@ -1,0 +1,279 @@
+.mypage_container {
+  margin: 40px auto;
+  width: 1020px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 14px;
+  .user-show_right-content {
+    float: right;
+    width: 700px;
+    section {
+      display: block;
+    }
+    .user_info {
+      box-sizing: border-box;
+      height:200px;
+      padding: 20px;
+      margin: 0;
+      background-image: url("/images/user-bg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      &__link {
+        text-decoration: none;
+        color: #333;
+        figure {
+          .user_info__link__photo {
+            border-radius: 30px;
+          }
+        }
+        &__nickname {
+          margin-top: 8px;
+          font-size: 14px;
+        }
+        &__number {
+          margin: 8px;
+          div {
+            display: inline-block;
+          }
+          &__right {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+    .user_notification_todo {
+      box-sizing: border-box;
+      background: #fff;
+      border-width: 0;
+      ul {
+        display: block;
+        margin: 0;
+      }
+      &__tabs {
+        border: 0;
+        background: #eee;
+        .active {
+          background: #fff;
+          border-top: 2px solid #ea352d;
+        }
+        li {
+          list-style: none;
+          width: 49%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          height: 74px;
+          margin: 0;
+          padding: 0;
+          h3 {
+            .user_notification_todo__tabs__link {
+              text-decoration: none;
+              text-align: center;
+              vertical-align: top;
+              color: #333;
+              font-size: 14px;
+              line-height: 72px;
+            }
+          }
+        }
+      }
+      &__content {
+        margin: 0;
+        padding: 0;
+        display: block;
+        #mypage_notification {
+          list-style: none;
+          li {
+            border-bottom: 1px solid #eee;
+            .user_notification_todo__content__list__link {
+              display: block;
+              box-sizing: border-box;
+              height: 80px;
+              padding: 16px;
+              color: #333;
+              text-decoration: none;
+              figure {
+                overflow: hidden;
+                float: left;
+                width: 48px;
+                height: 48px;
+                margin: 0;
+                .profile_img {
+                  border: 0;
+                }
+              }
+              &__body {
+                margin: 0 40px 0 68px;
+                float: left;
+                &__text {
+                  overflow: hidden;
+                  display: block;
+                  display: -webkit-box;
+                  max-height: 4.4em;
+                  -webkit-line-clamp: 3;
+                  -webkit-box-orient: vertical;
+                  text-overflow: ellipsis;
+                  line-height: 1.5;
+                  font-size: 14px;
+                }
+                time {
+                  display: inline-block;
+                  color: #888;
+                  margin: 0 8px 0 0;
+                  .icon-clock-o {
+                    margin: 0 8px 0 0;
+                    display: inline-block;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                  }
+                }
+              }
+              .icon-angle-right {
+                top: 50%;
+                right: 16px;
+                float: right;
+                padding-top: 10px;
+              }
+            }
+          }
+          .user_notification_todo__content__list--go {
+            display: block;
+            box-sizing: border-box;
+            height: 80px;
+            padding: 12px;
+            color: #333;
+            &__link {
+              display: block;
+              height: 56px;
+              margin: 0 auto;
+              background: #eee;
+              color: #333;
+              line-height: 56px;
+              text-align: center;
+              text-decoration: none;
+            }
+          }
+        }
+        
+        #mypage_todo {
+          display: none;
+          .user-item-not-found {
+            padding: 160px 0 60px;
+            background: url("/images/logo-gray-icon.png");
+            background-repeat: no-repeat;
+            background-position: center 40px;
+            background-size: 78px 85px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+          }
+        }
+      }
+    }
+    .user_tradings {
+      box-sizing: border-box;
+      background: #fff;
+      border-width: 0;
+      margin: 40px 0 0;
+      &__head {
+        padding: 0 16px;
+        background: #fafafa;
+        font-size: 16px;
+        line-height: 72px;
+      }
+      &__tabs {
+        border: 0;
+        background: #eee;
+        .active {
+          background: #fff;
+          border-top: 2px solid #ea352d;
+        }
+        li {
+          list-style: none;
+          width: 49%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+          height: 74px;
+          margin: 0;
+          padding: 0;
+          h3 {
+            .user_tradings__status {
+              text-decoration: none;
+              text-align: center;
+              vertical-align: top;
+              color: #333;
+              font-size: 14px;
+              line-height: 72px;
+            }
+          }
+        }
+      }
+      &__contents {
+        #mypage_trading-now {
+          .user-item-not-found {
+            padding: 160px 0 60px;
+            background: url("/images/logo-gray-icon.png");
+            background-size:cover;
+            background-position: center 40px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+          }
+        }
+        #mypage_trading-old {
+          display: none;
+          .user-item-not-found {
+            padding: 160px 0 60px;
+            background: url("/images/logo-gray-icon.png");
+            background-size:cover;
+            background-position: center 40px;
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+  .left-content {
+    float: left;
+    width: 280px;
+    .mypage-nav {
+      display: block;
+      &__list {
+        list-style: none;
+        li {
+          border-top: 1px solid #eee;
+          background: #fff;
+          position: relative;
+          .mypage-nav__list__item {
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            height: 48px;
+            padding: 16px;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+          }
+          .active {
+            background: #eee;
+            font-weight: bold;
+          }
+          .icon-angle-right {
+            font-weight: bold;
+            position: absolute;
+            right: 16px;
+          }
+        }
+      }
+      &__head {
+        margin: 40px 0 8px;
+        font-weight: bold;
+      }
+    }
+  }
+}
