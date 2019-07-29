@@ -5,25 +5,25 @@
   =render partial: 'users/left-content'
 
   .user_mypage_identification_right-content
-    %h2.mi__head 本人情報の登録
+    %h2.mi_head 本人情報の登録
 
-    .mi__group
+    .mi_group
       %p お客さまの本人情報をご登録ください。
       %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
       %p.text-right
-        = link_to "/jp/help_center/article/495/", class: 'mi__group__link', target: "_blank", data:{turbolinks: :false} do
+        = link_to "/jp/help_center/article/495/", class: 'mi_group__link', target: "_blank", data:{turbolinks: :false} do
           本人確認書類のアップロードについて
           = fa_icon 'angle-right', class: 'icon-angle-right bold'
 
-    .mi__group
+    .mi_group
       %p.bold お名前
       %p 石ノ森 章太郎
 
-    .mi__group
+    .mi_group
       %p.bold お名前カナ
       %p イシノモリ ショウタロウ
 
-    .mi__group
+    .mi_group
       %p.bold{for: "birthday"} 生年月日
       %p 1938/01/25
 
@@ -38,8 +38,8 @@
         %label.bold{ for: "prefecture" } 都道府県
         %label.mi_form__group--arbitrary 任意
         .mi_form__group--select-wrap
-          = fa_icon 'angle-down', class: 'icon-angle-down bold'
-          = f.select :prefecture, Address.prefectures.keys, class: 'mi_form__group--select-wrap__select'
+          = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
+          = f.select :prefecture, Address.prefectures.keys
 
       .mi_form__group
         %label.bold{ for: "city" } 市区町村
@@ -53,7 +53,8 @@
 
       = f.submit '登録する',class: 'mi_form__submit_btn'
 
-    .mi__group.text-right
-      = link_to "/jp/help_center/article/423/", class: 'mi__group__link', target: "_blank", data:{turbolinks: :false} do
-        本人情報の登録について
-        = fa_icon 'angle-right', class: 'icon-angle-right bold'
+    .mi_group
+      %p.text-right.bottom40
+        = link_to "/jp/help_center/article/423/", class: 'mi_group__link', target: "_blank", data:{turbolinks: :false} do
+          本人情報の登録について
+          = fa_icon 'angle-right', class: 'icon-angle-right bold'
