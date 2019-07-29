@@ -7,21 +7,27 @@
   .card_show_right-content
     %h2.mi_head 支払い方法
 
-    .mi_group
+    .cs_group
 
-      .mi_group__title
+      .cs_group__title
         %h3 クレジットカード一覧
 
-      %ul.mi_group__list
-        %li
-          = form_with url: 'https://www.mercari.com/jp/mypage/card/delete/', method: :post, local: true, class: 'mi_form' do |f|
-            = image_tag "logo_visa.gif", class: 'user_info__link__photo', size: '49x32', alt: ""
-                <input type="hidden" name="__csrf_value" value="2096fef5c3d68702db20e407255f56205ebb0a45b02472e5887ac2b7b9f51a85947062688cb835c9591e7ff5f8fe8399ff805deac9cafef49ab513461d449fe91">
-                                <input type="hidden" name="card_sequence_no" value="GbGMkSWx7afjLMJaaXyKnucc">
-                                <div class="settings-payment-num">************5123</div>
-                                <div class="settings-payment-num">11 / 19 </div>
-                                <input type="hidden" name="method" value="card">
-                <button type="submit" class="settings-payment-remove">
-                  削除する
-                </button>
-              </form>
+      %ul.cs_group__list
+        %li.cs_group__list__info
+          = image_tag "logo_visa.gif", class: 'cs_group__list__info__image', size: '49x32', alt: ""
+          .cs_group__list__info__pay_num ************1234
+          .cs_group__list__info__pay_num 08 / 19
+          = form_with url: 'https://www.mercari.com/jp/mypage/card/delete/', method: :post, local: true, id: 'charge-form', class: 'mi_form' do |f|
+            =f.text_field type: "hidden", name: "card_id", value: "", class: 'cs_form__card_id'
+            = f.submit '登録する',class: 'cs_form__submit_btn'
+
+/ %label 登録クレジットカード情報
+/ %br
+/ = "**** **** **** " + @default_card_information.last4
+/ %br
+/   exp_month = @default_card_information.exp_month.to_s
+/   exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+/   exp_month + " / " + exp_year
+/ = form_tag(card_delete_path, method: :post, id: 'charge-form',  name: "inputForm") do
+/   %input{ type: "hidden", name: "card_id", value: "" }
+/   %button 削除する
