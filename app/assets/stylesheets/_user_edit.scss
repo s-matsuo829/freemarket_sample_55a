@@ -3,12 +3,12 @@
   margin: 40px auto;
   width: 1020px;
   font-size: 14px;
-  .l-content {
+  .user-edit_right-content {
     float: right;
     width: 700px;
-    .l-chapter-container {
+    .user-edit_info {
       background: #fff;
-      .l-chapter-head {
+      &__head {
         box-sizing: border-box;
         font-weight: bold;
         height: 50px;
@@ -22,14 +22,14 @@
 }
 
 
-.setting-profile-icon {
+.user-edit_profile-head {
   padding: 72px 16px 24px;
   background-image: url("/images/user-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
   font-size: 0;
-  figure {
+  &__photo {
     vertical-align: middle;
     display: inline-block;
     overflow: hidden;
@@ -39,7 +39,7 @@
     height: 60px;
     border-radius: 50%;
   }
-  .input-default {
+  &__form {
     box-sizing: border-box;
     width: 220px;
     vertical-align: middle;
@@ -54,9 +54,9 @@
   }
 }
 
-.setting-profile-content {
+.user-edit_profile-content {
   padding: 40px 16px;
-  .textarea-default {
+  &__form {
     box-sizing: border-box;
     width: 100%;
     min-height: 216px;
@@ -65,21 +65,17 @@
     border: 1px solid #ccc;
     font-size: 16px;
   }
-}
-
-.setting-profile-content .btn-red {
-  margin: 16px 0 0;
-}
-
-.btn-red {
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  transition: all ease-out .3s;
-  cursor: pointer;
-  text-align: center;
+  &__btn {
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    margin: 16px 0 0;
+  }
 }

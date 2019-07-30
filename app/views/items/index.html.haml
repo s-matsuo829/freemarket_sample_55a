@@ -1,14 +1,14 @@
 .default-container
   %main.mypage_container.clearfix
     =render partial: 'users/left-content'
-    .l-content
-      %section.l-chapter-container
-        %h2.l-chapter-head プロフィール
+    .user-edit_right-content
+      %section.user-edit_info
+        %h2.user-edit_info__head プロフィール
         = form_for "" do |f|
-          .setting-profile-icon
-            %figure
+          .user-edit_profile-head
+            %figure.user-edit_profile-head__photo
               = image_tag "member_nophoto.jpg",size: '60x60', alt: ""
-            = f.text_field :text, placeholder: "例)AYA☆セール中", value: "", class: "input-default"
-          .setting-profile-content
-            = f.text_area :text2, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "textarea-default"
-            = f.submit "変更する", class: "btn-red"
+            = f.text_field :text, class: "user-edit_profile-head__form", placeholder: "例)AYA☆セール中", value: ""
+          .user-edit_profile-content
+            = f.text_area :text2, class: "user-edit_profile-content__form", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+            = f.submit "変更する", class: "user-edit_profile-content__btn"
