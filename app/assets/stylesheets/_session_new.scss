@@ -124,4 +124,32 @@
       }
     }
   }
+  .footer_signup_login {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+    &__lists {
+      &__item {
+        margin: 0 8px;
+        display: inline-block;
+        font-size: 12px;
+        &__link {
+          text-decoration: none;
+          display: block;
+          color: #333;
+        }
+      }
+    }
+    &__link {
+      display: block;
+      color: #333;
+      margin: 40px auto 8px;
+      text-decoration: none;
+    }
+    small {
+      font-size: 13px;
+    }
+  }
 }
