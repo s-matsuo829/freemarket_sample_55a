@@ -6,5 +6,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+　end
+  
+  def mypage_identification
   end
 end

@@ -63,12 +63,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|string|null: false|
-|address_prefecture|string|null: false|
-|address_city|string|null: false|
-|address_number|string|null: false|
-|address_building|string||
+|prefecture|string|null: false|
+|city|string|null: false|
+|number|string|null: false|
+|building|string||
 |phone_number|string|unique: true|
-|user_id|references|null: false, foreign_key: true|
+|user_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -76,10 +76,9 @@ Things you may want to cover:
 - validates :phone_number, presence: true, uniqueness: true
 - with_options presence: true do
 -   validates :postalcode
--   validates :address_prefecture
--   validates :address_city
--   validates :address_number
--   validates :address_building
+-   validates :prefecture
+-   validates :city
+-   validates :number
 - end
 
 
