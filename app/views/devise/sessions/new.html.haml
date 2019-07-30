@@ -7,20 +7,45 @@
 
   %main.login_container
     .login_container__panel
-    %h2 Log in
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
-        = f.password_field :password, autocomplete: "current-password"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit "Log in"
-    = render "devise/shared/links"
+      .login_container__panel--no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to '新規会員登録', 'new_user_registration_path', class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
+      .login_container__panel--sns
+        %button#facebook-login.login_container__panel--sns--facebook
+          = fa_icon 'facebook-square', class: 'icon-facebook-square'
+          Facebookでログイン
+        %button#google-login.login_container__panel--sns--google
+          = fa_icon 'google', class: 'icon-google'
+          Googleでログイン
+
+      .login_container__panel--devise-login
+        %h2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'login_form') do |f|
+          .login_form__field
+            = f.email_field :email, class: 'login_form__field__input', placeholder: 'メールアドレス', autofocus: true, autocomplete: "email"
+          .login_form__field
+            = f.password_field :password, class: 'login_form__field__input', placeholder: 'パスワード', autocomplete: "current-password"
+          .login_form__field 
+            / ここにrecaptchaのコードを詰めて下さい
+            = image_tag "recapcha_sample.png", class: 'login_form__field__image', alt: "recaptcha"
+          = f.submit "Log in"
+          = link_to "パスワードをお忘れの方", new_password_path(resource_name)
+      
+      #login_form_facebook.login_container__panel--facebook-login
+        / ここら辺にfacebookのログインフォーム
+
+      #login_form_google.login_container__panel--google-login
+        / ここら辺にgoogleのログインフォーム
 
   .footer_signup_login
+    %ul.footer_signup_login__lists
+      %li.footer_signup_login__lists__item
+        = link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
+      %li.footer_signup_login__lists__item
+        = link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
+      %li.footer_signup_login__lists__item
+        = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/privacy/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
+
+    = link_to 'root_path', class: 'footer_signup_login__link', data:{turbolinks: :false} do
+      = image_tag "mercari_glay-square_logo.png", class: 'header_only-logo--wrap__link__image', alt: "mercari"
+    
