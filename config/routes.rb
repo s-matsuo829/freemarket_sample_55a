@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     # :omniauth_callbacks => "users/omniauth_callbacks" 
   }
 
-  resources :users, :only => [:index, :show] do
+  resources :users, :only => [:index, :show, :edit] do
     collection do
       get 'mypage_identification'
     end

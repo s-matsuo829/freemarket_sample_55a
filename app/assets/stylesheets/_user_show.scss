@@ -259,10 +259,11 @@
             color: #333;
             text-decoration: none;
           }
-          .active {
-            background: #eee;
-            font-weight: bold;
-          }
+          // TODO: 左コンテンツにて表示している階層をグレーにする。JS側で処理する可能性も大
+          // .active {
+            // background: #eee;
+            // font-weight: bold;
+          // }
           .icon-angle-right {
             font-weight: bold;
             position: absolute;
