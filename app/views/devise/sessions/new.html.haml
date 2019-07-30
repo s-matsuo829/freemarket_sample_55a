@@ -3,7 +3,7 @@
   .header_only-logo
     %h1.header_only-logo--wrap
       = link_to 'root_path', class: 'header_only-logo--wrap__link', data:{turbolinks: :false} do
-        = image_tag "mercari_logo.png", class: 'header_only-logo--wrap__link__image', alt: "mercari"
+        = image_tag "mercari_logo.png", class: 'header_only-logo--wrap__link__image', size: '185x52', alt: "mercari"
 
   %main.login_container
     .login_container__panel
@@ -12,14 +12,13 @@
         = link_to '新規会員登録', 'new_user_registration_path', class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
       .login_container__panel--sns
         %button#facebook-login.login_container__panel--sns--facebook
-          = fa_icon 'facebook-square', class: 'icon-facebook-square'
+          = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'
           Facebookでログイン
         %button#google-login.login_container__panel--sns--google
-          = fa_icon 'google', class: 'icon-google'
+          = fa_icon 'google 2x', class: 'icon-google'
           Googleでログイン
 
       .login_container__panel--devise-login
-        %h2 Log in
         = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'login_form') do |f|
           .login_form__field
             = f.email_field :email, class: 'login_form__field__input', placeholder: 'メールアドレス', autofocus: true, autocomplete: "email"
@@ -27,7 +26,7 @@
             = f.password_field :password, class: 'login_form__field__input', placeholder: 'パスワード', autocomplete: "current-password"
           .login_form__field 
             / ここにrecaptchaのコードを詰めて下さい
-            = image_tag "recapcha_sample.png", class: 'login_form__field__image', alt: "recaptcha"
+            = image_tag "recapcha_sample.png", class: 'login_form__field__image', size: '304x78', alt: "recaptcha"
           = f.submit "Log in"
           = link_to "パスワードをお忘れの方", new_password_path(resource_name)
       
