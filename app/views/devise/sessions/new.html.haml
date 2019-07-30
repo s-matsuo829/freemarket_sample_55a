@@ -27,8 +27,8 @@
           .login_form__field 
             / ここにrecaptchaのコードを詰めて下さい
             = image_tag "recapcha_sample.png", class: 'login_form__field__image', size: '304x78', alt: "recaptcha"
-          = f.submit "Log in"
-          = link_to "パスワードをお忘れの方", new_password_path(resource_name)
+          = f.submit "ログイン", class: 'login_form__submit'
+          = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: 'login_form__link'
       
       #login_form_facebook.login_container__panel--facebook-login
         / ここら辺にfacebookのログインフォーム
