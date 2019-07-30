@@ -7,7 +7,7 @@
         = form_for "" do |f|
           .setting-profile-icon
             %figure
-              %img{height: "60", src: "/images/logo-grey-icon.png", width: "60"}/
+              = image_tag "member_nophoto.jpg",size: '60x60', alt: ""
             = f.text_field :text, placeholder: "例)AYA☆セール中", value: "", class: "input-default"
           .setting-profile-content
             = f.text_area :text2, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "textarea-default"
