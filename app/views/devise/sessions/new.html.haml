@@ -1,21 +1,9 @@
-/ %div Hello, World!
-
 .default-container
 
-  .header_signup_complete
-    %h1.header_signup_complete--wrap
+  .header_only-logo
+    %h1.header_only-logo--wrap
       = link_to 'root_path', class: 'header_only-logo--wrap__link', data:{turbolinks: :false} do
         = image_tag "mercari_logo.png", class: 'header_only-logo--wrap__link__image', size: '185x52', alt: "mercari"
-    .header_signup_complete__stage
-      %ol.header_signup_complete__stage__list.clearfix
-        %li.active 
-          %span 会員情報
-          .stage-status
-        %li.active 
-          %span 会員情報
-          .stage-status
-
-      
 
   %main.login_container
     .login_container__panel
@@ -58,6 +46,6 @@
         = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/privacy/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
 
     = link_to 'root_path', class: 'footer_signup_login__link', data:{turbolinks: :false} do
-      = image_tag "mercari_glay-square_logo.png", class: 'header_only-logo--wrap__link__image', size: '80x70', alt: "mercari"
+      = image_tag "mercari_glay-square_logo.png", class: 'header_only-logo--wrap__link__image', size: '80x', alt: "mercari"
     
     %small © 2019 Mercari

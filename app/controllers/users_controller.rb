@@ -7,4 +7,7 @@ class UsersController < ApplicationController
 
   def mypage_identification
   end
+
+  def signup_complete
+  end
 end
