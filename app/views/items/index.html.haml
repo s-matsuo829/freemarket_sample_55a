@@ -12,41 +12,28 @@
           %span 会員情報
           .stage-status
         %li.active 
-          %span 会員情報
+          %span 電話番号認証
+          .stage-status
+        %li.active 
+          %span お届け先住所入力
+          .stage-status
+        %li.active 
+          %span 支払い方法
+          .stage-status
+        %li.active 
+          %span 完了
           .stage-status
 
-      
+  %main.signup_complete_container
+    %h2.signup_complete_head 会員登録完了
 
-  %main.login_container
-    .login_container__panel
-      .login_container__panel--no-account
-        %p アカウントをお持ちでない方はこちら
-        = link_to '新規会員登録', 'new_user_registration_path', class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
-      .login_container__panel--sns
-        %button#facebook-login.login_container__panel--sns--facebook
-          = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'
-          Facebookでログイン
-        %button#google-login.login_container__panel--sns--google
-          = fa_icon 'google 2x', class: 'icon-google'
-          Googleでログイン
-
-      .login_container__panel--devise-login
-        = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'login_form') do |f|
-          .login_form__field
-            = f.email_field :email, class: 'login_form__field__input', placeholder: 'メールアドレス', autofocus: true, autocomplete: "email"
-          .login_form__field
-            = f.password_field :password, class: 'login_form__field__input', placeholder: 'パスワード', autocomplete: "current-password"
-          .login_form__field 
-            / ここにrecaptchaのコードを詰めて下さい
-            = image_tag "recapcha_sample.png", class: 'login_form__field__image', size: '304x78', alt: "recaptcha"
-          = f.submit "ログイン", class: 'login_form__submit'
-          = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: 'login_form__link'
-      
-      #login_form_facebook.login_container__panel--facebook-login
-        / ここら辺にfacebookのログインフォーム
-
-      #login_form_google.login_container__panel--google-login
-        / ここら辺にgoogleのログインフォーム
+    .signup_complete_group
+      .signup_complete_group__item
+        %p ありがとうございます。
+        %p 会員登録が完了しました。
+        
+      .signup_complete_group__item
+        = link_to 'メルカリを始める', 'root_path', class: 'signup_complete_group__item__link', data:{turbolinks: :false}
 
   .footer_signup_login
     %ul.footer_signup_login__lists
