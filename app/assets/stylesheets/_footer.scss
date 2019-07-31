@@ -1,10 +1,9 @@
-*{text-decoration: none;}
-a:link { color: #bbbbbb; }
-a:visited { color: #bbbbbb; }
-li a:hover { text-decoration: underline; }
-  
-
 .all-page-footer {
+  text-decoration: none;
+  a:link { color: #bbbbbb; }
+  a:visited { color: #bbbbbb; }
+  li a:hover { text-decoration: underline; }
+
   padding: 0 20px 10px 20px;
   background: #212121;
   height: 400px;

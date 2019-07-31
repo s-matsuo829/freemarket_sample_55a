@@ -8,7 +8,7 @@
         
         = form_tag('/search', method: :get, class: 'pc-header-search-form') do
           %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
-          = fa_icon "search",class: "pc-header-search-form__input__icon"
+          = fa_icon "search", class: "pc-header-search-form__input__icon"
      
       .pc-header-nav-box.clearfix
         %nav.pc-header-nav-box__left
@@ -17,7 +17,8 @@
               %h4
                 = link_to "", class: "pc-header-nav__list__link.list-parent" do
                   = fa_icon "list-ul", text: "カテゴリーから探す", class: "pc-header-nav__list__link__icon"
-                  
+
+              -#  ログイン後ナブバー 実装の進行状況により作成予定
               -# %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
                 -# %li.pc-header-nav__parent
                   -# %h3
@@ -39,7 +40,9 @@
                   -# %li.pc-header-nav__parent
                     -# %h3
                       -# = link_to "シャネル", "" 
-                  
+
+
+        -#  ログイン後ナブバー 実装の進行状況により作成予定          
         -# .pc-header-nav-box__right
           -# %ul.pc-header-user-nav
             -# %li.liked-items__link
@@ -69,8 +72,7 @@
             %li.pc-header-user-log-nav__log-in
               = link_to "ログイン", class: "pc-header-user-log-nav__log-in__link"
 
-
-
+              -#  ログイン後ナブバー 実装の進行状況により作成予定
               -# .pc-header-use-box.pc-header-mypage__box
                 -# .pc-header-mypage__state.text-center
                   -# %figure
