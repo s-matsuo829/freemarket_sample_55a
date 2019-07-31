@@ -1,0 +1,30 @@
+.logout-container{
+  margin: 40px auto 0;
+  width: 1020px;
+  height: 1292px;
+  &__main{
+    width: 700px;
+    height: 179px;
+    background:#fff;
+    float: right;
+    position: relative;
+    &__inner{
+      &__button{
+        width: 320px;
+        margin: auto;
+        position: absolute;
+        top: 63px;
+        left: 190px;
+        &--red{
+          border: 1px solid #ea352d;
+          background: #ea352d; 
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
