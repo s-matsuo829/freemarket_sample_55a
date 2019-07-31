@@ -1,9 +1,6 @@
 .default-container
-
-  .header_only-logo
-    %h1.header_only-logo--wrap
-      = link_to 'root_path', class: 'header_only-logo--wrap__link', data:{turbolinks: :false} do
-        = image_tag "mercari_logo.png", class: 'header_only-logo--wrap__link__image', size: '185x52', alt: "mercari"
+  
+  =render partial: 'devise/shared/only_logo_header'
 
   %main.login_container
     .login_container__panel
@@ -36,16 +33,4 @@
       #login_form_google.login_container__panel--google-login
         / ここら辺にgoogleのログインフォーム
 
-  .footer_signup_login
-    %ul.footer_signup_login__lists
-      %li.footer_signup_login__lists__item
-        = link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
-      %li.footer_signup_login__lists__item
-        = link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
-      %li.footer_signup_login__lists__item
-        = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/privacy/", class: 'footer_signup_login__lists__item__link', target: "_blank", data:{turbolinks: :false}
-
-    = link_to 'root_path', class: 'footer_signup_login__link', data:{turbolinks: :false} do
-      = image_tag "mercari_glay-square_logo.png", class: 'header_only-logo--wrap__link__image', size: '80x', alt: "mercari"
-    
-    %small © 2019 Mercari
+  =render partial: 'devise/shared/gray_footer'
