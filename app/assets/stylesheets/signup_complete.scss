@@ -19,115 +19,73 @@
       display: inline-block;
       vertical-align: top;
       padding: 40px 0 0 44px;
-      border: 0;
-      &__list
+      &__list {
+        position: relative;
+        .active {
+          color: #ea352d;
+        }
+        li {
+          margin: 0 40px 0 0;
+          min-width: 60px;
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          font-size: 12px;
+          .stage-status {
+            background: #ea352d;
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            border-radius: 50%;
+            z-index: 2;
+          }
+        }
+        li:last-child {
+          margin: 0;
+        }
+      }
+      ol::after {
+        border-top: 3px solid;
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 30px;
+        width: 465px;
+        color: #ea352d;
+      }
     }
   }
-  .login_container {
-    display: block;
-    &__panel {
-      width: 456px;
-      margin: 0 auto;
-      background: #fff;
-      &--no-account {
-        padding: 40px 64px;
-        text-align: center;
+  .signup_complete_container {
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding-bottom: 40px;
+    .signup_complete_head {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 2px solid #f5f5f5;
+      text-align: center;
+      font-weight: bold;
+    }
+    .signup_complete_group {
+      margin-top: 40px;
+      padding: 0 64px 0;
+      text-align: center;
+      &__item {
         p {
-          font-size: 14px;
+          margin-top: 8px;
         }
-        &__link {
-          display: block;
-          margin: 8px 0 0;
-          border: 1px solid #0099e8;
-          background: #0099e8;
-          color: #fff;
-          line-height: 40px;
-          text-decoration: none;
-          touch-action: manipulation;
-        }
-      }
-      &--sns {
-        padding: 32px 64px;
-        border-top: 1px solid #eee;
-        &--facebook {
-          background: #385185;
+        &____link {
+          margin: 40px 0 0 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
           color: #fff;
           display: block;
           width: 100%;
-          height: 48px;
+          line-height: 48px;
           font-size: 14px;
-          border: 1px solid transparent;
-          -webkit-transition: all ease-out .3s;
-          transition: all ease-out .3s;
           cursor: pointer;
           text-align: center;
-          position: relative;
-          .icon-facebook-square {
-            position: absolute;
-            top: 10px;
-            left: 16px;
-          }
-        }
-        &--google {
-          display: block;
-          width: 100%;
-          height: 48px;
-          font-size: 14px;
-          border: #979797 solid 1px;
-          -webkit-transition: all ease-out .3s;
-          transition: all ease-out .3s;
-          cursor: pointer;
-          text-align: center;
-          position: relative;
-          margin: 16px 0 0;
-          .icon-google {
-            position: absolute;
-            top: 10px;
-            left: 16px;
-            color: goldenrod;
-          }
-        }
-      }
-      &--devise-login {
-        padding: 0 64px 32px;
-        .login_form {
-          border: 0;
-          &__field {
-            margin: 24px 0 0;
-            &__input {
-              box-sizing: border-box;
-              margin: 0;
-              width: 100%;
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
-              -webkit-appearance: none;
-            }
-          }
-          &__submit {
-            margin: 24px 0 0;
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            -webkit-transition: all ease-out .3s;
-            transition: all ease-out .3s;
-            cursor: pointer;
-            text-align: center;
-          }
-          &__link {
-            display: block;
-            margin: 40px 0 0;
-            color: #0099e8;
-            text-decoration: none;
-          }
         }
       }
     }
