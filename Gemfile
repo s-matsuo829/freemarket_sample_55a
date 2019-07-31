@@ -49,6 +49,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
   
+  gem 'pry-rails'
+
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -87,3 +89,4 @@ gem 'fog-aws'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'

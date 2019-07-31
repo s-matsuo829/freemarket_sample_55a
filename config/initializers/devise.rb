@@ -260,12 +260,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :google_oauth2,
-                  Rails.application.secrets.google_client_id,
-                  Rails.application.secrets.google_client_secret
-  config.omniauth :facebook,
-                  Rails.application.secrets.facebook_client_id,
-                  Rails.application.secrets.facebook_client_secret
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], skip_jwt: true
+                  # Rails.application.credentials.development[:google_client_id],
+                  # Rails.application.credentials.development[:google_client_secret]
+  config.omniauth :facebook, ENV['FACEBOOK_CLIENT_ID'], ENV['FACEBOOK_CLIENT_SECRET']
+                  # Rails.application.credentials.development[:facebook_client_id],
+                  # Rails.application.credentials.development[:facebook_client_secret]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
