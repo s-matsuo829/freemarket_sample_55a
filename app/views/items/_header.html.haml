@@ -1,127 +1,128 @@
-.default-container
-  %header.pc-header.visible-pc
-    .pc-header-inner
-      .pc-header-top
-        .pc-header-top__logo
-          = link_to "/" do
-            = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
-        
-        = form_tag('/search', method: :get, class: 'pc-header-search-form') do
-          %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
-          = fa_icon "search", class: "pc-header-search-form__input__icon"
-     
-      .pc-header-nav-box.clearfix
-        %nav.pc-header-nav-box__left
-          %ul.pc-header-nav
-            %li.pc-header-nav__list
-              %h4
-                = link_to "", class: "pc-header-nav__list__link.list-parent" do
-                  = fa_icon "list-ul", text: "カテゴリーから探す", class: "pc-header-nav__list__link__icon"
+%header.pc-header.visible-pc
+  .pc-header-inner
+    .pc-header-top
+      .pc-header-top__logo
+        = link_to "/" do
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
+      
+      = form_tag('/search', method: :get, class: 'pc-header-search-form') do
+        %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
+        = fa_icon "search", class: "pc-header-search-form__input__icon"
+    
+    .pc-header-nav-box.clearfix
+      %nav.pc-header-nav-box__left
+        %ul.pc-header-nav
+          %li.pc-header-nav__list
+            %h4
+              = link_to "", class: "pc-header-nav__list__link.list-parent" do
+                = fa_icon "list-ul", text: "カテゴリーから探す", class: "pc-header-nav__list__link__icon"
 
-              -# TODO: ログイン後ナブバー 実装の進行状況により作成予定
-              -# %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
+            -# TODO: ログイン後ナブバー 実装の進行状況により作成予定
+            -# %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
+              -# %li.pc-header-nav__parent
+                -# %h3
+                  -# = link_to "レディース", "" 
+                -# %ul.pc-header-nav__child-wrap{data: {mega: 2}}
+                  -# %li.pc-header-nav__child
+                    -# = link_to "トップス", "" 
+                    -# %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
+                      -# %li.pc-header-nav__grand-child
+                        -# = link_to "Tシャツ/カットソー(半袖/袖なし)", "" 
+                -# %h3
+                  -# = link_to "カテゴリー一覧", "" 
+          
+          %li.pc-header-nav__list
+            %h4
+              = link_to "", class: "pc-header-nav__list__link.list-parent" do
+                = fa_icon "tag", text: "ブランドから探す", class: "pc-header-nav__list__link__icon"
+              -# %ul.pc-header-nav__parent-wrap
                 -# %li.pc-header-nav__parent
                   -# %h3
-                    -# = link_to "レディース", "" 
-                  -# %ul.pc-header-nav__child-wrap{data: {mega: 2}}
-                    -# %li.pc-header-nav__child
-                      -# = link_to "トップス", "" 
-                      -# %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
-                        -# %li.pc-header-nav__grand-child
-                          -# = link_to "Tシャツ/カットソー(半袖/袖なし)", "" 
-                  -# %h3
-                    -# = link_to "カテゴリー一覧", "" 
-           
-            %li.pc-header-nav__list
-              %h4
-                = link_to "", class: "pc-header-nav__list__link.list-parent" do
-                  = fa_icon "tag", text: "ブランドから探す", class: "pc-header-nav__list__link__icon"
-                -# %ul.pc-header-nav__parent-wrap
-                  -# %li.pc-header-nav__parent
-                    -# %h3
-                      -# = link_to "シャネル", "" 
+                    -# = link_to "シャネル", "" 
 
 
-        -# TODO: ログイン後ナブバー 実装の進行状況により作成予定          
-        -# .pc-header-nav-box__right
-          -# %ul.pc-header-user-nav
-            -# %li.liked-items__link
-              -# = link_to "", class: "pc-header-menu__link" do
-                -# = fa_icon "heart", text: "いいね！一覧", class: "pc-header-menu__link__icon"
-              -#  
-            -# %li{ data: {id: "pc-header-user-nav", key: "notification_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
-              -# = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
-                -# = fa_icon "bell", text: "お知らせ", class: "pc-header-menu__link__icon"
-              -#  
-              -# %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
-            -# %li{ data: {id: "pc-header-user-nav", key: "todo_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
-              -# = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
-                -# = fa_icon "check", text: "やることリスト",class: "pc-header-menu__link__icon"
-                -# 
-              -# %ul.pc-header-user-box.pc-header-todo-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
-            -# %li.pc-heade-user-box__mypage
-              -# = link_to "", class: "pc-header-menu__link" do
-                -# = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
-                -# %span マイページ
-            -# 
-        .pc-header-nav-box-before-login
-          %ul.pc-header-user-log-nav
-            %li.pc-header-user-log-nav__sign-up
-              = link_to "新規会員登録", class: "pc-header-user-log-nav__sign-up__link"
-              
-            %li.pc-header-user-log-nav__log-in
-              = link_to "ログイン", class: "pc-header-user-log-nav__log-in__link"
-
-              -# TODO: ログイン後ナブバー 実装の進行状況により作成予定
-              -# .pc-header-use-box.pc-header-mypage__box
-                -# .pc-header-mypage__state.text-center
-                  -# %figure
-                    -# %div
-                      -# = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", alt: ""
-                    -# %figcaption 侍の兄
-                  -# %ul.pc-header-mypage__review-listing
-                    -# %li
-                      -# = link_to "評価:2", "",class: "pc-header-mypage__link"
-                    -# %li
-                      -# = link_to "出品数: 3", "", class: "pc-header-mypage__link"
-                  -# %ul.pc-header-mypage__sales-point
-                    -# %li
-                      -# = link_to "", class: "pc-header-mypage__link clearfix" do
-                        -# .pc-header-mypage__sales-point--left
-                          -# 売上金
-                        -# .pc-header-mypage__sales-pointl--right
-                          -# ¥ 780
-                          -# %i.icon-arrow-right
-                    -# %li
-                      -# = link_to "", class: "pc-header-mypage__link clearfix" do
-                        -# .pc-header-mypage__sales-point--left 
-                          -# ポイント
-                        -# .pc-header-mypage__sales-pointl--right
-                          -# P 0
-                          -# %i.icon-arrow-right
+      -# TODO: ログイン後ナブバー 実装の進行状況により作成予定          
+      -# .pc-header-nav-box__right
+        -# %ul.pc-header-user-nav
+          -# %li.liked-items__link
+            -# = link_to "", class: "pc-header-menu__link" do
+              -# = fa_icon "heart", text: "いいね！一覧", class: "pc-header-menu__link__icon"
+            -#  
+          -# %li{ data: {id: "pc-header-user-nav", key: "notification_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
+            -# = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
+              -# = fa_icon "bell", text: "お知らせ", class: "pc-header-menu__link__icon"
+            -#  
+            -# %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
+          -# %li{ data: {id: "pc-header-user-nav", key: "todo_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
+            -# = link_to "", data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
+              -# = fa_icon "check", text: "やることリスト",class: "pc-header-menu__link__icon"
+              -# 
+            -# %ul.pc-header-user-box.pc-header-todo-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
+          -# %li.pc-heade-user-box__mypage
+            -# = link_to "", class: "pc-header-menu__link" do
+              -# = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
+              -# %span マイページ
+          -# 
+      .pc-header-nav-box-before-login
+        %ul.pc-header-user-log-nav
+          %li.pc-header-user-log-nav__sign-up
+            = link_to new_user_registration_path, class: "pc-header-user-log-nav__sign-up__link" do
+              新規会員登録
             
-                %ul.pc-header-mypage__nav-list
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      いいね！一覧
-                      %i.icon-arrow-right
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      出品した商品 - 出品中
-                      %i.icon-arrow-right
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      出品した商品 - 取引中
-                      %i.icon-arrow-right
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      出品した商品 - 売却済み
-                      %i.icon-arrow-right
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      購入した商品 - 取引中
-                      %i.icon-arrow-right
-                  %li
-                    = link_to "", class: "pc-header-mypage__nav-list__item" do
-                      購入した商品 - 過去の取引
-                      %i.icon-arrow-right
+          %li.pc-header-user-log-nav__log-in
+            = link_to new_user_session_path, class: "pc-header-user-log-nav__log-in__link" do
+              ログイン
+
+            -# TODO: ログイン後ナブバー 実装の進行状況により作成予定
+            -# .pc-header-use-box.pc-header-mypage__box
+              -# .pc-header-mypage__state.text-center
+                -# %figure
+                  -# %div
+                    -# = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60", alt: ""
+                  -# %figcaption 侍の兄
+                -# %ul.pc-header-mypage__review-listing
+                  -# %li
+                    -# = link_to "評価:2", "",class: "pc-header-mypage__link"
+                  -# %li
+                    -# = link_to "出品数: 3", "", class: "pc-header-mypage__link"
+                -# %ul.pc-header-mypage__sales-point
+                  -# %li
+                    -# = link_to "", class: "pc-header-mypage__link clearfix" do
+                      -# .pc-header-mypage__sales-point--left
+                        -# 売上金
+                      -# .pc-header-mypage__sales-pointl--right
+                        -# ¥ 780
+                        -# %i.icon-arrow-right
+                  -# %li
+                    -# = link_to "", class: "pc-header-mypage__link clearfix" do
+                      -# .pc-header-mypage__sales-point--left 
+                        -# ポイント
+                      -# .pc-header-mypage__sales-pointl--right
+                        -# P 0
+                        -# %i.icon-arrow-right
+          
+              %ul.pc-header-mypage__nav-list
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    いいね！一覧
+                    %i.icon-arrow-right
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    出品した商品 - 出品中
+                    %i.icon-arrow-right
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    出品した商品 - 取引中
+                    %i.icon-arrow-right
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    出品した商品 - 売却済み
+                    %i.icon-arrow-right
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    購入した商品 - 取引中
+                    %i.icon-arrow-right
+                %li
+                  = link_to "", class: "pc-header-mypage__nav-list__item" do
+                    購入した商品 - 過去の取引
+                    %i.icon-arrow-right
