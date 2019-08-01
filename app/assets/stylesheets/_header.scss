@@ -83,8 +83,8 @@ html, body {
     color:black;
     font-weight:bold;
   }
-  &__link__icon {color:red;
-    
+  &__link__icon {
+    color:red;
   }
 }
 
@@ -94,17 +94,21 @@ html, body {
 
 .pc-header-menu__link {
   position:relative;
+  text-decoration: none;
+  color: rgb(51, 51, 51);
   &__icon {
   color:gray;
   }
 }
 .pc-header-user__icon {
+  line-height:44px;
   border-radius:50%;
   position:absolute;
   right:70px;
+  top: -8px;
 }
 
-.pc-heade-user-box__mypage {
+.pc-header-user-box__mypage {
   margin-left:10px;
 }
 
@@ -118,6 +122,7 @@ html, body {
   float:right;
   text-align: center;
   line-height:32px;
+  display: inline-block;
   &__sign-up {
     border-radius: 4px;
     background: #ea352d;
