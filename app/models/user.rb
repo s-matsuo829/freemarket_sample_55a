@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -38,5 +39,5 @@ class User < ApplicationRecord
     presence: true,
     format: { with: reg_date_year }
 
-    enum status: { deleted: 0, draft: 1, published: 2 }
+
 end
