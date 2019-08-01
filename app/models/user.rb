@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, 
+         :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
@@ -42,11 +42,12 @@ class User < ApplicationRecord
     format: { with: reg_date_year }
 
 
+
    def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    
+
     if snscredential.present? #sns登録のみ完了してるユーザー
       user = User.where(id: snscredential.user_id).first
       unless user.present? #ユーザーが存在しないなら
@@ -77,14 +78,17 @@ class User < ApplicationRecord
           uid: uid,
           provider: provider
         )
-        # binding.pry 
+        # binding.pry
       end
     end
     # binding.pry
     # hashでsnsのidを返り値として保持しておく
-    
+
     return { user: user , sns_id: sns.id }
-    
+
   end
+
+
+
 
 end
