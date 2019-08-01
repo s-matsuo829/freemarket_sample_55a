@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :address
+
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
   reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
   # reg_prefecture_choce = /\A(?!.*--未選択--).*\z/
@@ -38,6 +40,5 @@ class User < ApplicationRecord
   validates :birthday,
     presence: true,
     format: { with: reg_date_year }
-
 
 end
