@@ -65,17 +65,11 @@
         %label.bold{ for: "security_code" } セキュリティコード
         %label.card_new_form__group--arbitrary 必須
         = f.text_field :security_code, name: "security_code", class: 'card_new_form__group__input', placeholder: "カード背面４桁もしくは３桁の番号"
-
       .card_new_form__group
-        %label.bold{ for: "number" } 番地
-        %label.card_new_form__group--arbitrary 任意
-        = f.text_field :number, name: "number", class: 'card_new_form__group__input', placeholder: "例）中瀬２−７"
-        
-      .card_new_form__group
-        %label.bold{ for: "building" } 建物名
-        %label.card_new_form__group--arbitrary 任意
-        = f.text_field :building, name: "building", class: 'card_new_form__group__input', placeholder: "例）石ノ森萬画館"
+        %p.text-right
+          %span ？
+          %span カード裏面の番号とは？
 
-      = f.submit '登録する',class: 'card_new_form__submit_btn'
+      = f.submit '次へ進む',class: 'card_new_form__submit_btn'
 
   =render partial: 'devise/shared/gray_footer'
