@@ -24,15 +24,53 @@
           %span 完了
           .stage-status
 
-  %main.signup_complete_container
-    %h2.signup_complete_head 会員登録完了
+  %main.card_new_container
+    %h2.card_new_head 支払い方法
 
-    .signup_complete_group
-      .signup_complete_group__item
-        %p ありがとうございます。
-        %p 会員登録が完了しました。
+    = form_with url: 'users_path', local: true, class: 'card_new_form' do |f|
+
+      .card_new_form__group
+        %label.bold{ for: "postalcode" } カード番号
+        %label.card_new_form__group--arbitrary 必須
+        = f.text_field name: "payment_card_id", class: 'card_new_form__group__input', placeholder: "半角数字のみ"
+        %ul.card_new_form__group__card_list
+          %li
+            = image_tag "logo_visa.gif", class: 'card_new_form__group__card_list__image', size: '31x20', alt: ""
+          %li
+            = image_tag "logo_mastercard.gif", class: 'card_new_form__group__card_list__image', size: '31x20', alt: ""
+          %li
+            = image_tag "logo_saisoncard.gif", class: 'card_new_form__group__card_list__image', size: '30x20', alt: ""
+          %li
+            = image_tag "logo_jcb.gif", class: 'card_new_form__group__card_list__image', size: '27x20', alt: ""
+          %li
+            = image_tag "logo_amex.gif", class: 'card_new_form__group__card_list__image', size: '24x20', alt: ""
+          %li
+            = image_tag "logo_diners.gif", class: 'card_new_form__group__card_list__image', size: '27x20', alt: ""
+          %li
+            = image_tag "logo_discover.gif", class: 'card_new_form__group__card_list__image', size: '30x20', alt: ""
+
+      .card_new_form__group
+        %label.bold{ for: "prefecture" } 都道府県
+        %label.card_new_form__group--arbitrary 任意
+        .card_new_form__group--select-wrap
+          = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
+          = f.select :prefecture, Address.prefectures.keys
+
+      .card_new_form__group
+        %label.bold{ for: "city" } 市区町村
+        %label.card_new_form__group--arbitrary 任意
+        = f.text_field :city, name: "city", class: 'card_new_form__group__input', placeholder: "例）石巻市"
+
+      .card_new_form__group
+        %label.bold{ for: "number" } 番地
+        %label.card_new_form__group--arbitrary 任意
+        = f.text_field :number, name: "number", class: 'card_new_form__group__input', placeholder: "例）中瀬２−７"
         
-      .signup_complete_group__item
-        = link_to 'メルカリを始める', 'root_path', class: 'signup_complete_group__item__link', data:{turbolinks: :false}
+      .card_new_form__group
+        %label.bold{ for: "building" } 建物名
+        %label.card_new_form__group--arbitrary 任意
+        = f.text_field :building, name: "building", class: 'card_new_form__group__input', placeholder: "例）石ノ森萬画館"
+
+      = f.submit '登録する',class: 'card_new_form__submit_btn'
 
   =render partial: 'devise/shared/gray_footer'
