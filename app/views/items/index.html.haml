@@ -1,7 +1,13 @@
 
 
-/ %div Hello, World!
+%div Hello, World!
+  
 
-%main.mypage_container.clearfix
+//facebook
+= link_to 'Facebook',user_facebook_omniauth_authorize_path
 
-  =render partial: 'users/left-content'
+//google
+= link_to 'Google',user_google_oauth2_omniauth_authorize_path
+-# %main.mypage_container.clearfix
+-# 
+  -# =render partial: 'users/left-content'

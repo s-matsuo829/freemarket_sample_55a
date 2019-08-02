@@ -54,7 +54,13 @@ class User < ApplicationRecord
         user = User.create(
           # snsの情報
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          first_name: '矢吹',
+          last_name: '丈',
+          first_kana: 'ヤブキ',
+          last_kana: 'ジョウ',
+          birthday: '2000-01-01',
+          password: '123456789'
         )
       end
       sns = snscredential
@@ -69,14 +75,22 @@ class User < ApplicationRecord
           user_id: user.id
         )
       else #会員登録 未
+        # binding.pry
         user = User.create(
           nickname: auth.info.name,
-          email: auth.info.email
+          email: auth.info.email,
+          first_name: '矢吹',
+          last_name: '丈',
+          first_kana: 'ヤブキ',
+          last_kana: 'ジョウ',
+          birthday: '2000-01-01',
+          password: '123456789'
         )
         # binding.pry
         sns = SnsCredential.create(
           uid: uid,
-          provider: provider
+          provider: provider,
+          user_id: user.id
         )
         # binding.pry
       end
