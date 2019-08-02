@@ -1,0 +1,14 @@
+.item-show {
+  padding: 24px 40px 40px;
+  width: 700px;
+  background: #fff;
+  margin: 40px auto;
+  .item_info {
+    &__name {
+      font-size: 24px;
+      text-align: center;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+  }
+}
