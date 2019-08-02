@@ -4,8 +4,6 @@
 
   %main.mypage_container.clearfix
 
-    =render partial: 'users/left-content'
-
     .item-show_right-content
       %section.item_info
         %h2.item_info__name 荒川の桃（荒川農園）
@@ -29,6 +27,16 @@
               %th 出品者
               %td 
                 = link_to "荒川静香", "#mypage_notification", class: 'td__link', data:{turbolinks: :false}
+                .ratings
+                  .ratings__rate
+                    = fa_icon 'smile-o', class: 'icon-smile-o'
+                    %span 78
+                  .ratings__rate
+                    = fa_icon 'meh-o', class: 'icon-meh-o'
+                    %span 12
+                  .ratings__rate
+                    = fa_icon 'frown-o', class: 'frown-o'
+                    %span 37
             %tr
               %th カテゴリー
               %td
@@ -36,7 +44,7 @@
                 = link_to "https://www.mercari.com/jp/category/112/", class: 'td__link', data:{turbolinks: :false} do
                   = fa_icon 'angle-right', class: 'icon-angle-right'
                   食品
-                = link_to "山口百恵", "https://www.mercari.com/jp/category/1136/", class: 'td__link', data:{turbolinks: :false} do
+                = link_to "https://www.mercari.com/jp/category/1136/", class: 'td__link', data:{turbolinks: :false} do
                   = fa_icon 'angle-right', class: 'icon-angle-right'
                   その他 加工食品
             %tr
@@ -62,12 +70,31 @@
           %span.item_info__price__number ¥ 500
           %span.item_info__price__tax (税込)
           %span.item_info__price__fee 着払い
-        .item_info__description
-          %p とれたて新鮮、荒川農園の桃を産地直送でお届けします！※1個での単品販売です※おいしい状態でお召し上がりいただきたいので、確実に受け取れるお日にちをご指定下さい
-      .item_change_button
-        = link_to "商品の編集", "https://www.mercari.com/jp/item/1/edit/", class: 'td__link', data:{turbolinks: :false}
-        %p or
-        = form_with url: 'users_path', local: true, class: 'mi_form' do |f|
+      .item_buy_button
+        = link_to "購入画面に進む", "/transaction/buy/", class: 'item_buy_button__link', data:{turbolinks: :false}
+      .item_description
+        %p とれたて新鮮、荒川農園の桃を産地直送でお届けします！※1個での単品販売です※おいしい状態でお召し上がりいただきたいので、確実に受け取れるお日にちをご指定下さい
+      .item_buttons.clearfix
+        .item_buttons__left
+          %button.item_buttons__left--like{data:{ga: "element"}, data:{ga:{category: "LIKE"}}, data:{ga:{label: "like!"}}, data:{id: "m62551574891"}, data:{toggle: "like"}, name: "like!", type: "button"}
+            = fa_icon 'heart-o', class: 'icon-heart-o'
+            %span いいね!
+            %span.fade-in-down{data:{num: "like"}} 5
+          = link_to "", class: 'item_buttons__left--report clearfix', data:{modal: "report-item"}, data:{open: "modal"}, data:{turbolinks: :false} do
+            = fa_icon 'flag-checkered', class: 'icon-flag-checkered'
+            %span 不適切な商品の報告
+
+        .item_buttons__right
+          = link_to "https://www.mercari.com/jp/safe/description/", class: 'item_buttons__right--safe clearfix', target: "_blank", data:{turbolinks: :false} do
+            = fa_icon 'key', class: 'icon-key'
+            %span あんしん・あんぜんへの取り組み
+
       .item_messages
+        .item_messages__container
+          .item_messages__container__box
+            = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
+              %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              = f.text_area :body, class: 'item_messages__form__input'
+              = f.submit 'コメントする',class: 'item_messages__form__submit_btn'
 
   =render partial: 'items/footer'
