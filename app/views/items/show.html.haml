@@ -15,24 +15,14 @@
               .owl_wrap__main_image
                 .owl_wrap__main_image__wrap
                   .owl_wrap__main_image__wrap__item.active
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
-                  .owl_wrap__main_image__wrap__item
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
-                  .owl_wrap__main_image__wrap__item
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
+                    = image_tag "arakawa_peach.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
               .owl_wrap__nav
                 .owl_wrap__nav--prev prev
                 .owl_wrap__nav--next next
               .owl_wrap__small_images
                 .owl_wrap__small_images__item.active
                   .owl_wrap__small_images__item--inner
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '60x60', alt: ""
-                .owl_wrap__small_images__item
-                  .owl_wrap__small_images__item--inner
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '60x60', alt: ""
-                .owl_wrap__small_images__item
-                  .owl_wrap__small_images__item--inner
-                    = image_tag "arakawa_peach.jpg", class: '.owl_wrap__main_image__wrap__item__photo', size: '60x60', alt: ""
+                    = image_tag "arakawa_peach.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
                 
           %table.item_info__profile__details
             %tr
@@ -77,7 +67,7 @@
       .item_change_button
         = link_to "商品の編集", "https://www.mercari.com/jp/item/1/edit/", class: 'td__link', data:{turbolinks: :false}
         %p or
-        
+
       .item_messages
 
   =render partial: 'items/footer'
