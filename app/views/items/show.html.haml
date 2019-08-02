@@ -67,7 +67,7 @@
       .item_change_button
         = link_to "商品の編集", "https://www.mercari.com/jp/item/1/edit/", class: 'td__link', data:{turbolinks: :false}
         %p or
-
+        = form_with url: 'users_path', local: true, class: 'mi_form' do |f|
       .item_messages
 
   =render partial: 'items/footer'
