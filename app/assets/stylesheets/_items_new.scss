@@ -1,0 +1,319 @@
+.items-new-header {
+  text-align: center;
+  height: 128px;
+}
+
+.items-new-header h1 {
+  display: inline-block;
+  margin: 41px 0 0;
+}
+
+.items-new-header__icon {
+  width: 185px;
+  height: 49px;
+  margin: 0 8px 0 0;
+  display: inline-block;
+}
+
+.single-header img {
+  width: 185px;
+  height: 49px;
+}
+
+// ここまでヘッダー
+
+.items-new-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.items-new-single-head {
+  padding: 32px 16px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.items-new-sell-form {
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.items-new-upload-box {
+  width: 620px;
+  padding: 40px;
+  &__head {
+    font-weight: bold;
+    font-size: 16px;
+    &__require {
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+      box-sizing: border-box;
+    }
+  }
+  .items-new-upload-box__text {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+}
+
+.items-new-imagebox {
+  display: block;
+  width: 620px;
+  margin: 16px auto 0;
+  &__container {
+    display: inline;
+    &__items {
+      float: left;
+      display: block;
+    }
+  }
+  .sell-upload-drop-box {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    height: 162px;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    font-size: 0;
+    text-align: center;
+    float: right;
+    cursor: pointer;
+    .sell-upload-drop-file{
+      display: none;
+    }
+    .visible {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      transform: translate(0, -50%);
+      pointer-events: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}
+
+.items-new-text-mini {
+  font-weight: bold;
+  font-size: 14px;
+  &__red {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+}
+
+#input-default {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.form-group2 {
+  box-sizing: border-box;
+  margin: 40px 0 0;
+  .textarea-default {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+  }
+}
+
+.items-new-sell-content {
+  box-sizing: border-box;
+  padding: 40px;
+  border-top: 1px solid #eee;
+  .sell-sub-head {
+    font-weight: bold;
+    color: #888;
+    font-size: 14px;
+    float: left;
+  }
+  .sell-form-box {
+    box-sizing: border-box;
+    float: right;
+    width: 400px;
+    margin: 0;
+    .form-group {
+      .select-wrap {
+        position: relative;
+        background: #fff;
+        margin: 8px 0 0;
+        .fa-chevron-down {
+          position: absolute;
+          right: 16px;
+          top: 33%;
+          z-index: 2;
+          color: #888;
+          font-size: 16px;
+        }
+        #category {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          width: 100%;
+          outline: 0;
+        }
+      }
+    }
+    .form-group-wrapper {
+      margin: 40px 0 0;
+    }  
+  }
+}
+
+.sell-price {
+  box-sizing: border-box;
+  .form-group {
+    padding: 0 0 24px;
+    border: 0;
+    .text-mini-left{
+      display: inline-block;
+      width: 50%;
+      line-height: 48px;
+      font-weight: 600;
+      &__red{
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+    .sell-price-input {
+      width: 50%;
+      text-align: right;
+      float: right;
+      &__wrapper {
+        display: inline-block;
+        width: 80%;
+        margin: 0 0 0 5%;
+        .input-default {
+          box-sizing: border-box;
+          margin: 0;
+          text-align: right;
+          width: 100%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .fee {
+    padding: 24px 0;
+    border-top: 1px solid #ccc;
+    &__left {
+      float: left;
+    }
+    &__right {
+      float: right;
+    }
+  }
+  .profit {
+    padding: 24px 0;
+    border-top: 1px solid #ccc;
+    &__left {
+      font-weight: bold;
+      float: left;
+      font-size: 16px;
+    }
+    &__right {
+      float: right;
+      font-size: 34px;
+    }
+  }
+}
+
+.sell-btn-box {
+  line-height: 1.5;
+}
+
+.items-new-notes {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+.items-new-btn-red {
+  box-sizing: border-box;
+  margin: 40px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.items-new-btn-gray {
+  box-sizing: border-box;
+  width: 45%;
+  margin: 24px auto 0;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.items-new-question {
+  color: #0099e8;
+  font-size: 14.5px;
+}
