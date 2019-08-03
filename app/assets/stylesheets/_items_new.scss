@@ -134,10 +134,10 @@
   font-size: 16px;
 }
 
-.form-group2 {
+.items-new-form-area {
   box-sizing: border-box;
   margin: 40px 0 0;
-  .textarea-default {
+  &__default {
     box-sizing: border-box;
     display: block;
     width: 100%;
