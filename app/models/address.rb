@@ -1,4 +1,7 @@
 class Address < ApplicationRecord
+
+  belongs_to :user
+  
   reg_postalcode = /\A[0-9]{3}\-[0-9]{4}+\z/
   reg_intger_10or11_characters = /\A[0-9]{10,11}+\z/
 
