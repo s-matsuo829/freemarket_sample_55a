@@ -96,6 +96,7 @@ Things you may want to cover:
 |delivery_region|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
+|size|string|
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 
