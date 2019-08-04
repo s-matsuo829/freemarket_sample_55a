@@ -63,7 +63,6 @@
         .registration__form__item__item-name
           = f.text_field :last_name, name:'last_name', placeholder:'例)山田'
           = f.text_field :first_name, name:'first_name', placeholder:'例)彩'
-
       .registration__form__item
         %label{for:'first_kana'}
           お名前カナ(全角)
@@ -83,15 +82,12 @@
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       .registration__form__recaptcha
         = image_tag 'https://trello-attachments.s3.amazonaws.com/5d3184e69a6c883173891d18/5d3184e69a6c883173891d4c/c1c6cdec2ef633a0a34633a7c83a1f6b/recapcha_sample.png'
-
       %p.registration__form__center-p
         「次へ進む」のボタンを押すことにより、
         = link_to 'https://www.mercari.com/jp/tos_list/', class: 'registration__form__center-p__link' do
           利用規約
         に同意したものとみなします
-
       = f.submit '次へ進む'
-
       %p.registration__form__bottom-p
         =link_to 'https://www.mercari.com/jp/help_center/article/423/' do
           本人情報の登録について
