@@ -1,0 +1,97 @@
+.header-info
+  .header-info__logo-and-list
+    %h1
+      = link_to 'https://www.mercari.com/jp/' do
+        = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983'
+    %nav
+      %ul
+        %span
+        %li
+          会員情報
+          .present-progress
+        %li
+          電話番号認証
+          .progress
+        %li
+          お届け先住所入力
+          .progress
+        %li
+          支払い方法
+          .progress
+        %li
+          完了
+          .progress
+.registration
+  %h2
+    会員情報入力
+  .registration__form
+    = form_with model: @user do |f|
+      .registration__form__item
+        %label{for:'nickname'}
+          ニックネーム
+          %span
+            必須
+        = f.text_field :nickname, name:'nickname', placeholder:'例）メルカリ太郎'
+      .registration__form__item
+        %label{for:'email'}
+          メールアドレス
+          %span
+            必須
+        = f.text_field :email, name:'email', placeholder:'PC・携帯どちらでも可'
+      .registration__form__item
+        %label{for:'password'}
+          パスワード
+          %span
+            必須
+        = f.text_field :password, name:'password', placeholder:'6文字以上'
+      .registration__form__item
+        %label{for:'password'}
+          パスワード(確認)
+          %span
+            必須
+        = f.text_field :password, name:'password2', placeholder:'6文字以上'
+      %h3
+        本人確認
+      %p
+        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .registration__form__item
+        %label{for:'first_name'}
+          お名前(全角)
+          %span
+            必須
+        = f.text_field :last_name, name:'last_name', placeholder:'例)山田'
+        = f.text_field :first_name, name:'first_name', placeholder:'例)彩'
+
+      .registration__form__item
+        %label{for:'first_kana'}
+          お名前カナ(全角)
+          %span
+            必須
+        = f.text_field :last_kana, name:'last_kana', placeholder:'例)ヤマダ'
+        = f.text_field :first_kana, name:'first_kana', placeholder:'例)アヤ'
+      .registration__form__item
+        %label{for:'birthday'}
+          誕生日
+          %span
+            必須
+        .registration__form__item__birthday
+          = raw sprintf(f.date_select(:birthday, start_year: (Time.now.year), end_year: (Time.now.year - 119), default: Date.new((Time.now.year)), prompt: "--", date_separator: '%s'),'年 ', '月 ') + '日'
+        %p.registration__form__light-gray-p
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .registration__form__recaptcha
+        = image_tag 'https://trello-attachments.s3.amazonaws.com/5d3184e69a6c883173891d18/5d3184e69a6c883173891d4c/c1c6cdec2ef633a0a34633a7c83a1f6b/recapcha_sample.png'
+
+      %p.registration__form__center-p
+        「次へ進む」のボタンを押すことにより、
+        = link_to 'https://www.mercari.com/jp/tos_list/', class: 'registration__form__center-p__link' do
+          利用規約
+        に同意したものとみなします
+
+      = f.submit '次へ進む'
+
+      %p.registration__form__bottom-p
+        =link_to 'https://www.mercari.com/jp/help_center/article/423/' do
+          本人情報の登録について
+          = fa_icon 'chevron-right'
+
+/ TODO: = render 'devise/shared/gray_footer'
