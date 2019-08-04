@@ -1,26 +1,21 @@
-.items-new-header {
+.header-items-new {
   text-align: center;
   height: 128px;
+  &__content {
+    display: inline-block;
+    margin: 41px 0 0;
+    &__icon {
+      width: 185px;
+      height: 49px;
+      margin: 0 8px 0 0;
+      display: inline-block;
+      &__img {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
 }
-
-.items-new-header h1 {
-  display: inline-block;
-  margin: 41px 0 0;
-}
-
-.items-new-header__icon {
-  width: 185px;
-  height: 49px;
-  margin: 0 8px 0 0;
-  display: inline-block;
-}
-
-.single-header img {
-  width: 185px;
-  height: 49px;
-}
-
-// ここまでヘッダー
 
 .items-new-single-container {
   width: 700px;
@@ -318,7 +313,7 @@
   font-size: 14.5px;
 }
 
-.footer_signup_login {
+.footer_items_new {
   box-sizing: border-box;
   width: 456px;
   height: 220px;
