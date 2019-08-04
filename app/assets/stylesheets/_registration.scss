@@ -5,6 +5,15 @@
 
 }
 
+@mixin progress-mark {
+
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  
+}
+
 .header-info {
 
   height: 128px;
@@ -44,7 +53,7 @@
         display: flex;
         position: relative;
 
-        span {
+        .line {
 
           position: absolute;
           bottom: 5px;
@@ -57,26 +66,28 @@
         li {
 
           margin-right: 40px;
+          color: #888;
           font-size: 12px;
+        
+          span {
+
+            font-weight: bold;
+            color: #ea352d;
+
+          }
 
           .present-progress {
 
             position: relative;
-            width: 12px;
-            height: 12px;
-            margin: 8px auto 0;
-            background: #ea352d;
-            border-radius: 50%;
+            background-color: #ea352d;
+            @include progress-mark;
 
           }
 
           .progress {
 
-            width: 12px;
-            height: 12px;
-            margin: 8px auto 0;
             background: #ccc;
-            border-radius: 50%;
+            @include progress-mark;
 
           }
 
@@ -98,8 +109,8 @@
 
   a {
 
-  color: #0099e8;
-  text-decoration: none;
+    color: #0099e8;
+    text-decoration: none;
 
   }
 
@@ -131,7 +142,6 @@
 
     }
 
-    
     &__item {
 
       width: 343px;
@@ -162,6 +172,19 @@
         margin-top: 8px;
         padding-left: 20px;
         @include item-style;
+
+      }
+
+      &__item-name {
+      
+        display: flex;
+        justify-content: space-between;
+
+        input[type='text'] {
+
+          width: 143.5px;
+
+        }
 
       }
 
