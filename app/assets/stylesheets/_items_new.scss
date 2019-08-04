@@ -53,7 +53,7 @@
       box-sizing: border-box;
     }
   }
-  .items-new-upload-box__text {
+  &__text {
     margin: 8px 0 0;
     line-height: 1.5;
   }
@@ -175,7 +175,7 @@
           color: #888;
           font-size: 16px;
         }
-        #category {
+        select {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;

@@ -21,7 +21,7 @@
                 .items-new-imagebox__container
                   .items-new-imagebox__container__items
                     %ul
-                %label(class="sell-upload-drop-box" for="a-image")
+                = f.label :image, class: "sell-upload-drop-box", for: "a-image" do
                   = f.file_field :image, class: "sell-upload-drop-file", id: "a-image"
                   %pre.visible
                     ドラッグアンドドロップ
@@ -78,7 +78,7 @@
                       %span.items-new-text-mini__red 必須
                     .select-wrap
                       %i.fa.fa-chevron-down
-                      = f.select :category, [["---", ""], ["北海道", 1], ["青森県", 2], ["岩手県", 3], ["宮城県", 4], ["秋田県", 5], ["山形県", 6], ["福島県", 7], ["茨城県", 8], ["栃木県", 9], ["群馬県", 10], ["埼玉県", 11], ["千葉県", 12], ["東京都", 13], ["神奈川県", 14], ["新潟県", 15], ["富山県", 16], ["石川県", 17], ["福井県", 18], ["山梨県", 19], ["長野県", 20], ["岐阜県", 21], ["静岡県", 22], ["愛知県", 23], ["三重県", 24], ["大阪府", 25], ["兵庫県", 26] ,["京都府", 27], ["滋賀県", 28], ["和歌山県", 29], ["鳥取県", 30], ["島根県", 31], ["岡山県", 32], ["広島県", 33], ["山口県", 34], ["徳島県", 35], ["香川県", 36],["愛媛県", 37], ["高知県", 38], ["福岡県", 39], ["佐賀県", 40], ["長崎県", 41], ["熊本県", 42], ["大分県", 43], ["宮崎県", 44], ["鹿児島県", 45], ["沖縄県", 46], ["奈良県", 47], ["未定", 99]]
+                      = f.select :prefecture, Address.prefectures.keys
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
