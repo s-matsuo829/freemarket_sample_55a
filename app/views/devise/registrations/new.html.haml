@@ -78,7 +78,7 @@
           %span
             必須
         .registration__form__item__birthday
-          = raw sprintf(f.date_select(:birthday, start_year: (Time.now.year), end_year: (Time.now.year - 119), default: Date.new((Time.now.year)), prompt: "--", date_separator: '%s'),'年 ', '月 ') + '日'
+          = raw sprintf(f.date_select(:birthday, start_year: (Time.now.year), end_year: (Time.now.year - 119), default: Date.new((Time.now.year)), prompt: "--", use_month_numbers: true, date_separator: '%s'),'年 ', '月 ') + '日'
         %p.registration__form__light-gray-p
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       .registration__form__recaptcha
