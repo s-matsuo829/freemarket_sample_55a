@@ -33,24 +33,28 @@
                   = fa_icon 'meh-o', class: 'icon-meh-o'
                   %span 12
                 .ratings__rate
-                  = fa_icon 'frown-o', class: 'frown-o'
+                  = fa_icon 'frown-o', class: 'icon-frown-o'
                   %span 37
           %tr
             %th カテゴリー
             %td
               = link_to "その他", "https://www.mercari.com/jp/category/10/", class: 'td__link', data:{turbolinks: :false}
               = link_to "https://www.mercari.com/jp/category/112/", class: 'td__link', data:{turbolinks: :false} do
-                = fa_icon 'angle-right', class: 'icon-angle-right'
+                = fa_icon 'angle-right', class: 'icon-angle-right bold'
                 食品
               = link_to "https://www.mercari.com/jp/category/1136/", class: 'td__link', data:{turbolinks: :false} do
-                = fa_icon 'angle-right', class: 'icon-angle-right'
+                = fa_icon 'angle-right', class: 'icon-angle-right bold'
                 その他 加工食品
           %tr
             %th ブランド
-            %td ★ARAKAWA★
+            %td 
+              = link_to "★ARAKAWA★", "https://www.mercari.com/jp/brand/3878/", class: 'td__link', data:{turbolinks: :false}
+          %tr
+            %th 商品サイズ
+            %td 10cm前後
           %tr
             %th 商品の状態
-            %td 未使用品
+            %td 目立った傷や汚れなし
           %tr
             %th 配送料の負担
             %td 着払い（購入者負担）
