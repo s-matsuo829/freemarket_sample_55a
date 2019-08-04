@@ -1,6 +1,78 @@
-.user_mypage_identification_right-content {
+.header_address_new {
+  height: 128px;
+  text-align: center;
+  &--wrap {
+    display: inline-block;
+    padding: 40px 0 0;
+    &__link {
+      margin: 0 8px 0 0;
+      touch-action: manipulation;
+      &__image {
+        vertical-align: middle;
+      }
+    }
+  }
+  &__stage {
+    display: inline-block;
+    vertical-align: top;
+    padding: 40px 0 0 44px;
+    &__list {
+      position: relative;
+      li {
+        color: rgb(194, 194, 194);
+        margin: 0 40px 0 0;
+        min-width: 60px;
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        font-size: 12px;
+        .stage-status.active {
+          background: #ea352d;
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 2;
+        }
+        .stage-status {
+          background: rgb(194, 194, 194);
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          z-index: 2;
+        }
+      }
+      li:last-child {
+        margin: 0;
+      }
+      .active {
+        color: #ea352d;
+      }
+    }
+    ol::before {
+      border-top: 3px solid;
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      width: 235px;
+      color: #ea352d;
+    }
+    ol::after {
+      border-top: 3px solid;
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 265px;
+      width: 230px;
+      color: rgb(194, 194, 194);
+    }
+  }
+}
+
+.address_new_right-content {
   margin: 40px auto;
-  float: right;
   width: 700px;
   background: #fff;
   padding-bottom: 40px;
