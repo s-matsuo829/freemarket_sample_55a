@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def index
   end
 
@@ -6,8 +8,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-　end
+  end
   
   def mypage_identification
   end
+
+  
 end
