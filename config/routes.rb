@@ -17,6 +17,6 @@ Rails.application.routes.draw do
       get 'mypage_identification'
     end
   end
-  resources :items, only: [:index]
+  resources :items, only: [:index, :new]
 
 end
