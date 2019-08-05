@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :address
+  has_many :items
+  has_many :buyer_tradings, class_name: 'Trading'
+
 
   reg_mail_address = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
   reg_alphanumeric_6characters = /\A[a-zA-Z0-9]{6,}+\z/
