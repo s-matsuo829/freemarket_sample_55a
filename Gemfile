@@ -49,7 +49,9 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
 
+  
   gem 'pry-rails'
+
 
   gem 'capistrano'
   gem 'capistrano-rbenv'
@@ -78,10 +80,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem "jquery-rails"
 gem 'devise'
-
 gem 'haml-rails'
-
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
@@ -91,5 +92,6 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+
 
 gem 'font-awesome-rails'
