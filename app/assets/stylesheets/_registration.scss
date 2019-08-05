@@ -1,0 +1,168 @@
+@mixin item-style {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+@mixin progress-mark {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+}
+
+.header-info {
+  height: 128px;
+  &__logo-and-list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    h1 {
+      margin: auto 8px auto 0;
+      img {
+        width: 185px;
+        height: 49px;
+      }
+      img:hover {
+        opacity: 0.7;
+      }
+    }
+    nav {
+      padding: 40px 0 0 44px;
+      ul {
+        display: flex;
+        position: relative;
+        .line {
+          position: absolute;
+          bottom: 5px;
+          right: 50px;
+          width: 430px;
+          border-bottom: 2px solid #ccc;
+        }
+        li {
+          margin-right: 40px;
+          color: #888;
+          font-size: 12px;
+          span {
+            font-weight: bold;
+            color: #ea352d;
+          }
+          .present-progress {
+            position: relative;
+            background-color: #ea352d;
+            @include progress-mark;
+          }
+          .progress {
+            background: #ccc;
+            @include progress-mark;
+          }
+        }
+      }
+    }
+  }
+}
+
+.registration {
+  background-color: #fff;
+  width: 700px;
+  margin: auto;
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #b3d4fc;
+    text-decoration: underline;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    padding: 32px;
+    text-align: center;
+  }
+  &__form {
+    border-top: 1px solid #f5f5f5;
+    padding: 40px 40px 64px;
+    &__item:first-of-type {
+      margin-top: 0;
+    }
+    &__item {
+      width: 343px;
+      margin: 24px auto 0;
+      label {
+        font-weight: bold;
+      }
+      span {
+        font-size: 12px;
+        font-weight: normal;
+        color: #fff;
+        border-radius: 2px;
+        margin-left: 8px;
+        padding: 2px 4px;
+        background-color: #ea352d;
+      }
+      input {
+        width: 321px;
+        height: 46px;
+        margin-top: 8px;
+        padding-left: 20px;
+        @include item-style;
+      }
+      &__item-name {
+        display: flex;
+        justify-content: space-between;
+        input[type='text'] {
+          width: 143.5px;
+        }
+      }
+      &__birthday {
+        margin-top: 10px;
+        select {
+          width: 76px;
+          height: 48px;
+          padding: 0 10px;
+          @include item-style;
+        }
+      }
+    }
+    h3 {
+      width: 343px;
+      margin: 32px auto 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    p {
+      width: 343px;
+      margin: 8px auto 0;
+      line-height: 1.5;
+    }
+    &__light-gray-p {
+      color: #888;
+    }
+    &__center-p {
+      text-align: center;
+      font-size: 14px;
+    }
+    &__recaptcha {
+      width: 343px;
+      height: 78px;
+      margin: 40px auto;
+      img {
+        width: 300px;
+      }
+    }
+    input[type='submit'] {
+      display: block;
+      width: 343px;
+      height: 50px;
+      margin: 32px auto;
+      color: #fff;
+      background-color: #ea352d;
+      cursor: pointer;
+    }
+    &__bottom-p {
+      text-align: right;
+    }
+  }
+}

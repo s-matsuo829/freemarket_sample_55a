@@ -1,0 +1,73 @@
+.default-container
+
+  .header_card_new
+    %h1.header_card_new--wrap
+      = link_to root_path, class: 'header_only-logo--wrap__link', data:{turbolinks: :false} do
+        = image_tag "mercari_logo.png", class: 'header_only-logo--wrap__link__image', size: '185x52', alt: "mercari"
+    .header_card_new__stage
+      %ol.header_card_new__stage__list.clearfix
+        %li
+          %span 会員情報
+          .stage-status.active 
+        %li
+          %span 電話番号認証
+          .stage-status.active 
+        %li
+          %span お届け先住所入力
+          .stage-status.active 
+        %li.active 
+          %span 支払い方法
+          .stage-status.active 
+        %li
+          %span 完了
+          .stage-status
+
+  %main.card_new_container
+    %h2.card_new_head 支払い方法
+
+    = form_with url: 'users_path', local: true, class: 'card_new_form' do |f|
+
+      .card_new_form__group
+        %label.bold{ for: "payment_card_id" } カード番号
+        %label.card_new_form__group--arbitrary 必須
+        = f.text_field :payment_card_id, name: "payment_card_id", class: 'card_new_form__group__input', placeholder: "半角数字のみ"
+        %ul.card_new_form__group__card_list
+          %li
+            = image_tag "logo_visa.gif", class: 'card_new_form__group__card_list__image', size: '31x20', alt: ""
+          %li
+            = image_tag "logo_mastercard.gif", class: 'card_new_form__group__card_list__image', size: '31x20', alt: ""
+          %li
+            = image_tag "logo_saisoncard.gif", class: 'card_new_form__group__card_list__image', size: '30x20', alt: ""
+          %li
+            = image_tag "logo_jcb.gif", class: 'card_new_form__group__card_list__image', size: '27x20', alt: ""
+          %li
+            = image_tag "logo_amex.gif", class: 'card_new_form__group__card_list__image', size: '24x20', alt: ""
+          %li
+            = image_tag "logo_diners.gif", class: 'card_new_form__group__card_list__image', size: '27x20', alt: ""
+          %li
+            = image_tag "logo_discover.gif", class: 'card_new_form__group__card_list__image', size: '30x20', alt: ""
+
+      .card_new_form__group.card_new_form__expire
+        %label.bold{ for: "expire_mm" } 有効期限
+        %label.card_new_form__group--arbitrary 必須
+        %br
+        .card_new_form__group--select-wrap-half
+          = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
+          = f.select :expire_mm, [['01'], ['02'], ['03'], ['04'], ['05'], ['06'], ['07'], ['08'], ['09'], ['10'], ['11'], ['12']]
+          %span 月
+        .card_new_form__group--select-wrap-half
+          = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
+          = f.select :expire_yy, [['19'], ['20'], ['21'], ['22'], ['23'], ['24'], ['25'], ['26'], ['27'], ['28']]
+          %span 年
+
+      .card_new_form__group
+        %label.bold{ for: "security_code" } セキュリティコード
+        %label.card_new_form__group--arbitrary 必須
+        = f.text_field :security_code, name: "security_code", class: 'card_new_form__group__input', placeholder: "カード背面４桁もしくは３桁の番号"
+        %p.text-right
+          %span.card_new_form__group__question ？
+          %span カード裏面の番号とは？
+
+      = f.submit '次へ進む',class: 'card_new_form__submit_btn'
+
+  =render partial: 'devise/shared/gray_footer'
