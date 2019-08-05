@@ -29,5 +29,5 @@ class Item < ApplicationRecord
     # TO DO 価格の数値範囲のバリデーション一旦保留
     # format: { with: reg_price_range }
 
-  mount_uploader { :image, ImageUploader }
+  mount_uploader { image: "ImageUploader" }
 end
