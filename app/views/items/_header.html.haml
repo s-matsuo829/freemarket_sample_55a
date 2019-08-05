@@ -2,7 +2,7 @@
   .pc-header-inner
     .pc-header-top
       .pc-header-top__logo
-        = link_to "/" do
+        = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
       
       = form_tag('/search', method: :get, class: 'pc-header-search-form') do
@@ -60,14 +60,14 @@
                 
               %ul.pc-header-user-box.pc-header-todo-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
             %li.pc-heade-user-box__mypage
-              = link_to "", class: "pc-header-menu__link" do
+              = link_to  user_path(1), class: "pc-header-menu__link" do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
                 %span マイページ
       - else    
         .pc-header-nav-box-before-login
           %ul.pc-header-user-log-nav
             %li.pc-header-user-log-nav__sign-up
-              = link_to new_user_registration_path, class: "pc-header-user-log-nav__sign-up__link" do
+              = link_to signup_users_path, class: "pc-header-user-log-nav__sign-up__link" do
                 新規会員登録
               
             %li.pc-header-user-log-nav__log-in

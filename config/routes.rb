@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'items#index'
@@ -13,15 +11,19 @@ Rails.application.routes.draw do
   }
 
   resources :users, :only => [:index, :show, :edit] do
-    resources :cards, only: [:new, :create, :show]
+    resources :cards, only: [:new, :create, :index]
     
     resources :addresses, only: [:new, :create, :show]
+
+    member do
+      get 'mypage_identification'
+      get 'telephone_authentication'
+    end
     
     collection do
-      get 'mypage_identification'
       get 'signup_complete'
-      get 'telephone_authentication'
       get 'signup'
+      get 'logout'
     end
   end
 

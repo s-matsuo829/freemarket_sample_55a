@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to "/jp/mypage/", class: 'mypage-nav__list__item active', data:{turbolinks: :false} do
+        = link_to user_path(1), class: 'mypage-nav__list__item active', data:{turbolinks: :false} do
           マイページ
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -18,7 +18,7 @@
           いいね！一覧
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/sell/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to new_item_path, class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           出品する
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -72,7 +72,7 @@
     %h3.mypage-nav__head 設定
     %ul.mypage-nav__list
       %li
-        = link_to "/jp/mypage/profile/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to edit_user_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           プロフィール
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -80,7 +80,7 @@
           発送元・お届け先住所変更
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/card/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to  user_cards_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           支払い方法
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -88,7 +88,7 @@
           メール/パスワード
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/identification/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to mypage_identification_user_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           本人情報
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -96,6 +96,6 @@
           電話番号の確認
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/logout/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to logout_users_path, class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           ログアウト
           = fa_icon 'angle-right', class: 'icon-angle-right'
