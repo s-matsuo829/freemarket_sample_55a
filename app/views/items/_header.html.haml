@@ -2,7 +2,7 @@
   .pc-header-inner
     .pc-header-top
       .pc-header-top__logo
-        = link_to "/" do
+        = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
       
       = form_tag('/search', method: :get, class: 'pc-header-search-form') do
