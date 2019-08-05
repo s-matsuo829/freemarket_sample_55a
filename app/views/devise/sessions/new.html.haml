@@ -6,7 +6,7 @@
     .login_container__panel
       .login_container__panel--no-account
         %p アカウントをお持ちでない方はこちら
-        = link_to '新規会員登録', 'new_user_registration_path', class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
+        = link_to '新規会員登録', new_user_registration_path, class: 'login_container__panel--no-account__link', data:{turbolinks: :false}
       .login_container__panel--sns
         %button#facebook-login.login_container__panel--sns--facebook
           = fa_icon 'facebook-square 2x', class: 'icon-facebook-square'
