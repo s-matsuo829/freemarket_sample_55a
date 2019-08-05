@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def index
   end
 
@@ -7,9 +9,10 @@ class UsersController < ApplicationController
 
   def edit
   end
-  
+
   def mypage_identification
   end
+
 
   def signup
   end
@@ -22,4 +25,5 @@ class UsersController < ApplicationController
 
   def logout
   end
+
 end
