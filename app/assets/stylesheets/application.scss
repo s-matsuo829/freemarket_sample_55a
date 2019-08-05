@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,9 +16,6 @@
  */
 
 @import "font-awesome";
-
-@import "items";
-@import "user_show";
 @import "reset";
 
 body,html {
@@ -44,6 +42,8 @@ body,html {
   border-style: solid;
   border-width: 0;
 }
+
+* {text-decoration: none;}
 
 .bold {
   font-weight: bold;

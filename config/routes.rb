@@ -12,11 +12,11 @@ Rails.application.routes.draw do
     # :omniauth_callbacks => "users/omniauth_callbacks" 
   }
 
-  resources :users, :only => [:index, :show] do
+  resources :users, :only => [:index, :show, :edit] do
     resources :cards, only: [:new, :create, :show]
     
     resources :addresses, only: [:new, :create, :show]
-
+    
     collection do
       get 'mypage_identification'
       get 'signup_complete'
@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index]
+  resources :items, only: [:index, :new, :show]
 
 end
