@@ -10,4 +10,7 @@ class UsersController < ApplicationController
 
   def signup_complete
   end
+
+  def telephone_authentication
+  end
 end

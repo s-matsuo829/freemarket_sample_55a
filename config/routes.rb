@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     collection do
       get 'mypage_identification'
       get 'signup_complete'
+      get 'telephone_authentication'
     end
   end
 
