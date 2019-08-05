@@ -19,4 +19,7 @@ class UsersController < ApplicationController
 
   def telephone_authentication
   end
+
+  def logout
+  end
 end

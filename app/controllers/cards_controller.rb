@@ -6,7 +6,7 @@ class CardsController < ApplicationController
   def create
   end
 
-  def show
+  def index
   end
 
 end
