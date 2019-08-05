@@ -110,6 +110,15 @@
         font-size: 12px;
         vertical-align: top;
       }
+      &--arbitrary-red {
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        background: #ea352d;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
       &__input {
         box-sizing: border-box;
         width: 100%;

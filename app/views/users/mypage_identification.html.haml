@@ -58,11 +58,6 @@
           %label.mi_form__group--arbitrary 任意
           = f.text_field :building, name: "building", class: 'mi_form__group__input', placeholder: "例）石ノ森萬画館"
 
-        .mi_form__group
-          %label.bold{ for: "phone_number" } 電話番号
-          %label.mi_form__group--arbitrary 任意
-          = f.text_field :phone_number, name: "phone_number", class: 'mi_form__group__input', placeholder: "例）09012345678"
-
         = f.submit '登録する',class: 'mi_form__submit_btn'
 
       .mi_group
