@@ -1,0 +1,23 @@
+.default-container
+
+  = render 'devise/shared/only_logo_header'
+
+  .signup
+    %h2
+      新規会員登録
+    .choose-registration-way
+      %ul
+        %li.email-address
+          = link_to "" do
+            = fa_icon "envelope"
+            メールアドレスで登録する
+        %li.facebook
+          = link_to "" do
+            = fa_icon "facebook-square"
+            Facebookで登録する
+        %li.google
+          = link_to "" do
+            = fa_icon "google"
+            Googleで登録する
+
+  = render 'devise/shared/gray_footer'

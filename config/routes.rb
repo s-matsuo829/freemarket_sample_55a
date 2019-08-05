@@ -13,8 +13,15 @@ Rails.application.routes.draw do
   }
 
   resources :users, :only => [:index, :show, :edit] do
+    resources :cards, only: [:new, :create, :show]
+    
+    resources :addresses, only: [:new, :create, :show]
+    
     collection do
       get 'mypage_identification'
+      get 'signup_complete'
+      get 'telephone_authentication'
+      get 'signup'
     end
   end
 
