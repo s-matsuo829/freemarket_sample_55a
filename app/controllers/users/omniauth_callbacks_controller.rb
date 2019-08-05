@@ -38,16 +38,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
 
   def callback_for(provider)
-    info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
+    info = User.find_oauth(request.env["omniauth.auth"])
     @user = info[:user]
-    
-    # sns_id = info[:sns_id]
-    if @user.persisted? #userが存在したら
+    if @user.persisted? 
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-    else #userが存在しなかったら
+    else 
       @sns = info[:sns]
-      render template: "devise/registrations/new" #redirect_to だと更新してしまうのでrenderで
+      render template: "devise/registrations/new" 
     end
   end
 
