@@ -41,19 +41,19 @@
             %span
               必須
           = f.email_field :email, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
-        /- if @user.nil?
-        .registration__form__item
-          %label{for:'password'}
-            パスワード
-            %span
-              必須
-          = f.password_field :password, autocomplete: "new-password", placeholder:'6文字以上'
-        .registration__form__item
-          %label{for:'password_confirmation'}
-            パスワード(確認)
-            %span
-              必須
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'6文字以上'
+        - if @user.password.nil?
+          .registration__form__item
+            %label{for:'password'}
+              パスワード
+              %span
+                必須
+            = f.password_field :password, autocomplete: "new-password", placeholder:'6文字以上'
+          .registration__form__item
+            %label{for:'password_confirmation'}
+              パスワード(確認)
+              %span
+                必須
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:'6文字以上'
         %h3
           本人確認
         %p
@@ -90,9 +90,9 @@
           = link_to root_path, class: 'registration__form__center-p__link' do
             利用規約
           に同意したものとみなします
-        /- if @sns != nil
-        /  = f.hidden_field :uid, value: @sns.uid
-        /  = f.hidden_field :provider, value: @sns.provider
+        - if @sns != nil
+          = f.hidden_field :uid, value: @sns.uid
+          = f.hidden_field :provider, value: @sns.provider
         = f.submit '次へ進む'
         %p.registration__form__bottom-p
           =link_to root_path do
