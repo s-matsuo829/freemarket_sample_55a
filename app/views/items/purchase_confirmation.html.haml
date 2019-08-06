@@ -1,0 +1,75 @@
+.purchase-header
+  %h1
+    = link_to 'https://www.mercari.com/jp/' do
+      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983', alt: 'mercari'
+.confirmation
+  %h2
+    購入内容の確認
+  .confirmation__item-info
+    .confirmation__item-info__item
+      = image_tag 'http://smashedpeasandcarrots.com/wp-content/uploads/2017/03/Paleo-and-Vegan-Shamrock-Shake-213x213.jpg', alt:'', data:{src:''}
+      .confirmation__item-info__item__title
+        フェイズエイド 新作ワンピース phase eight UK12
+    = form_with url: '', action: "post" do |f|
+      .confirmation__item-info__price
+        ¥ 16,500
+        %span
+          送料込み
+      .confirmation__item-info__point
+        ポイントはありません
+      .confirmation__item-info__total-amount
+        .confirmation__item-info__total-amount__left
+          支払い金額
+        .confirmation__item-info__total-amount__right
+          %span{data: {buy: {pay: ''}}}
+            ¥ 16,500
+      = f.hidden_field :user, name: 'user.id', value: ''
+      = f.hidden_field :price, name: 'price', value: ''
+      = f.hidden_field :item, name: 'item.id', value: ''
+      = f.hidden_field :item_status, name: 'item_status', value: ''
+      = f.hidden_field :buyer, name: 'buyer.id', value: ''
+      = f.hidden_field :payment, name: 'payment', value: ''
+      = f.hidden_field :delivery_type, name: 'delivery_type', value: ''
+      = f.hidden_field :postalcode, name: 'postalcode', value: ''
+      = f.hidden_field :card, name: 'card.id', value: ''
+      = f.hidden_field :name, name: 'name', value: ''
+      = f.hidden_field :description, name: 'description', value: ''
+      = f.hidden_field :delivery_region, name: 'delivery_region', value: ''
+      = f.hidden_field :falimy_name, name: 'falimy_name', value: ''
+      = f.hidden_field :first_name, name: 'first_name', value: ''
+      = f.hidden_field :family_kana, name: 'family_kana', value: ''
+      = f.hidden_field :first_kana, name: 'first_kana', value: ''
+      = f.hidden_field :prefecture, name: 'prefecture', value: ''
+      = f.hidden_field :city, name: 'city', value: ''
+      = f.hidden_field :number, name: 'number', value: ''
+      = f.hidden_field :building, name: 'building', value: ''
+      = f.hidden_field :phone_number, name: 'phone_number', value: ''
+      = f.submit '購入する'
+      %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_77779f0a6a5367800572e635"}
+  .confirmation__shipping-info
+    %h3
+      配送先
+    %address
+      〒099-2421
+      %br/
+      北海道 網走市 字呼人1-1
+      %br/
+      網走 太郎
+    %p
+      = link_to 'https://www.mercari.com/jp/transaction/address/m12345678910/' do
+        変更する
+        = fa_icon 'chevron-right'
+  .confirmation__payment-info
+    %h3
+      支払い方法
+    .confirmation__payment-info__method
+      ************1223
+      %br/
+      06 / 30
+    = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?863303983', alt: 'JCB'
+    %p
+      = link_to 'https://www.mercari.com/jp/transaction/select_card/m12345678910/' do
+        変更する
+        = fa_icon 'chevron-right'
+
+// TODO: = render 'devise/shared/gray_footer'
