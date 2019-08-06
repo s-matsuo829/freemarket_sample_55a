@@ -9,9 +9,5 @@
     .logout-container
       .logout-container__main
         = link_to "ログアウト", destroy_user_session_path, method: :delete
-        -# %form.logout-container__main__inner{action: destroy_user_session_path, method: "DELETE", novalidate: "novalidate"}
-        -#   .logout-container__main__inner__button
-        -#     %button.logout-container__main__inner__button--red{type: "submit"} ログアウト
-        -#     %input{name: "__csrf_value", type: "hidden", value: "d50f29037e7e2eb8dcd90e46572e88e7de28f5cf82bf07e93305c96e0d5ace1685dacd3057d185636ceb973fb72db7a9a3cee5adbde993b15e3eb6ace3279cf09"}/
 
   =render partial: 'items/footer'
