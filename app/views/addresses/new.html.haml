@@ -33,7 +33,7 @@
       %p.bold お名前カナ
       %p イシノモリ ショウタロウ
 
-    = form_with url: 'user_addresses_path', local: true, class: 'mi_form' do |f|
+    = form_with url: user_addresses_path(current_user.id), local: true, class: 'mi_form' do |f|
 
       .mi_form__group
         %label.bold{ for: "postalcode" } 郵便番号
