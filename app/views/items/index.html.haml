@@ -1,15 +1,4 @@
 .default-container
   = render "header"
-%main.toppage-main
-  .main-header
-  -# メイン上部の、キャンプの画像があるところ
-  .main-content
-    %h2
-      ピックアップカテゴリー
-    %h3
-      = link_to "/jp/new_item/1/" do
-        新着アイテム
-    .main-content__list
-      = render @items
-
+  = render "main"
   = render "footer"
