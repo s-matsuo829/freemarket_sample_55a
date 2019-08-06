@@ -28,6 +28,7 @@
       会員情報入力
     .registration__form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
         .registration__form__item
           %label{for:'nickname'}
             ニックネーム
@@ -40,6 +41,7 @@
             %span
               必須
           = f.email_field :email, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
+        /- if @user.nil?
         .registration__form__item
           %label{for:'password'}
             パスワード
@@ -88,6 +90,9 @@
           = link_to root_path, class: 'registration__form__center-p__link' do
             利用規約
           に同意したものとみなします
+        /- if @sns != nil
+        /  = f.hidden_field :uid, value: @sns.uid
+        /  = f.hidden_field :provider, value: @sns.provider
         = f.submit '次へ進む'
         %p.registration__form__bottom-p
           =link_to root_path do
