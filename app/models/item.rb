@@ -24,7 +24,7 @@ class Item < ApplicationRecord
   validates :delivery_days,
     presence: true
   validates :price,
-    presence: true,
+    presence: true
 
     # TO DO 価格の数値範囲のバリデーション一旦保留
     # format: { with: reg_price_range }
