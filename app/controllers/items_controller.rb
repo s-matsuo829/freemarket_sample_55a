@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
     @items = Item.limit(4).order("created_at DESC")
   end
 
-
   def show
   end
   
@@ -17,17 +16,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.user_id == current_user.id
-      @item.update(
-        image: item_params[:image] ? item_params[:image] : @item.image,
-        name: item_params[:name],
-        description: item_params[:description],
-        item_status: item_params[:item_status].to_i,
-        payment: item_params[:payment].to_i,
-        delivery_type: item_params[:delivery_type].to_i,
-        delivery_region: item_params[:delivery_region].to_i,
-        delivery_days: item_params[:delivery_days].to_i,
-        price: item_params[:price]
-      )
+      @item.update(item_params)
       redirect_to item_path(@item.id)
     else
       render item_path(item.id)
