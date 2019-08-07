@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.update(
-        image: item_params[:image],
+        image: item_params[:image] ? item_params[:image] : @item.image,
         name: item_params[:name],
         description: item_params[:description],
         item_status: item_params[:item_status].to_i,
