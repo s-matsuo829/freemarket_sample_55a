@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show, :edit] do
     resources :cards, only: [:new, :create, :index]
     
+    # resources :items, only: []
+
     resources :addresses, only: [:new, :create, :show]
 
     member do
@@ -29,7 +31,7 @@ Rails.application.routes.draw do
 
   
 
-  resources :items, only: [:index, :new, :show, :create]
+  resources :items, only: [:index, :show, :new, :create]
 
 
 end

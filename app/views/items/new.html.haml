@@ -105,7 +105,7 @@
                     .sell-price-input
                       ¥
                       .sell-price-input__wrapper
-                        = f.text_field :price, class: "input-default", placeholder: "例）300", value: ""
+                        = f.number_field :price, min:300, max:9999999, class: "input-default", placeholder: "例）300", value: ""
                   %li.clearfix.fee
                     .fee__left
                       販売手数料 (10%)
