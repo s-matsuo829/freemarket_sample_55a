@@ -10,7 +10,7 @@
         .sell-container-inner
           %h2.items-new-single-head 商品の情報を入力
 
-          = form_with url: '', local: true, class: "items-new-sell-form" do |f|
+          = form_for @item, class: "items-new-sell-form" do |f|
 
             .items-new-upload-box
               %h3.items-new-upload-box__head
@@ -33,12 +33,12 @@
                   商品名
                   %span.items-new-text-mini__red 必須
                 %div
-                  = f.text_field :text, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
+                  = f.text_field :name, id: "input-default",  placeholder: "商品名（必須 40文字まで)"
               .items-new-form-area
                 %h3.items-new-text-mini
                   商品の説明
                   %span.items-new-text-mini__red 必須
-                = f.text_area :text2, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+                = f.text_area :description, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
 
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
@@ -49,7 +49,7 @@
                     %span.items-new-text-mini__red 必須
                   .select-wrap
                     %i.fa.fa-chevron-down
-                    = f.select :category, [["---", ""], ["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自動車・オートバイ", 12], ["その他", 13]]
+                    -# = f.select :category, [["---", ""], ["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自動車・オートバイ", 12], ["その他", 13]]
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
@@ -57,7 +57,8 @@
                       %span.items-new-text-mini__red 必須
                     .select-wrap
                       %i.fa.fa-chevron-down
-                      = f.select :category, [["---", ""], ["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3], ["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
+                      = f.select :item_status, Item.item_statuses.keys
+                      -# = f.select :category, [["---", ""], ["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3], ["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
 
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 配送について
@@ -70,7 +71,8 @@
                     %span.items-new-text-mini__red 必須
                   .select-wrap
                     %i.fa.fa-chevron-down
-                    = f.select :category, [["---", ""], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 1]]
+                    = f.select :delivery_type, Item.delivery_types.keys
+                    -# = f.select :category, [["---", ""], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 1]]
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
@@ -78,7 +80,8 @@
                       %span.items-new-text-mini__red 必須
                     .select-wrap
                       %i.fa.fa-chevron-down
-                      = f.select :prefecture, Address.prefectures.keys
+                      = f.select :delivery_region, Item.delivery_regions.keys
+                      -# = f.select :prefecture, Address.prefectures.keys
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
@@ -86,7 +89,8 @@
                       %span.items-new-text-mini__red 必須
                     .select-wrap
                       %i.fa.fa-chevron-down
-                      = f.select :category, [["---", ""], ["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
+                      = f.select :delivery_days, Item.delivery_days.keys
+                      -# = f.select :category, [["---", ""], ["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
 
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 販売価格(300〜9,999,999)
@@ -132,7 +136,7 @@
                     %span<>加盟店規約
                   に同意したことになります。
               = f.submit "出品する", class: "items-new-btn-red"
-              = link_to "", class: "items-new-btn-gray" do
+              = link_to "root_path", class: "items-new-btn-gray" do
                 もどる
 
 .footer_items_new

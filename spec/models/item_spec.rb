@@ -4,7 +4,6 @@ describe Item do
   describe '#create' do
     it "factory_botのdataは登録できる" do
       item = build(:item)
-      
       expect(item).to be_valid
     end
     it "priceが299以下では登録不可" do
