@@ -43,6 +43,7 @@
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
               .sell-form-box
+                //TODO : カテゴリ実装後に追加、調整を行う
                 -# .form-group
                 -#   %h3.items-new-text-mini
                 -#     カテゴリー
@@ -58,7 +59,6 @@
                     .select-wrap
                       %i.fa.fa-chevron-down
                       = f.select :item_status, Item.item_statuses.keys
-                      -# = f.select :category, [["---", ""], ["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3], ["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 配送について
               = link_to "" do
@@ -71,7 +71,6 @@
                   .select-wrap
                     %i.fa.fa-chevron-down
                     = f.select :delivery_type, Item.delivery_types.keys
-                    -# = f.select :category, [["---", ""], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 1]]
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
@@ -80,7 +79,6 @@
                     .select-wrap
                       %i.fa.fa-chevron-down
                       = f.select :delivery_region, Item.delivery_regions.keys
-                      -# = f.select :prefecture, Address.prefectures.keys
                 .form-group-wrapper
                   .form-group
                     %h3.items-new-text-mini
@@ -89,7 +87,6 @@
                     .select-wrap
                       %i.fa.fa-chevron-down
                       = f.select :delivery_days, Item.delivery_days.keys
-                      -# = f.select :category, [["---", ""], ["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
             .items-new-sell-content.clearfix
               %h3.sell-sub-head 販売価格(300〜9,999,999)
               = link_to "" do
