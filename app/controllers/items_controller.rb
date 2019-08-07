@@ -13,11 +13,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.update(
         image: item_params[:image] ? item_params[:image] : @item.image,
