@@ -3,7 +3,7 @@
   padding: 24px 40px 40px;
   width: 700px;
   background: #fff;
-  margin: 40px auto;
+  margin: 40px auto 24px;
   .item_info {
     &__name {
       font-size: 24px;
@@ -265,7 +265,6 @@
             touch-action: manipulation;
             resize: vertical;
             overflow: auto;
-            -webkit-writing-mode: horizontal-tb !important;
             text-rendering: auto;
           }
           &__submit_btn {
@@ -284,6 +283,86 @@
             vertical-align: middle;
           }
         }
+      }
+    }
+  }
+}
+
+.listing-item-change-box {
+  box-sizing: border-box;
+  margin: 0 auto 24px;
+  width: 700px;
+  background: #fff;
+  padding: 8px 16px 8px 16px;
+  .btn-red {
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    margin: 16px 0 16px 0;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+  }
+  .text-center {
+    font-size: 16px;
+    text-align: center;
+  }
+  .btn-gray {
+    margin: 16px 0 16px 0;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
+.message-container{
+  margin-bottom: 44px;
+  .message-content {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    padding: 24px;
+    background: #fff;
+    .item_messages__form {
+      .text {
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;
+      }
+      .item_messages__form__input {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 8px 0 0;
+        max-width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .item_messages__form__submit_btn{
+        box-sizing: border-box;
+        height: 50px;
+        width: 100%;
+        margin: 8px 0 0;
+        font-size: 14px;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
       }
     }
   }
