@@ -10,7 +10,7 @@
         .sell-container-inner
           %h2.items-new-single-head 商品の情報を入力
 
-          = form_for @item, class: "items-new-sell-form" do |f|
+          = form_for @item do |f|
 
             .items-new-upload-box
               %h3.items-new-upload-box__head
@@ -148,7 +148,7 @@
     %li.footer_items_new__lists__item
       = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/privacy/", class: 'footer_items_new__lists__item__link', target: "_blank", data:{turbolinks: :false}
 
-  = link_to 'root_path', class: 'footer_items_new__link', data:{turbolinks: :false} do
+  = link_to root_path, class: 'footer_items_new__link', data:{turbolinks: :false} do
     = image_tag "mercari_glay-square_logo.svg", size: '80x70', alt: "mercari"
 
   %small © 2019 Mercari 
