@@ -1,7 +1,8 @@
 FactoryBot.define do
 
   factory :item do
-    image              {Rack::Test::UploadedFile.new(File.join(Rails.root, "public/images/user-bg.jpg"))}
+    image              {File.open(File.join(Rails.root, '/spec/fixtures/files/user-bg.jpg'))}
+    # image              {Rack::Test::UploadedFile.new(File.join(Rails.root, "public/images/user-bg.jpg"))}
     name               {"まつお"}
     description        {"スクラムマスターです"}
     item_status        {1}

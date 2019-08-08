@@ -4,7 +4,7 @@ describe ItemsController do
   before do
     # テーブルにレコードを保存しておく
     @user = create(:user)
-    # @another_user = FactoryBot.create(:another_user)
+    # @another_user = create(:another_user)
     @item = create(:item)
   end
 
@@ -23,13 +23,26 @@ describe ItemsController do
     end
   end
 
-  # describe "#update" do
-  #   context "正規のユーザーの場合" do
-  #     it "正常に商品を更新できるか？" do
-  #       item_params = {title: "うんこちゃん"}
-  #       patch :update, params: {id: @article.id, article: article_params}
-  #       expect(@article.reload.title).to eq "うんこちゃん"
-  #     end
+  describe "#update" do
+    context "正規のユーザーの場合" do
+      it "正常に商品を更新できるか？" do
+        sign_in @user
+        item_params = {
+          id: @item.id,
+          image: '/spec/fixtures/files/user-bg.jpg',
+          name: "だったら漕げばいいだろ！？",
+          description: "スクラムマスターです",
+          item_status: "目立った傷や汚れなし",
+          payment: 1,
+          delivery_type: "着払い(購入者負担)",
+          delivery_region: "大阪府",
+          delivery_days: "1~2日で発送",
+          price: 600,
+          size: 1,
+          user_id: 1}
+        patch :update, params: { id: @item.id, item: item_params }, session: {}
+        expect(@item.reload.name).to eq "だったら漕げばいいだろ！？"
+      end
   #     # 記事を更新した後、更新された記事の詳細ページへリダイレクトするか？
   #     it "redirects the page to /articles/article.id(1)" do
   #       sign_in @user
@@ -37,7 +50,7 @@ describe ItemsController do
   #       patch :update, params: {id: @article.id, article: article_params}
   #       expect(response).to redirect_to "/articles/1"
   #     end
-  #   end
+    end
   #   context "with invalid attributes" do
   #     # 不正なアトリビュートを含む記事は更新できなくなっているか？
   #     it "does not update an article" do
@@ -90,5 +103,5 @@ describe ItemsController do
   #       expect(response).to redirect_to "/users/sign_in"
   #     end
   #   end
-  # end
+  end
 end
