@@ -32,7 +32,8 @@
         = f.text_field :phone_number, name: "phone_number", class: 'mi_form__group__input', placeholder: "例）09012345678"
         %p 本人確認のため、携帯電話のSMS（ショートメッセージサービス）を利用して認証を行います。
 
-      = f.submit '登録する',class: 'mi_form__submit_btn'
+      /= f.submit '登録する',class: 'mi_form__submit_btn'
+      = link_to '次へ進む', new_user_address_path(current_user.id), class: 'mi_form__submit_btn', data:{turbolinks: :false}
       %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 
     .text-right

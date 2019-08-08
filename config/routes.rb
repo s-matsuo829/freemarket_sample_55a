@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks" 
   }
 
+  # devise_scope :user do
+  #   get "sign_in", to: "users/sessions#new"
+  #   get "sign_out", to: "users/sessions#destroy" 
+  # end
+
   resources :users, :only => [:index, :show, :edit] do
     resources :cards, only: [:new, :create, :index]
     resources :addresses, only: [:new, :create, :show]
@@ -23,12 +28,9 @@ Rails.application.routes.draw do
       get 'signup_complete'
       get 'signup'
       get 'logout'
+      get 'purchase_confirmation'
     end
   end
 
-  
-
-  resources :items, only: [:index, :show, :new, :create] 
-
-
+  resources :items, only: [:index, :show, :new, :create, :edit, :update]
 end

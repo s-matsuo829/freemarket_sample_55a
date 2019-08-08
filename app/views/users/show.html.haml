@@ -11,7 +11,11 @@
         = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_info__link', data:{turbolinks: :false} do
           %figure
             = image_tag "member_nophoto.jpg", class: 'user_info__link__photo', size: '60x60', alt: ""
-          %h2.user_info__link__nickname.bold にゃん太
+          %h2.user_info__link__nickname.bold
+            - if user_signed_in?
+              = current_user.nickname
+            - else
+              ここに名前がいるはずだった
           .user_info__link__number
             %div
               評価

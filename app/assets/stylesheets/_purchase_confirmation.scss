@@ -1,0 +1,133 @@
+@mixin content-width {
+  width: 390px;
+  margin: auto;
+}
+
+.purchase-header {
+  h1 {
+    line-height: 128px;
+    text-align: center;
+    img {
+      width: 185px;
+      height: 49px;
+      vertical-align: middle;
+    }
+    img:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.confirmation {
+  width: 860px;
+  margin: auto;
+  line-height: 1.5;
+  background-color: #fff;
+  font-size: 17px;
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #b3d4fc;
+    text-decoration: underline;
+  }
+  h2 {
+    padding: 18px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__item-info {
+    padding: 24px 0 40px;
+    border-top: 1px solid #f5f5f5;
+    img {
+      width: 64px;
+      height: 64px;
+    }
+    &__item {
+      display: flex;
+      justify-content: center;
+      &__title {
+        font-size: 18px;
+        font-weight: bold;
+        display: inline;
+        width: 240px;
+        height: 64px;
+        margin-left: 16px;
+      }
+    }
+    &__price {
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 65px;
+      margin-top: 8px;
+      text-align: center;
+      span {
+        margin-left: 8px;
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    &__point {
+      line-height: 60px;
+      text-align: center;
+      background-color: #ccc;
+      @include content-width;
+    }
+    &__total-amount {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      line-height: 80px;
+      @include content-width;
+      &__left {
+        font-size: 20px;
+      }
+      &__right {
+        font-size: 28px;
+      }
+    }
+    input[type='submit'] {
+      display: block;
+      line-height: 65px;
+      background-color: #ea352d;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      @include content-width;
+    }
+  }
+  &__shipping-info {
+    padding: 24px 0 40px;
+    border-top: 1px solid #f5f5f5;
+    font-size: 17px;
+    @include content-width;
+    address {
+      margin-top: 8px;
+    }
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  p {
+    margin-top: 8px;
+    text-align: right;
+    font-size: 17px;
+  }
+  &__payment-info {
+    border-top: 1px solid #f5f5f5;
+    padding: 24px 0 40px;
+    @include content-width;
+    &__method {
+      margin-top: 8px;
+    }
+    img {
+      width: 26px;
+      height: 20px;
+    }
+  }
+}
