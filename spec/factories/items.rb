@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :item do
-    # image              {File.open("#{Rails.root}/public/images/9687.png")}
     image              {Rack::Test::UploadedFile.new(File.join(Rails.root, "public/images/user-bg.jpg"))}
     name               {"まつお"}
     description        {"スクラムマスターです"}
@@ -12,6 +11,6 @@ FactoryBot.define do
     delivery_days      {1}
     price              {300}
     size               {1}
-    user_id            {11}
+    user_id            {1}
   end
 end
