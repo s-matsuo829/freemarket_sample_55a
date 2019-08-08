@@ -64,7 +64,7 @@
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
                 %span マイページ
       - else    
-        .pc-header-nav-box-before-login
+        .pc-header-nav-box__right
           %ul.pc-header-user-log-nav
             %li.pc-header-user-log-nav__sign-up
               = link_to signup_users_path, class: "pc-header-user-log-nav__sign-up__link" do

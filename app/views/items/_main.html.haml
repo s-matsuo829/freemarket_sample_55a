@@ -4,6 +4,17 @@
   .main-content
     %h2
       ピックアップカテゴリー
+    - if @items.present?
+      %h3
+        = link_to "/jp/new_item/1/" do
+          新着アイテム
+      .main-content__list
+
+        = render @items
+
+      .main-content__view-all
+        = link_to "https://item.mercari.com/jp/m28891042045/" do
+          すべての商品を見る
     %h3
       = link_to "/jp/category/1/" do
         レディース 新着アイテム

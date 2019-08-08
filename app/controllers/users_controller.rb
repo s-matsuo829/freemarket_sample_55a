@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  # before_action :authenticate_user!, only: [:show]
 
   def index
   end
@@ -26,4 +26,6 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def purchase_confirmation
+  end
 end
