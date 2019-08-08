@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get 'signup_complete'
       get 'signup'
       get 'logout'
+      get 'purchase_confirmation'
     end
   end
 
