@@ -32,5 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :show, :new, :create, :edit, :update]
+  resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end

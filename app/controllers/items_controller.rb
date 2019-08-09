@@ -7,6 +7,8 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
   end
   
   def new
@@ -63,6 +65,11 @@ class ItemsController < ApplicationController
     else
       redirect_to item_path(@item.id)
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
   end
 
   private
