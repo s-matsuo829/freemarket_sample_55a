@@ -28,3 +28,6 @@
 
 # dotenv for sns auth
 /config/.env
+
+# .env for PAY.JP
+/.env
