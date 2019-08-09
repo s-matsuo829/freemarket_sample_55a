@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:signup]
 
   def show
+    @items = current_user.items
   end
 
   def edit

@@ -6,17 +6,17 @@
       ピックアップカテゴリー
     - if @items.present?
       %h3
-        = link_to "/jp/new_item/1/" do
+        = link_to root_path do
           新着アイテム
       .main-content__list
 
         = render @items
 
       .main-content__view-all
-        = link_to "https://item.mercari.com/jp/m28891042045/" do
+        = link_to root_path do
           すべての商品を見る
     %h3
-      = link_to "/jp/category/1/" do
+      = link_to root_path do
         レディース 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -68,10 +68,10 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "10"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/2/" do
+      = link_to root_path do
         メンズ 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -111,10 +111,10 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/3/" do
+      = link_to root_path do
         ベビー・キッズ 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -130,10 +130,10 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/6/" do
+      = link_to root_path do
         コスメ・香水・美容 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -161,13 +161,13 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
   .main-content
     %h2
       ピックアップブランド
     %h3
-      = link_to "https://www.mercari.com/jp/brand/658/" do
+      = link_to root_path do
         シャネル 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -219,10 +219,10 @@
               -# .main-content__list__container__detail__info__like
               -#   = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/1326/" do
+      = link_to root_path do
         ルイ ヴィトン 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -274,10 +274,10 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/1620/" do
+      = link_to root_path do
         シュプリーム 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -329,10 +329,10 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
     %h3
-      = link_to "/jp/category/857/" do
+      = link_to root_path do
         ナイキ 新着アイテム
     .main-content__list
       .main-content__list__container
@@ -384,7 +384,7 @@
               .main-content__list__container__detail__info__like
                 = fa_icon "heart", text: "1"
     .main-content__view-all
-      = link_to "https://item.mercari.com/jp/m28891042045/" do
+      = link_to root_path do
         すべての商品を見る
   .main-footer
     .main-footer__left
@@ -396,9 +396,9 @@
         .main-footer__left__logo__mercari
           = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2098311808", class: 'mercari', alt: "メルカリロゴ"
         .main-footer__left__logo__apple-google
-          = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+          = link_to root_path do
             = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2098311808", alt: "Appleロゴ"
-          = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+          = link_to root_path do
             = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2098311808", alt: "Googleロゴ"
     .main-footer__right
       = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2098311808", alt: "メルカリ"
