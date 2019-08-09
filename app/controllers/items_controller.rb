@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
       delivery_region: item_params[:delivery_region],
       delivery_days: item_params[:delivery_days],
       price: item_params[:price],
-      user_id: 1
+      user_id: current_user.id
     )
 
     if @item.save
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
         item_id: @item.id,
         status: 0,
         rating: "",
-        buyer_id: 1
+        buyer_id: current_user.id
       )
       redirect_to :root and return
     else
@@ -41,12 +41,6 @@ class ItemsController < ApplicationController
 
 
 
-  end
-
-  private
-
-  def item_params
-    params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: 1)
   end
 
   def edit
@@ -59,6 +53,7 @@ class ItemsController < ApplicationController
         name: item_params[:name],
         description: item_params[:description],
         item_status: item_params[:item_status],
+        payment: @item.payment,
         delivery_type: item_params[:delivery_type],
         delivery_region: item_params[:delivery_region],
         delivery_days: item_params[:delivery_days],
@@ -72,8 +67,12 @@ class ItemsController < ApplicationController
 
   private
 
+  # def item_params
+  #   params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: 1)
+  # end
+
   def item_params
-    params.require(:item).permit(:image, :name, :description, :item_status, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
   end
 
   def set_item
