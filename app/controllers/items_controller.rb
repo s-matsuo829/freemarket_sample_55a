@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :update]
+  before_action :check_user, only: [:edit]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -26,7 +28,6 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       user_id: current_user.id
     )
-
     if @item.save
       @trading = Trading.create(
         item_id: @item.id,
@@ -38,9 +39,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-
-
   end
 
   def edit
@@ -67,16 +65,16 @@ class ItemsController < ApplicationController
 
   private
 
-  # def item_params
-  #   params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: 1)
-  # end
-
   def item_params
     params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
   end
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def check_user
+    redirect_to root_path unless @item.user_id == current_user.id
   end
 
 end

@@ -1,7 +1,7 @@
 .default-container
   .purchase-header
     %h1
-      = link_to 'https://www.mercari.com/jp/' do
+      = link_to root_path do
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983', alt: 'mercari'
   .confirmation
     %h2
@@ -56,7 +56,7 @@
         %br/
         網走 太郎
       %p
-        = link_to 'https://www.mercari.com/jp/transaction/address/m12345678910/' do
+        = link_to root_path do
           変更する
           = fa_icon 'chevron-right'
     .confirmation__payment-info
@@ -68,7 +68,7 @@
         06 / 30
       = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?863303983', alt: 'JCB'
       %p
-        = link_to 'https://www.mercari.com/jp/transaction/select_card/m12345678910/' do
+        = link_to root_path do
           変更する
           = fa_icon 'chevron-right'
 

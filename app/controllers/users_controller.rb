@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!, only: [:show]
-
-  def index
-  end
+  before_action :authenticate_user!, except: [:signup]
 
   def show
+    @items = current_user.items
   end
 
   def edit
