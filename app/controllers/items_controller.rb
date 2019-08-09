@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
       )
       redirect_to item_path(@item.id)
     else
-      render item_path(@item.id)
+      redirect_to item_path(@item.id)
     end
   end
 
