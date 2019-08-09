@@ -99,17 +99,16 @@
               %span あんしん・あんぜんへの取り組み
 
     - if user_signed_in? && current_user.id == @item.user_id
-      .listing-item-change-box
-        = link_to "商品の編集", edit_item_url, class: "btn-red"
-        %p.text-center or
-        = link_to "", class: "btn-gray" do
+      .items-new-change-box
+        = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
+        %p.items-new-change-box__text or
+        = link_to "", class: "items-new-change-box__btn-gray" do
           出品を一旦停止する
-        .listing-item-gray-btn2
-        = link_to "この商品を削除する", item_path, class: "btn-gray", method: :delete
+        = link_to "この商品を削除する", item_path, class: "items-new-change-box__btn-gray", method: :delete
         
 
-    .message-container
-      .message-content
+    .items-new-message-container
+      .items-new-message-container__content
         = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
           %p.text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = f.text_area :body, class: 'item_messages__form__input'
