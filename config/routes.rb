@@ -32,9 +32,12 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :items, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :likes, only: [:create, :destroy]
     collection do
       get 'show_all'
     end
   end
 end
+
