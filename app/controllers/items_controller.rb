@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -68,8 +68,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @user = User.find(@item.user_id)
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to root_path
   end
 
   private
