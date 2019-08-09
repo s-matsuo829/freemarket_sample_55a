@@ -60,7 +60,7 @@
                 
               %ul.pc-header-user-box.pc-header-todo-box.mypage__item-list{ data: { id: "pc-header-user-items"}}
             %li.pc-heade-user-box__mypage
-              = link_to  user_path(1), class: "pc-header-menu__link" do
+              = link_to  user_path(current_user), class: "pc-header-menu__link" do
                 = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", alt: "", class: "pc-header-user__icon"
                 %span マイページ
       - else    
