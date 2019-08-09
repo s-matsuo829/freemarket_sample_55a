@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :show_all]
   before_action :set_item, only: [:edit, :update]
   before_action :check_user, only: [:edit]
 
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
   end
 
   def show_all
-    @items = Item.where(@item.trading.status: '出品中')
+    @items = Item.all.limit(20).order("created_at DESC")
   end
 
   private
