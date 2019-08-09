@@ -73,7 +73,7 @@
         %span.item_info__price__tax (税込)
         %span.item_info__price__fee 着払い
     .item_buy_button
-      = link_to "購入画面に進む", "/transaction/buy/", class: 'item_buy_button__link', data:{turbolinks: :false}
+      = link_to "購入画面に進む", 'purchase_confirmation_item_path(params[:id])', class: 'item_buy_button__link', data:{turbolinks: :false}
     .item_description
       %p とれたて新鮮、荒川農園の桃を産地直送でお届けします！※1個での単品販売です※おいしい状態でお召し上がりいただきたいので、確実に受け取れるお日にちをご指定下さい
     .item_buttons.clearfix
