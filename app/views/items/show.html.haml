@@ -13,12 +13,7 @@
               .owl_wrap__main_image__wrap
                 .owl_wrap__main_image__wrap__item.active
                   = image_tag "Book51.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
-                .owl_wrap__main_image__wrap__item.active
-                  = image_tag "Book51.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
-                .owl_wrap__main_image__wrap__item.active
-                  = image_tag "Book51.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
-                .owl_wrap__main_image__wrap__item.active
-                  = image_tag "Book51.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
+                
             .owl_wrap__nav
               .owl_wrap__nav--prev prev
               .owl_wrap__nav--next next
@@ -26,15 +21,6 @@
               .owl_wrap__small_images__item.active
                 .owl_wrap__small_images__item--inner
                   = image_tag "Book51.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
-              .owl_wrap__small_images__item.active
-                .owl_wrap__small_images__item--inner  
-                  = image_tag "hokuto_1.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
-              .owl_wrap__small_images__item.active
-                .owl_wrap__small_images__item--inner   
-                  = image_tag "hokuto_2.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
-              .owl_wrap__small_images__item.active
-                .owl_wrap__small_images__item--inner  
-                  = image_tag "hokuto_3.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
               
         %table.item_info__profile__details
           %tr
@@ -44,13 +30,16 @@
               .ratings
                 .ratings__rate
                   = fa_icon 'smile-o', class: 'icon-smile-o'
-                  %span 78
+                  %span 
+                  = @number_of_goods
                 .ratings__rate
                   = fa_icon 'meh-o', class: 'icon-meh-o'
-                  %span 12
+                  %span 
+                  = @number_of_normals
                 .ratings__rate
                   = fa_icon 'frown-o', class: 'icon-frown-o'
-                  %span 37
+                  %span 
+                  = @number_of_bads
           %tr
             %th カテゴリー
             %td
