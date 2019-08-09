@@ -11,14 +11,24 @@ class ItemsController < ApplicationController
   end
 
   def purchase_confirmation
+
+    @item = Item.find(params[:id])
+    @address = @item.user.address
+    @user = @item.user
+
+  end
+
+
+  def payment_complete
   end
 
   def pay
-      Payjp.api_key = 'sk_test_77779f0a6a5367800572e635'
-      charge = Payjp::Charge.create(
-        :amount => @item.price,
-        :card => params['payjp-token'],
-        :currency => 'jpy',
-      )
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+    amount: params[:amount],
+    card:params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to payment_complete_item_path
   end
 end
