@@ -63,6 +63,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show_all
+    @items = Item.where(@item.trading.status: '出品中')
+  end
+
   private
 
   def item_params
