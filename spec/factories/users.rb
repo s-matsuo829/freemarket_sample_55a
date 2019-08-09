@@ -10,8 +10,8 @@ FactoryBot.define do
     first_kana            {"ナマエ"}
     last_kana             {"ミョウジ"}
     birthday              {"2019-07-24"}
-    provider              {"1234567a"}
-    uid              {"a1234567"}
+    # provider              {"1234567a"}
+    # uid              {"a1234567"}
   end
 
 end

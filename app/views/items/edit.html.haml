@@ -9,7 +9,7 @@
           .sell-container-inner
             %h2.items-new-single-head 商品の情報を入力
 
-            = form_for @item do |f|
+            = form_for @item, class: "items-new-sell-form" do |f|
 
               .items-new-upload-box
                 %h3.items-new-upload-box__head
@@ -42,13 +42,14 @@
               .items-new-sell-content.clearfix
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
-                  .form-group
-                    %h3.items-new-text-mini
-                      カテゴリー
-                      %span.items-new-text-mini__red 必須
-                    .select-wrap
-                      %i.fa.fa-chevron-down
-
+                  //TODO : カテゴリ実装後に追加、調整を行う
+                  -# .form-group
+                  -#   %h3.items-new-text-mini
+                  -#     カテゴリー
+                  -#     %span.items-new-text-mini__red 必須
+                  -#   .select-wrap
+                  -#     %i.fa.fa-chevron-down
+                      -# = f.select :category, [["---", ""], ["レディース", 1], ["メンズ", 2], ["ベビー・キッズ", 3], ["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["おもちゃ・ホビー・グッズ", 6], ["コスメ・香水・美容", 7], ["家電・スマホ・カメラ", 8], ["スポーツ・レジャー", 9], ["ハンドメイド", 10], ["チケット", 11], ["自動車・オートバイ", 12], ["その他", 13]]
                   .form-group-wrapper
                     .form-group
                       %h3.items-new-text-mini
@@ -57,8 +58,6 @@
                       .select-wrap
                         %i.fa.fa-chevron-down
                         = f.select :item_status, Item.item_statuses.keys
-                        -# = f.select :category, [["---", ""], ["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3], ["やや傷や汚れあり", 4], ["傷や汚れあり", 5], ["全体的に状態が悪い", 6]]
-
               .items-new-sell-content.clearfix
                 %h3.sell-sub-head 配送について
                 = link_to "" do
@@ -71,7 +70,6 @@
                     .select-wrap
                       %i.fa.fa-chevron-down
                       = f.select :delivery_type, Item.delivery_types.keys
-                      -# = f.select :category, [["---", ""], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 1]]
                   .form-group-wrapper
                     .form-group
                       %h3.items-new-text-mini
@@ -80,7 +78,6 @@
                       .select-wrap
                         %i.fa.fa-chevron-down
                         = f.select :delivery_region, Item.delivery_regions.keys
-                        -# = f.select :prefecture, Address.prefectures.keys
                   .form-group-wrapper
                     .form-group
                       %h3.items-new-text-mini
@@ -89,8 +86,6 @@
                       .select-wrap
                         %i.fa.fa-chevron-down
                         = f.select :delivery_days, Item.delivery_days.keys
-                        -# = f.select :category, [["---", ""], ["1~2日で発送", 1], ["2~3日で発送", 2], ["4~7日で発送", 3]]
-
               .items-new-sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
                 = link_to "" do
@@ -104,7 +99,7 @@
                       .sell-price-input
                         ¥
                         .sell-price-input__wrapper
-                          = f.number_field :price, min:300, max:9999999, class: "input-default", placeholder: "例）300", value: ""
+                          = f.number_field :price, min:300, max:9999999, class: "input-default", placeholder: "例）300"
                     %li.clearfix.fee
                       .fee__left
                         販売手数料 (10%)
@@ -114,7 +109,6 @@
                       .profit__right -
               .modal{role: "dialog", tabindex: "-1"}
                 .modal-inner
-
               .items-new-sell-content.sell-btn-box
                 %div
                   %p
@@ -134,8 +128,8 @@
                     = link_to "", class: "items-new-notes" do
                       %span<>加盟店規約
                     に同意したことになります。
-                = f.submit "出品する", class: "items-new-btn-red"
+                = f.submit "編集する", class: "items-new-btn-red"
                 = link_to root_path, class: "items-new-btn-gray" do
                   もどる
 
-  = render 'devise/shared/gray_footer'
+  =render partial: 'devise/shared/gray_footer'

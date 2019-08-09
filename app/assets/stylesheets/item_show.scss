@@ -1,3 +1,9 @@
+.active {
+  filter:alpha(opacity=100)!important;
+  -moz-opacity: 1!important;
+  opacity: 1!important;
+}
+
 .item-show {
   box-sizing: border-box;
   padding: 24px 40px 40px;
@@ -23,6 +29,7 @@
         .owl_wrap {
           display: block;
           &__main_image {
+            
             &__wrap {
               overflow: hidden;
               &__item {
@@ -48,7 +55,16 @@
               max-height: none;
               overflow: hidden;
               display: inline-block;
+              &--inner {
+                &__photo {
+                  left: 0px;
+                  width: 60px;
+                  vertical-align: bottom;
+                }
+              
+              
             }
+          }
           }
         }
       }
