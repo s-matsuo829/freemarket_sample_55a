@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :new, :show]
+  resources :items, only: [:index, :new, :show] do
+    resources :likes, only: [:create, :destroy]
+  end
 
 end

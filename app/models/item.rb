@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   has_one :trading
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   # reg_price_range = /[3-9]\d{2}|[1-9]\d{3,6}/
 

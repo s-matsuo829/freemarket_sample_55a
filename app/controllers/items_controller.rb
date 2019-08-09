@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
     @number_of_normals = normal_trades.count
     bad_trades = Trading.where(item_id: @user.items.ids, rating: 2)
     @number_of_bads = bad_trades.count
+    
+    @like = Like.new
    
   end
   
