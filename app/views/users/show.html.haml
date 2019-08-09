@@ -8,31 +8,33 @@
 
     .user-show_right-content
       %section.user_info
-        = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_info__link', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'user_info__link', data:{turbolinks: :false} do
           %figure
             = image_tag "member_nophoto.jpg", class: 'user_info__link__photo', size: '60x60', alt: ""
-          %h2.user_info__link__nickname.bold にゃん太
+          %h2.user_info__link__nickname.bold
+            = current_user.nickname
           .user_info__link__number
             %div
               評価
               %span.bold 0
             %div.user_info__link__number__right
               出品数
-              %span.bold 0
+              %span.bold 
+                = @items.length
 
       %section.user_notification_todo
         %ul.user_notification_todo__tabs
           %li.active
             %h3
-              = link_to "お知らせ", "#mypage_notification", class: 'user_notification_todo__tabs__link bold', data:{toggle: "tab"}, data:{turbolinks: :false}
+              = link_to "お知らせ", user_path(current_user.id), class: 'user_notification_todo__tabs__link bold', data:{toggle: "tab"}, data:{turbolinks: :false}
           %li
             %h3
-              = link_to "やることリスト", "#mypage-tab-todo", class: 'user_notification_todo__tabs__link bold', data: {toggle: "tab"}, data:{turbolinks: :false}
+              = link_to "やることリスト", user_path(current_user.id), class: 'user_notification_todo__tabs__link bold', data: {toggle: "tab"}, data:{turbolinks: :false}
 
         .user_notification_todo__content
           %ul#mypage_notification.user_notification_todo__content__list.tab-pane.active
             %li
-              = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+              = link_to user_path(current_user.id), class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
                 %figure
                   = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
                 .user_notification_todo__content__list__link__body
@@ -42,7 +44,7 @@
                     %span 47 分前
                 = fa_icon 'angle-right 2x', class: 'icon-angle-right'
             %li
-              = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+              = link_to user_path(current_user.id), class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
                 %figure
                   = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
                 .user_notification_todo__content__list__link__body
@@ -52,7 +54,7 @@
                     %span 47 分前
                 = fa_icon 'angle-right 2x', class: 'icon-angle-right'
             %li
-              = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+              = link_to user_path(current_user.id), class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
                 %figure
                   = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
                 .user_notification_todo__content__list__link__body
@@ -62,7 +64,7 @@
                     %span 47 分前
                 = fa_icon 'angle-right 2x', class: 'icon-angle-right'
             %li
-              = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+              = link_to user_path(current_user.id), class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
                 %figure
                   = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
                 .user_notification_todo__content__list__link__body
@@ -72,7 +74,7 @@
                     %span 47 分前
                 = fa_icon 'angle-right 2x', class: 'icon-angle-right'
             %li
-              = link_to "https://www.mercari.com/jp/u/335741478/", class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
+              = link_to user_path(current_user.id), class: 'user_notification_todo__content__list__link', data:{modal: "banner"}, data:{open: "modal"}, data:{turbolinks: :false} do
                 %figure
                   = image_tag "mercari_profile.png", class: 'profile_img', size: '48x48', alt: ""
                 .user_notification_todo__content__list__link__body
@@ -82,7 +84,7 @@
                     %span 47 分前
                 = fa_icon 'angle-right 2x', class: 'icon-angle-right'
             %li.user_notification_todo__content__list--go
-              = link_to '一覧を見る', "/jp/mypage/notification/", class: 'user_notification_todo__content__list--go__link', data:{turbolinks: :false}
+              = link_to '一覧を見る', user_path(current_user.id), class: 'user_notification_todo__content__list--go__link', data:{turbolinks: :false}
 
           %ul#mypage_todo.user_notification_todo__content__list.tab-pane
             %li.user-item-not-found.bold 現在、やることリストはありません
@@ -92,10 +94,10 @@
         %ul.user_tradings__tabs
           %li.active
             %h3
-              = link_to '取引中', "#mypage_trading_tab-now", class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
+              = link_to '取引中', user_path(current_user.id), class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
           %li
             %h3
-              = link_to '過去の取引', "#mypage_trading_tab-old", class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
+              = link_to '過去の取引', user_path(current_user.id), class: 'user_tradings__status', data:{toggle: "tab"}, data:{turbolinks: :false}
         .user_tradings__contents
           %ul#mypage_trading-now.user_tradings__contents__list.tab-pane.active
             %li.user-item-not-found.bold 取引中の商品がありません

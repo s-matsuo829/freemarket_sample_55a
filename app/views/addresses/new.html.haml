@@ -2,7 +2,7 @@
   
   .header_address_new
     %h1.header_address_new--wrap
-      = link_to 'root_path', class: 'header_address_new--wrap__link', data:{turbolinks: :false} do
+      = link_to root_path, class: 'header_address_new--wrap__link', data:{turbolinks: :false} do
         = image_tag "mercari_logo.png", class: 'header_address_new--wrap__link__image', size: '185x52', alt: "mercari"
     .header_address_new__stage
       %ol.header_address_new__stage__list.clearfix
@@ -27,13 +27,15 @@
 
     .mi_group
       %p.bold お名前
-      %p 石ノ森 章太郎
+      %p
+        = @user.last_name + ' ' + @user.first_name
 
     .mi_group
       %p.bold お名前カナ
-      %p イシノモリ ショウタロウ
+      %p
+        = @user.last_kana + ' ' + @user.first_kana
 
-    = form_with url: 'user_addresses_path', local: true, class: 'mi_form' do |f|
+    = form_with url: user_addresses_path(current_user.id), local: true, class: 'mi_form' do |f|
 
       .mi_form__group
         %label.bold{ for: "postalcode" } 郵便番号

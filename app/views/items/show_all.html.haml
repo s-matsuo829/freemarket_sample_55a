@@ -1,0 +1,17 @@
+.default-container
+  = render "header"
+
+  %main.show_all.clearfix
+    .main-content.clearfix
+      %h2
+        全ての商品を見る
+      %h3
+      - if @items.present?
+        .main-content__list.clearfix
+          = render @items
+
+    .main-content__view-all
+      = link_to root_path do
+        トップページに戻る
+
+  = render "footer"

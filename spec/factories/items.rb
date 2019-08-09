@@ -12,6 +12,6 @@ FactoryBot.define do
     delivery_days      {1}
     price              {300}
     size               {1}
-    user_id            {11}
+    user
   end
 end

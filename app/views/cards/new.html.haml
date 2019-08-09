@@ -68,6 +68,7 @@
           %span.card_new_form__group__question ？
           %span カード裏面の番号とは？
 
-      = f.submit '次へ進む',class: 'card_new_form__submit_btn'
+      /= f.submit '次へ進む',class: 'card_new_form__submit_btn'
+      = link_to '次へ進む', signup_complete_users_path, class: 'card_new_form__submit_btn', data:{turbolinks: :false}
 
   =render partial: 'devise/shared/gray_footer'
