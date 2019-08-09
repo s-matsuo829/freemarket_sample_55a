@@ -91,17 +91,21 @@
     .item_buttons.clearfix
       .item_buttons__left
         %button.item_buttons__left--like{data:{ga: "element"}, data:{ga:{category: "LIKE"}}, data:{ga:{label: "like!"}}, data:{id: "m62551574891"}, data:{toggle: "like"}, name: "like!", type: "button"}
+          - if current_user.already_liked?(@item) 
+            = link_to item_like_path(@item), method: :delete do
+              = fa_icon 'heart', class: 'icon-heart'
+              %span いいね!
+              %span.fade-in-down{data:{num: "like"}} 
+                = @item.likes.count
           
-          - if current_user.nil?
-            = fa_icon 'heart-o', class: 'icon-heart-o'
-            %span いいね!
-            %span.fade-in-down{data:{num: "like"}} 
-              = @item.likes.count
-          - elsif current_user.already_liked?(@item) 
-            = fa_icon 'heart', class: 'icon-heart-o'
-            %span いいね!
-            %span.fade-in-down{data:{num: "like"}} 
-              = @item.likes.count
+          - else
+            = link_to item_likes_path(@item), method: :post do
+              = fa_icon 'heart-o', class: 'icon-heart-o'
+              %span いいね!
+              %span.fade-in-down{data:{num: "like"}} 
+                = @item.likes.count
+          
+        
         = link_to "", class: 'item_buttons__left--report clearfix', data:{modal: "report-item"}, data:{open: "modal"}, data:{turbolinks: :false} do
           = fa_icon 'flag-checkered', class: 'icon-flag-checkered'
           %span 不適切な商品の報告
