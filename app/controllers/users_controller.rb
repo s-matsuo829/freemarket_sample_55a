@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:signup]
 
-  def index
-  end
-
   def show
   end
 

@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       user_id: current_user.id
     )
-
     if @item.save
       @trading = Trading.create(
         item_id: @item.id,
@@ -39,9 +38,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-
-
   end
 
   def edit
