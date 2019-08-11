@@ -1,7 +1,7 @@
 .default-container
   
   =render partial: 'items/header'
-
+  
   %main
     .item-show
       %section.item_info
@@ -14,7 +14,6 @@
                 .owl_wrap__main_image__wrap
                   .owl_wrap__main_image__wrap__item.active
                     = image_tag @item.image.url, class: 'owl_wrap__main_image__wrap__item__photo', alt: ""
-
               .owl_wrap__nav
                 .owl_wrap__nav--prev prev
                 .owl_wrap__nav--next next
