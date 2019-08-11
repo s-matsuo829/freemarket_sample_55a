@@ -8,7 +8,7 @@
       購入内容の確認
     .confirmation__item-info
       .confirmation__item-info__item
-        = image_tag @item.image.to_s, alt: (@item.name)
+        = image_tag @item.image.url, alt: (@item.name)
         .confirmation__item-info__item__title
           = @item.name
       = form_with url: pay_items_path, method: :post do |f|
