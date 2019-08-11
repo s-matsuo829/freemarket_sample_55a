@@ -78,11 +78,11 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  private
-  
   def show_all
     @items = Item.all.limit(20).order("created_at DESC")
   end
+
+  private
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
