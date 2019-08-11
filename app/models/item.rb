@@ -1,7 +1,9 @@
 class Item < ApplicationRecord
   has_one :trading
   belongs_to :user
-  has_many :likes, dependent: :destroy
+  
+  # TODO:likes作るなら復活させること
+  # has_many :likes, dependent: :destroy
 
   # reg_price_range = /[3-9]\d{2}|[1-9]\d{3,6}/
 

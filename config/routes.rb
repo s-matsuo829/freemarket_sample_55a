@@ -32,9 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :items do
     collection do
       get 'show_all'
     end
   end
+
 end

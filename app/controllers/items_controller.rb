@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
   before_action :check_user, only: [:edit]
 
   def index
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     @number_of_normals = normal_trades.count
     bad_trades = Trading.where(item_id: @user.items.ids, rating: 2)
     @number_of_bads = bad_trades.count
-   
+  
   end
   
   def new
@@ -73,11 +73,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show_all
-    @items = Item.all.limit(20).order("created_at DESC")
+  def destroy
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to root_path
   end
 
   private
+  
+  def show_all
+    @items = Item.all.limit(20).order("created_at DESC")
+  end
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
