@@ -119,8 +119,8 @@
         = link_to "この商品を削除する", item_path, class: "items-new-change-box__btn-gray", method: :delete
         
 
-    .items-new-message-container
-      .items-new-message-container__content
+    .items-show-message-container
+      .items-show-message-container__content
         = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
           %p.text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           = f.text_area :body, class: 'item_messages__form__input'

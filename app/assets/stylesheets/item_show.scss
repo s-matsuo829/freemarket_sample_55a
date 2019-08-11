@@ -342,7 +342,7 @@
   }
 }
 
-.items-new-message-container{
+.items-show-message-container{
   margin-bottom: 44px;
   &__content {
     box-sizing: border-box;
@@ -357,7 +357,7 @@
         font-size: 14px;
         background: #fff6de;
       }
-      .item_messages__form__input {
+      &__input {
         box-sizing: border-box;
         width: 100%;
         margin: 8px 0 0;
@@ -369,7 +369,7 @@
         font-size: 16px;
         line-height: 1.5;
       }
-      .item_messages__form__submit_btn{
+      &__submit_btn{
         box-sizing: border-box;
         height: 50px;
         width: 100%;
