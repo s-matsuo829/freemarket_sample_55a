@@ -1,0 +1,17 @@
+.default-container
+  = render "header"
+
+  %main.show_user_all.clearfix
+    .main-content.clearfix
+      %h2
+        = "#{current_user.nickname} さんの全ての商品を見る"
+      %h3
+      - if @items.present?
+        .main-content__list.clearfix
+          = render partial: "items/user_item", locals: {user_items: @items}
+
+    .main-content__view-all
+      = link_to root_path do
+        トップページに戻る
+
+  = render "footer"

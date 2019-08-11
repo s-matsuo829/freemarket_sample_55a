@@ -81,7 +81,11 @@ class ItemsController < ApplicationController
   def show_all
     @items = Item.all.limit(20).order("created_at DESC")
   end
-  
+
+  def show_user_all
+    @items = current_user.items.limit(20).order("created_at DESC")
+  end
+
   def purchase_confirmation
 
     @item = Item.find(params[:id])
@@ -89,7 +93,6 @@ class ItemsController < ApplicationController
     @user = @item.user
 
   end
-
 
   def payment_complete
   end
