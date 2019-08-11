@@ -81,21 +81,7 @@ class ItemsController < ApplicationController
   def show_all
     @items = Item.all.limit(20).order("created_at DESC")
   end
-
-  private
-
-  def item_params
-    params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-  def check_user
-    redirect_to root_path unless @item.user_id == current_user.id
-  end
-
+  
   def purchase_confirmation
 
     @item = Item.find(params[:id])
@@ -117,4 +103,19 @@ class ItemsController < ApplicationController
     )
     redirect_to payment_complete_item_path
   end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def check_user
+    redirect_to root_path unless @item.user_id == current_user.id
+  end
+
 end

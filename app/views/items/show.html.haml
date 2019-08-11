@@ -86,7 +86,7 @@
 
       - unless user_signed_in? && current_user.id == @item.user_id
         .item_buy_button
-          = link_to "購入画面に進む", "/transaction/buy/", class: 'item_buy_button__link', data:{turbolinks: :false}
+          = link_to "購入画面に進む", purchase_confirmation_item_path(@item.id), class: 'item_buy_button__link', data:{turbolinks: :false}
 
       .item_description
         %p
