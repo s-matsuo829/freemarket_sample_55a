@@ -77,6 +77,10 @@ class ItemsController < ApplicationController
     @items = Item.all.limit(20).order("created_at DESC")
   end
 
+  def show_user_all
+    @items = current_user.items.limit(20).order("created_at DESC")
+  end
+
   private
 
   def item_params
