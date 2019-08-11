@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :check_user, only: [:edit]
+  before_action :check_trading_status, only: [:edit]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -79,7 +80,7 @@ class ItemsController < ApplicationController
   end
 
   def show_all
-    @items = Item.all.limit(20).order("created_at DESC")
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).order("created_at DESC").limit(40)
   end
 
   def show_user_all
@@ -119,6 +120,10 @@ class ItemsController < ApplicationController
 
   def check_user
     redirect_to root_path unless @item.user_id == current_user.id
+  end
+
+  def check_trading_status
+    redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
   end
 
 end
