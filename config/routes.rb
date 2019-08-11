@@ -34,7 +34,13 @@ Rails.application.routes.draw do
 
   resources :items do
     collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
+    end
+
+    member do
+      get 'purchase_confirmation'
+      get 'payment_complete'
     end
   end
 

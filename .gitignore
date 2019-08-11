@@ -29,5 +29,5 @@
 # dotenv for sns auth
 /config/.env
 
-# Ignore uploaded files in development at carrierwave
-public/uploads/*
+# .env for PAY.JP
+/.env
