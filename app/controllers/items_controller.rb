@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :check_user, only: [:edit]
+  before_action :check_trading_status, only: [:edit]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -86,6 +87,27 @@ class ItemsController < ApplicationController
     @items = current_user.items.limit(20).order("created_at DESC")
   end
 
+  def purchase_confirmation
+
+    @item = Item.find(params[:id])
+    @address = @item.user.address
+    @user = @item.user
+
+  end
+
+  def payment_complete
+  end
+
+  def pay
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+    amount: params[:amount],
+    card:params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to payment_complete_item_path
+  end
+
   private
 
   def item_params
@@ -100,25 +122,8 @@ class ItemsController < ApplicationController
     redirect_to root_path unless @item.user_id == current_user.id
   end
 
-  def purchase_confirmation
-
-    @item = Item.find(params[:id])
-    @address = @item.user.address
-    @user = @item.user
-
+  def check_trading_status
+    redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
   end
 
-
-  def payment_complete
-  end
-
-  def pay
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-    amount: params[:amount],
-    card:params['payjp-token'],
-    currency: 'jpy'
-    )
-    redirect_to payment_complete_item_path
-  end
 end
