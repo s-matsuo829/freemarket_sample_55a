@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
   end
 
   def show_all
-    @items = Item.all.limit(20).order("created_at DESC")
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).order("created_at DESC").limit(40)
   end
 
   def show_user_all
