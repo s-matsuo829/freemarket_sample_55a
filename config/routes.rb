@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   get "sign_out", to: "users/sessions#destroy" 
   # end
 
-  resources :users, :only => [:index, :show, :edit] do
+  resources :users, :only => [:show, :edit] do
     resources :cards, only: [:new, :create, :index]
     resources :addresses, only: [:new, :create, :show]
 
@@ -32,5 +32,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :items do
+    collection do
+      get 'show_all'
+    end
+  end
+
 end
