@@ -31,3 +31,5 @@
 
 # .env for PAY.JP
 /.env
+
+public/uploads/*
