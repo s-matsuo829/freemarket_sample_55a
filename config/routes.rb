@@ -43,5 +43,5 @@ Rails.application.routes.draw do
       get 'payment_complete'
     end
   end
-  
+
 end
