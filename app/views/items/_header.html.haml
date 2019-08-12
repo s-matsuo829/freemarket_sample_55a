@@ -17,19 +17,7 @@
               = link_to "", class: "pc-header-nav__list__link.list-parent" do
                 = fa_icon "list-ul", text: "カテゴリーから探す", class: "pc-header-nav__list__link__icon"
 
-            -# TODO: ログイン後ナブバー 実装の進行状況により作成予定
-            -# %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
-              -# %li.pc-header-nav__parent
-                -# %h3
-                  -# = link_to "レディース", "" 
-                -# %ul.pc-header-nav__child-wrap{data: {mega: 2}}
-                  -# %li.pc-header-nav__child
-                    -# = link_to "トップス", "" 
-                    -# %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
-                      -# %li.pc-header-nav__grand-child
-                        -# = link_to "Tシャツ/カットソー(半袖/袖なし)", "" 
-                -# %h3
-                  -# = link_to "カテゴリー一覧", "" 
+                  -# = render partial: 'items/categories', collection: @parents
           
           %li.pc-header-nav__list
             %h4

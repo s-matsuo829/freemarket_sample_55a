@@ -3,7 +3,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
-
+  
+  belongs_to :category
+  
   # reg_price_range = /[3-9]\d{2}|[1-9]\d{3,6}/
 
   validates :image,
