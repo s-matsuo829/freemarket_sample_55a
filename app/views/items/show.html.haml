@@ -115,7 +115,7 @@
         %p.items-new-change-box__text or
         = link_to "", class: "items-new-change-box__btn-gray" do
           出品を一旦停止する
-        = link_to "この商品を削除する", item_path, class: "items-new-change-box__btn-gray", method: :delete
+        = link_to "この商品を削除する", item_path, class: "items-new-change-box__btn-gray", method: :delete, data: { confirm: '削除しますか？' }
         
 
     .items-show-message-container
