@@ -10,7 +10,7 @@
           新着アイテム
       .main-content__list
 
-        = render @items
+        = render partial: 'items/item', collection: @items
 
       .main-content__view-all
         = link_to show_all_items_path do

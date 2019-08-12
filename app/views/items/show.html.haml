@@ -12,7 +12,7 @@
             .owl_wrap__main_image
               .owl_wrap__main_image__wrap
                 .owl_wrap__main_image__wrap__item.active
-                  = image_tag "Book51.jpg", class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
+                  = image_tag @item.image.url, class: 'owl_wrap__main_image__wrap__item__photo', size: '300x300', alt: ""
                 
             .owl_wrap__nav
               .owl_wrap__nav--prev prev
@@ -20,7 +20,7 @@
             .owl_wrap__small_images
               .owl_wrap__small_images__item.active
                 .owl_wrap__small_images__item--inner
-                  = image_tag "Book51.jpg", class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
+                  = image_tag @item.image.url, class: 'owl_wrap__small_images__item--inner__photo', size: '60x60', alt: ""
               
         %table.item_info__profile__details
           %tr
@@ -89,26 +89,13 @@
       %p 
         = @item.description
     .item_buttons.clearfix
-      .item_buttons__left
-        %button.item_buttons__left--like{data:{ga: "element"}, data:{ga:{category: "LIKE"}}, data:{ga:{label: "like!"}}, data:{id: "m62551574891"}, data:{toggle: "like"}, name: "like!", type: "button"}
-          - if current_user.already_liked?(@item) 
-            = link_to item_like_path(@item), method: :delete do
-              = fa_icon 'heart', class: 'icon-heart'
-              %span いいね!
-              %span.fade-in-down{data:{num: "like"}} 
-                = @item.likes.count
-          
-          - else
-            = link_to item_likes_path(@item), method: :post do
-              = fa_icon 'heart-o', class: 'icon-heart-o'
-              %span いいね!
-              %span.fade-in-down{data:{num: "like"}} 
-                = @item.likes.count
-          
-        
-        = link_to "", class: 'item_buttons__left--report clearfix', data:{modal: "report-item"}, data:{open: "modal"}, data:{turbolinks: :false} do
-          = fa_icon 'flag-checkered', class: 'icon-flag-checkered'
-          %span 不適切な商品の報告
+      .item_buttons__left#likes_buttons{id: @item.id}
+
+        = render partial: 'likes/like', locals: { item: @item, likes: @likes}
+
+      = link_to "", class: 'item_buttons__left--report clearfix', data:{modal: "report-item"}, data:{open: "modal"}, data:{turbolinks: :false} do
+        = fa_icon 'flag-checkered', class: 'icon-flag-checkered'
+        %span 不適切な商品の報告
 
       .item_buttons__right
         = link_to "https://www.mercari.com/jp/safe/description/", class: 'item_buttons__right--safe clearfix', target: "_blank", data:{turbolinks: :false} do

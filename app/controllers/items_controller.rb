@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.limit(4).order("created_at DESC")
+    @item = Item.new
+    @likes = Like.where(item_id: @item.id)
+    # binding.pry
   end
 
 
