@@ -22,8 +22,7 @@
           .login_form__field
             = f.password_field :password, class: 'login_form__field__input', placeholder: 'パスワード', autocomplete: "current-password"
           .login_form__field 
-            / ここにrecaptchaのコードを詰めて下さい
-            = image_tag "recapcha_sample.png", class: 'login_form__field__image', size: '304x78', alt: "recaptcha"
+            = recaptcha_tags
           = f.submit "ログイン", class: 'login_form__submit'
           = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: 'login_form__link'
       
