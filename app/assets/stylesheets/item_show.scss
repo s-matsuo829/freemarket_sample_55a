@@ -4,6 +4,70 @@
   opacity: 1!important;
 }
 
+.items-show-modal{
+  background: rgba(51,51,51,0.8);
+  transform: translate(0, 0);
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &__banner.display {
+    display: none;
+  }
+  &__banner{
+    box-sizing: border-box;
+    text-align: center;
+    max-width: none;
+    width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    &__body {
+      box-sizing: border-box;
+      background: rgba(255,255,255, 1);
+      padding: 64px;
+      width: 600px;
+      height: 236px;
+      &__head{
+        line-height: 1.5;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      &__text{
+        line-height: 1.5;
+      }
+    }
+    .cleafix {
+      .btn-cancel{
+        float: left;
+        line-height: 63px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 50%;
+        text-align: center;
+        height: 63px;
+      }
+      .btn-destroy{
+        float: right;
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        color: #0099e8;
+        line-height: 63px;
+        cursor: pointer;
+        width: 299px;
+        text-align: center;
+        height: 63px;
+      }
+    }
+  }
+}
+
 .item-show {
   box-sizing: border-box;
   padding: 24px 40px 40px;
