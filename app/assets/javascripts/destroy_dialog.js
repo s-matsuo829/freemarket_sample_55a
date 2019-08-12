@@ -1,5 +1,5 @@
 $(function(){
-  $('.items-new-change-box__btn-gray').on('click', function(e){
+  $('.items-new-change-box__btn-gray').on('click', function(){
     $('#items-show-modal').addClass('items-show-modal');
     $('.items-show-modal__banner').removeClass('display');
   })
