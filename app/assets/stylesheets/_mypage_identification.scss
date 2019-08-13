@@ -31,12 +31,24 @@
       margin: 40px 0 0;
       label {
         display: inline-block;
+        vertical-align: top;
       }
       &--arbitrary {
+        display: inline-block;
         margin: 0 0 0 8px;
         padding: 2px 4px;
         border-radius: 2px;
         background: #ccc;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      &--arbitrary-red {
+        display: inline-block;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        background: #ea352d;
         color: #fff;
         font-size: 12px;
         vertical-align: top;
@@ -65,6 +77,22 @@
           color: #888;
         }
         #prefecture {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+          -moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+          appearance: none;	/* 標準のスタイルを無効にする */ 
+        }
+        #address_prefecture {
           width: 100%;
           position: relative;
           z-index: 2;

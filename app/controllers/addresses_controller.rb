@@ -33,6 +33,7 @@ class AddressesController < ApplicationController
   end
 
   def set_address
+    @user = current_user
     @address = current_user.address
   end
 

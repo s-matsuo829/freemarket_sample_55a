@@ -32,6 +32,11 @@ crumb :item_show_all do
   parent :root
 end
 
+crumb :address_edit do
+  link "発送元・お届け先住所変更", edit_user_address_path(current_user.id, current_user.address.id)
+  parent :user_show
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
