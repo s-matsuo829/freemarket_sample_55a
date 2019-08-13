@@ -123,12 +123,20 @@
               = fa_icon 'key', class: 'icon-key'
               %span あんしん・あんぜんへの取り組み
 
-    - if user_signed_in? && current_user.id == @item.user_id
+    - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品中"
       .items-new-change-box
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
         = link_to "", class: "items-new-change-box__btn-gray" do
           出品を一旦停止する
+        .items-new-change-box__btn-gray この商品を削除する
+    
+    - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品停止中"
+      .items-new-change-box
+        = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
+        %p.items-new-change-box__text or
+        = link_to "", class: "items-new-change-box__btn-red" do
+          出品を再開する
         .items-new-change-box__btn-gray この商品を削除する
 
     .items-show-message-container
