@@ -1,0 +1,67 @@
+.default-container
+  
+  =render partial: 'items/header'
+
+  .breadcrumb
+    - breadcrumb :address_edit
+    = breadcrumbs separator: " &rsaquo; "
+
+  %main.mypage_container.clearfix
+
+    =render partial: 'users/left-content'
+
+    .user_mypage_identification_right-content
+      %h2.mi_head 発送元・お届け先住所変更
+
+      .mi_group
+        %p.bold お名前
+        %p
+          = current_user.last_name + ' ' + current_user.first_name
+
+      .mi_group
+        %p.bold お名前カナ
+        %p
+          = current_user.last_kana + ' ' + current_user.first_name
+
+      .mi_group
+        %p.bold{for: "birthday"} 生年月日
+        %p
+          = current_user.birthday.strftime("%Y/%m/%d")
+
+      = form_with model: [@user, @address], local: true, class: 'mi_form' do |f|
+
+        .mi_form__group
+          %label.bold{ for: "postalcode" } 郵便番号
+          %label.mi_form__group--arbitrary-red 必須
+          = f.text_field :postalcode, name: "postalcode", class: 'mi_form__group__input', placeholder: "例）123-4567"
+
+        .mi_form__group
+          %label.bold{ for: "prefecture" } 都道府県
+          %label.mi_form__group--arbitrary-red 必須
+          .mi_form__group--select-wrap
+            = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
+            = f.select :prefecture, Address.prefectures.keys, name: "prefecture", id: "prefecture"
+
+        .mi_form__group
+          %label.bold{ for: "city" } 市区町村
+          %label.mi_form__group--arbitrary-red 必須
+          = f.text_field :city, name: "city", class: 'mi_form__group__input', placeholder: "例）石巻市"
+
+        .mi_form__group
+          %label.bold{ for: "number" } 番地
+          %label.mi_form__group--arbitrary-red 必須
+          = f.text_field :number, name: "number", class: 'mi_form__group__input', placeholder: "例）中瀬２−７"
+          
+        .mi_form__group
+          %label.bold{ for: "building" } 建物名
+          %label.mi_form__group--arbitrary 任意
+          = f.text_field :building, name: "building", class: 'mi_form__group__input', placeholder: "例）石ノ森萬画館"
+
+        .mi_form__group
+          %label.bold{ for: "phone_number" } 電話番号
+          %label.mi_form__group--arbitrary 任意
+          = f.text_field :phone_number, name: "phone_number", class: 'mi_form__group__input', placeholder: "例）09012345678"
+
+        = f.submit '更新する',class: 'mi_form__submit_btn'
+
+  =render partial: 'items/footer'

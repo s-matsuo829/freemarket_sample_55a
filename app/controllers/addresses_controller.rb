@@ -24,6 +24,11 @@ class AddressesController < ApplicationController
   end
 
   def update
+    if @address.update(edit_address_params)
+      redirect_back(fallback_location: root_path)
+    else
+      render :edit
+    end
   end
 
   private
@@ -32,7 +37,13 @@ class AddressesController < ApplicationController
     params.permit(:postalcode, :prefecture, :city, :number, :building, :phone_number).merge(user_id: current_user.id)
   end
 
+  def edit_address_params
+    params[:prefecture] = params[:address][:prefecture]
+    params.permit(:postalcode, :prefecture, :city, :number, :building, :phone_number).merge(user_id: current_user.id)
+  end
+
   def set_address
+    @user = current_user
     @address = current_user.address
   end
 
