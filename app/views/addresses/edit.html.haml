@@ -11,15 +11,7 @@
     =render partial: 'users/left-content'
 
     .user_mypage_identification_right-content
-      %h2.mi_head 本人情報の登録
-
-      .mi_group
-        %p お客さまの本人情報をご登録ください。
-        %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        %p.text-right
-          = link_to root_path, class: 'mi_group__link', target: "_blank", data:{turbolinks: :false} do
-            本人確認書類のアップロードについて
-            = fa_icon 'angle-right', class: 'icon-angle-right bold'
+      %h2.mi_head 発送元・お届け先住所変更
 
       .mi_group
         %p.bold お名前
