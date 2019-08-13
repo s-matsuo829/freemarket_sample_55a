@@ -25,12 +25,8 @@
             %span
               = number_to_currency(@item.price, unit: "￥", precision: 0)
         = f.hidden_field :amount, value: (@item.price)
-        - if (current_user.id == @item.user_id) then
-          .maynot_buy
-            出品者本人は購入できません
-        - else
-          .payjp
-            %script.payjp-button{"data-key": ENV['PAYJP_PUBLIC_KEY'], "data-partial": "false", "data-submit-text": "購入する", "data-text": "支払う", src: "https://checkout.pay.jp/", type: "text/javascript"}
+        .payjp
+          %script.payjp-button{"data-key": ENV['PAYJP_PUBLIC_KEY'], "data-partial": "false", "data-submit-text": "購入する", "data-text": "支払う", src: "https://checkout.pay.jp/", type: "text/javascript"}
     .confirmation__shipping-info
       %h3
         配送先
