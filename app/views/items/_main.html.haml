@@ -2,8 +2,7 @@
   .main-header
   -# メイン上部の、キャンプの画像があるところ
   .main-content
-    %h2
-      ピックアップカテゴリー
+
     - if @items.present?
       %h3
         = link_to show_all_items_path do
@@ -15,6 +14,7 @@
       .main-content__view-all
         = link_to show_all_items_path do
           すべての商品を見る
+
     - if @items_user.present?
       %h3
         = link_to show_all_items_path do
@@ -26,6 +26,21 @@
       .main-content__view-all
         = link_to show_all_items_path do
           すべての商品を見る
+
+    - if @items_user.present?
+      %h3
+        = link_to show_all_items_path do
+          他のユーザーの新規アイテム
+      .main-content__list
+
+        = render partial: "items/item", locals: {items: @items_other}
+
+      .main-content__view-all
+        = link_to show_all_items_path do
+          すべての商品を見る
+
+    %h2
+      ピックアップカテゴリー
     %h3
       = link_to root_path do
         レディース 新着アイテム

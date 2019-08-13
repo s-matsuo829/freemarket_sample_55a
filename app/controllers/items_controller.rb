@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @items = Item.order("created_at DESC")
     @items_limit_4 = @items.limit(4)
     @items_user = current_user.items.limit(4)
+    @items_other = Item.where.not(user_id: current_user.id)
   end
 
 

@@ -12,7 +12,7 @@
       %h3
       - if @items.present?
         .main-content__list.clearfix
-          = render @items
+          = render partial: "items/item", locals: {items: @items}
 
     .main-content__view-all
       = link_to root_path do
