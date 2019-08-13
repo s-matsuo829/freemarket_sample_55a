@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  $('.items-new-change-box__btn-gray').on('click', function(){
+  $('#btn-gray-js').on('click', function(){
     $('#items-show-modal').addClass('items-show-modal');
     $('.items-show-modal__banner').removeClass('display');
   })
