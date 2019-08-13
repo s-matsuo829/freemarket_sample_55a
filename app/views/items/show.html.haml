@@ -3,6 +3,20 @@
   =render partial: 'items/header'
   
   %main
+    - if user_signed_in? && current_user.id == @item.user_id
+      %aside#items-show-modal
+        .items-show-modal__banner.display
+          .items-show-modal__banner__body
+            .items-show-modal__banner__body__head 確認
+            .items-show-modal__banner__body__text
+              削除すると二度と復活できません。<br>
+              削除する代わりに停止することもできます。<br>
+              <br>
+              本当に削除しますか？
+          .cleafix
+            .btn-cancel キャンセル
+            = link_to "削除する", item_path, class: "btn-destroy", method: :delete
+
     .item-show
       %section.item_info
         %h2.item_info__name 
@@ -65,11 +79,11 @@
             %tr
               %th 配送料の負担
               %td 
-                = @item.payment
+                = @item.delivery_type
             %tr
               %th 配送の方法
               %td 
-                = @item.delivery_type
+                らくらくメルカリ便
             %tr
               %th 配送元地域
               %td
@@ -115,8 +129,7 @@
         %p.items-new-change-box__text or
         = link_to "", class: "items-new-change-box__btn-gray" do
           出品を一旦停止する
-        = link_to "この商品を削除する", item_path, class: "items-new-change-box__btn-gray", method: :delete
-        
+        .items-new-change-box__btn-gray#btn-gray-js この商品を削除する
 
     .items-show-message-container
       .items-show-message-container__content

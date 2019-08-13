@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  prepend_before_action :check_captcha, only: [:create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+
 
   # GET /resource/sign_up
   # def new
@@ -73,6 +75,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def user_via_sns_params
     password = Devise.friendly_token.first(6)
     params.require(:user).permit(:nickname, :email, :first_name, :last_name, :first_kana, :last_kana, :birthday, :uid, :provider).merge(password: password, password_confirmation: password)
+  end
+
+  def check_captcha
+    self.resource = resource_class.new sign_up_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
   end
 
 end
