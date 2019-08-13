@@ -1,5 +1,7 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_address, only: [:edit, :update]
+  before_action :check_user, only: [:edit, :update]
 
   def new
     @address = Address.new
@@ -18,10 +20,24 @@ class AddressesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
   def address_params
     params.permit(:postalcode, :prefecture, :city, :number, :building, :phone_number).merge(user_id: current_user.id)
+  end
+
+  def set_address
+    @address = current_user.address
+  end
+
+  def check_user
+    redirect_to root_path unless @address.user_id == current_user.id
   end
 
 end

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show, :edit] do
     resources :cards, only: [:new, :create, :index]
-    resources :addresses, only: [:new, :create, :show]
+    resources :addresses, only: [:new, :create, :show, :edit, :update]
 
     member do
       get 'mypage_identification'
