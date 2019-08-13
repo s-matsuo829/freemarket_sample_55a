@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update, :destroy, :switch_status]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
+  before_action :check_purchase_confirmation, only: [:purchase_confirmation]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -89,7 +90,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase_confirmation
-    @item = Item.find(params[:id])
     @address = current_user.address
   end
 
@@ -97,7 +97,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     Payjp::Charge.create(
     amount: params[:amount],
@@ -146,6 +145,10 @@ class ItemsController < ApplicationController
 
   def check_trading_status
     redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
+  end
+
+  def check_purchase_confirmation
+    redirect_to root_path if current_user.id == @item.user_id
   end
 
 end
