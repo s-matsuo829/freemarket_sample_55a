@@ -123,19 +123,34 @@
               = fa_icon 'key', class: 'icon-key'
               %span あんしん・あんぜんへの取り組み
 
-    - if user_signed_in? && current_user.id == @item.user_id
+    - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品中"
       .items-new-change-box
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
-        = link_to "", class: "items-new-change-box__btn-gray" do
-          出品を一旦停止する
+        = link_to "出品を一旦停止する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-gray"
+        .items-new-change-box__btn-gray#btn-gray-js この商品を削除する
+    
+    - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品停止中"
+      .items-new-change-box
+        = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
+        %p.items-new-change-box__text or
+        = link_to "出品を再開する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-red"
         .items-new-change-box__btn-gray#btn-gray-js この商品を削除する
 
-    .items-show-message-container
-      .items-show-message-container__content
-        = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
-          %p.text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = f.text_area :body, class: 'item_messages__form__input'
-          = f.submit 'コメントする',class: 'item_messages__form__submit_btn'
+    - if user_signed_in? && (@item.trading.status == "出品中" || @item.trading.status == "出品停止中")
+      .items-show-message-container
+        .items-show-message-container__content
+          = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
+            %p.text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.text_area :body, class: 'item_messages__form__input'
+            = f.submit 'コメントする',class: 'item_messages__form__submit_btn'
+    
+    - if user_signed_in? && (@item.trading.status == "取引中" || @item.trading.status == "売却済")
+      .items-show-message-container
+        .items-show-message-container__content
+          = form_with url: '/items/1/deactivate/', local: true, class: 'item_messages__form' do |f|
+            %p.text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            = f.text_area :body, class: 'item_messages__form__input'
+            = link_to "売り切れのため、コメントできません", "", class: "items-new-change-box__btn-gray"
 
   =render partial: 'items/footer'

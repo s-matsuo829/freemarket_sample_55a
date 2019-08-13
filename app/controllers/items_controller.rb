@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update, :destroy, :purchase_confirmation]
-  before_action :check_user, only: [:edit]
-  before_action :check_trading_status, only: [:edit]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
+  before_action :check_user, only: [:edit, :switch_status]
+  before_action :check_trading_status, only: [:edit, :switch_status]
   before_action :check_purchase_confirmation, only: [:purchase_confirmation]
 
   def index
@@ -104,6 +104,29 @@ class ItemsController < ApplicationController
     currency: 'jpy'
     )
     redirect_to payment_complete_item_path
+  end
+
+  def switch_status
+    @trading = @item.trading
+    if @trading.status == "出品中"
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 3,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to item_path(@item.id)
+    elsif @trading.status == "出品停止中"
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 0,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to item_path(@item.id)
+    else
+      redirect_to item_path(@item.id)
+    end
   end
 
   private
