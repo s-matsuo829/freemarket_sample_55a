@@ -1,0 +1,79 @@
+.payment_complete {
+  background-color: #f5f5f5;
+  &__mercari-logo {
+    margin: 10px auto 0;
+    text-align: center;
+    img {
+      width: 185px;
+      height: 49px;
+    }
+    img:hover {
+      opacity: 0.7;
+    }
+  }
+  &__top-image {
+    margin: auto;
+    text-align: center;
+    img {
+      width: 400px;
+    }
+  }
+  &__appreciate {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__middle {
+    margin: 40px 0;
+    font-size: 20px;
+    color: rgb(238, 142, 158);
+    text-align: center;
+  }
+  &__bottom {
+    text-align: center;
+    font-size: 20px;
+    a {
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #b3d4fc;
+      text-decoration: underline;
+    }
+  }
+  &__line {
+    margin: 35px auto;
+    width: 700px;
+    border-bottom: solid 2px #ccc;
+  }
+  &__info {
+    width: 400px;
+    margin: auto;
+    &__item-name {
+      font-size: 19px;
+      text-align: center;
+      margin: 10px 0 25px;
+    }
+    &__item-detail {
+      display: flex;
+      justify-content: space-between;
+      &__image {
+        width: 150px;
+        height: 150px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      ul {
+        width: 200px;
+        li {
+          height: 40px;
+          font-size: 16px;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
