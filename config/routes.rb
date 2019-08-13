@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   end
 
   resources :items do
+    
     collection do
       post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
     member do
       get 'purchase_confirmation'
       get 'payment_complete'
+      patch 'switch_status'
     end
   end
 
