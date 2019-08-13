@@ -33,13 +33,12 @@
       %address
         〒
         = @address.postalcode
-        %br/
+        %br
         = @address.prefecture
         = @address.city
         = @address.number
-        - if @address.building then
-          = @address.building
-        %br/
+        = @address.building if @address.building
+        %br
         = current_user.last_name
         = current_user.first_name
       %p
