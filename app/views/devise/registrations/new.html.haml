@@ -84,7 +84,7 @@
           %p.registration__form__light-gray-p
             ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         .registration__form__recaptcha
-          = image_tag 'https://trello-attachments.s3.amazonaws.com/5d3184e69a6c883173891d18/5d3184e69a6c883173891d4c/c1c6cdec2ef633a0a34633a7c83a1f6b/recapcha_sample.png'
+          = recaptcha_tags
         %p.registration__form__center-p
           「次へ進む」のボタンを押すことにより、
           = link_to root_path, class: 'registration__form__center-p__link' do

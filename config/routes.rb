@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #   get "sign_out", to: "users/sessions#destroy" 
   # end
 
-  resources :users, :only => [:index, :show, :edit] do
+  resources :users, :only => [:show, :edit] do
     resources :cards, only: [:new, :create, :index]
     resources :addresses, only: [:new, :create, :show]
 
@@ -28,9 +28,20 @@ Rails.application.routes.draw do
       get 'signup_complete'
       get 'signup'
       get 'logout'
-      get 'purchase_confirmation'
     end
   end
 
-  resources :items, only: [:index, :show, :new, :create, :edit, :update]
+  resources :items do
+    collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
+      get 'show_all'
+      get 'show_user_all'
+    end
+
+    member do
+      get 'purchase_confirmation'
+      get 'payment_complete'
+    end
+  end
+
 end

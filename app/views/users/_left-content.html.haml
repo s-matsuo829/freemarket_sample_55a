@@ -2,19 +2,19 @@
   %nav.mypage-nav
     %ul.mypage-nav__list
       %li
-        = link_to user_path(1), class: 'mypage-nav__list__item active', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item active', data:{turbolinks: :false} do
           マイページ
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/notification/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           お知らせ
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/todo/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           やることリスト
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/like/history/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           いいね！一覧
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
@@ -22,77 +22,77 @@
           出品する
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/listings/listing/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to show_user_all_items_path, class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           出品した商品 - 出品中
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/listings/in_progress/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           出品した商品 - 取引中
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/listings/completed/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           出品した商品 - 売却済み
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/purchase/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           購入した商品 - 取引中
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/purchased/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           購入した商品 - 過去の取引
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/news/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           ニュース一覧
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/review/history/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           評価一覧
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/help_center/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           ガイド
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/support/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           お問い合わせ
           = fa_icon 'angle-right', class: 'icon-angle-right'
 
     %h3.mypage-nav__head メルペイ
     %ul.mypage-nav__list
       %li
-        = link_to "/jp/mypage/sales/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           売上・振込申請
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/point/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           ポイント
           = fa_icon 'angle-right', class: 'icon-angle-right'
   
     %h3.mypage-nav__head 設定
     %ul.mypage-nav__list
       %li
-        = link_to edit_user_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to edit_user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           プロフィール
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/deliver_address/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           発送元・お届け先住所変更
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to  user_cards_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to  user_cards_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           支払い方法
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/email_password/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           メール/パスワード
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to mypage_identification_user_path(1), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to mypage_identification_user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           本人情報
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to "/jp/mypage/sms_confirmation/", class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+        = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           電話番号の確認
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li

@@ -95,3 +95,6 @@ gem 'dotenv-rails'
 
 
 gem 'font-awesome-rails'
+gem 'gretel'
+gem 'payjp'
+gem 'recaptcha', require: "recaptcha/rails"

@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :authenticate_user!, except: [:index, :show, :show_all]
+  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit]
+  before_action :check_trading_status, only: [:edit]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -7,6 +10,16 @@ class ItemsController < ApplicationController
 
 
   def show
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
+  
+    good_trades = Trading.where(item_id: @user.items.ids, rating: 0)
+    @number_of_goods = good_trades.count
+    normal_trades = Trading.where(item_id: @user.items.ids, rating: 1)
+    @number_of_normals = normal_trades.count
+    bad_trades = Trading.where(item_id: @user.items.ids, rating: 2)
+    @number_of_bads = bad_trades.count
+  
   end
   
   def new
@@ -26,7 +39,7 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       user_id: current_user.id
     )
-    
+
     if @item.save
       @trading = Trading.create(
         item_id: @item.id,
@@ -38,9 +51,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-
-
   end
 
   def edit
@@ -65,11 +75,42 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to root_path
+  end
 
-  # def item_params
-  #   params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: 1)
-  # end
+  def show_all
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).order("created_at DESC").limit(40)
+  end
+
+  def show_user_all
+    @items = current_user.items.limit(20).order("created_at DESC")
+  end
+
+  def purchase_confirmation
+
+    @item = Item.find(params[:id])
+    @address = @item.user.address
+    @user = @item.user
+
+  end
+
+  def payment_complete
+  end
+
+  def pay
+    # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    Payjp::Charge.create(
+    amount: params[:amount],
+    card:params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to payment_complete_item_path
+  end
+
+  private
 
   def item_params
     params.require(:item).permit(:image, :name, :description, :item_status, :payment, :delivery_type, :delivery_region, :delivery_days, :price).merge(user_id: current_user.id)
@@ -77,6 +118,14 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def check_user
+    redirect_to root_path unless @item.user_id == current_user.id
+  end
+
+  def check_trading_status
+    redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
   end
 
 end
