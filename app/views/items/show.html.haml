@@ -127,14 +127,14 @@
       .items-new-change-box
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
-        = link_to "出品を一旦停止する", "", class: "items-new-change-box__btn-gray"
+        = link_to "出品を一旦停止する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-gray"
         .items-new-change-box__btn-gray この商品を削除する
     
     - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品停止中"
       .items-new-change-box
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
-        = link_to "出品を再開する", "", class: "items-new-change-box__btn-red"
+        = link_to "出品を再開する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-red"
         .items-new-change-box__btn-gray この商品を削除する
 
     - if user_signed_in? && (@item.trading.status == "出品中" || @item.trading.status == "出品停止中")
