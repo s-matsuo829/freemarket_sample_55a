@@ -43,7 +43,7 @@
         = current_user.last_name
         = current_user.first_name
       %p
-        = link_to '' do
+        = link_to edit_user_address_path(current_user.id, current_user.address.id) do
           変更する
           = fa_icon 'chevron-right'
 
