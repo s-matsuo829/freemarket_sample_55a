@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
   before_action :check_trading_status, only: [:edit, :switch_status]
 
   def index
-    @items = Item.limit(4).order("created_at DESC")
+    @items = Item.order("created_at DESC")
+    @items_limit_4 = @items.limit(4)
+    @items_user = current_user.items.limit(4)
   end
 
 
