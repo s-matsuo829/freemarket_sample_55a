@@ -89,11 +89,8 @@ class ItemsController < ApplicationController
   end
 
   def purchase_confirmation
-
     @item = Item.find(params[:id])
-    @address = @item.user.address
-    @user = @item.user
-
+    @address = current_user.address
   end
 
   def payment_complete

@@ -25,8 +25,12 @@
             %span
               = number_to_currency(@item.price, unit: "￥", precision: 0)
         = f.hidden_field :amount, value: (@item.price)
-        .payjp
-          %script.payjp-button{"data-key": Rails.application.credentials.payjp[:public_key], "data-partial": "false", "data-submit-text": "購入する", "data-text": "支払う", src: "https://checkout.pay.jp/", type: "text/javascript"}
+        - if (current_user.id == @item.user_id) then
+          .maynot_buy
+            出品者本人は購入できません
+        - else
+          .payjp
+            %script.payjp-button{"data-key": ENV['PAYJP_PUBLIC_KEY'], "data-partial": "false", "data-submit-text": "購入する", "data-text": "支払う", src: "https://checkout.pay.jp/", type: "text/javascript"}
     .confirmation__shipping-info
       %h3
         配送先
@@ -34,14 +38,14 @@
         〒
         = @address.postalcode
         %br/
-        = @address.prefecture_before_type_cast
+        = @address.prefecture
         = @address.city
         = @address.number
-        - if @address.building
+        - if @address.building then
           = @address.building
         %br/
-        = @user.last_name
-        = @user.first_name
+        = current_user.last_name
+        = current_user.first_name
       %p
         = link_to '' do
           変更する
