@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       user_id: current_user.id
     )
+
     if @item.save
       @trading = Trading.create(
         item_id: @item.id,
@@ -88,11 +89,8 @@ class ItemsController < ApplicationController
   end
 
   def purchase_confirmation
-
     @item = Item.find(params[:id])
-    @address = @item.user.address
-    @user = @item.user
-
+    @address = current_user.address
   end
 
   def payment_complete
@@ -100,7 +98,7 @@ class ItemsController < ApplicationController
 
   def pay
     # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     Payjp::Charge.create(
     amount: params[:amount],
     card:params['payjp-token'],

@@ -79,11 +79,11 @@
             %tr
               %th 配送料の負担
               %td 
-                = @item.payment
+                = @item.delivery_type
             %tr
               %th 配送の方法
               %td 
-                = @item.delivery_type
+                らくらくメルカリ便
             %tr
               %th 配送元地域
               %td
@@ -128,14 +128,14 @@
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
         = link_to "出品を一旦停止する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-gray"
-        .items-new-change-box__btn-gray この商品を削除する
+        .items-new-change-box__btn-gray#btn-gray-js この商品を削除する
     
     - if user_signed_in? && current_user.id == @item.user_id && @item.trading.status == "出品停止中"
       .items-new-change-box
         = link_to "商品の編集", edit_item_url, class: "items-new-change-box__btn-red"
         %p.items-new-change-box__text or
         = link_to "出品を再開する", switch_status_item_path(@item.id), method: :patch, class: "items-new-change-box__btn-red"
-        .items-new-change-box__btn-gray この商品を削除する
+        .items-new-change-box__btn-gray#btn-gray-js この商品を削除する
 
     - if user_signed_in? && (@item.trading.status == "出品中" || @item.trading.status == "出品停止中")
       .items-show-message-container
