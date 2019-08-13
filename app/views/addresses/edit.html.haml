@@ -40,7 +40,7 @@
           %label.mi_form__group--arbitrary-red 必須
           .mi_form__group--select-wrap
             = fa_icon 'angle-down 2x', class: 'icon-angle-down bold'
-            = f.select :prefecture, Address.prefectures.keys
+            = f.select :prefecture, Address.prefectures.keys, name: "prefecture", id: "prefecture"
 
         .mi_form__group
           %label.bold{ for: "city" } 市区町村
