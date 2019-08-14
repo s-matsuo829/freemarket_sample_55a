@@ -160,7 +160,8 @@ class ItemsController < ApplicationController
   def search_params
     params[:q] || {
       name_or_description_cont: params[:q][:name_or_description_cont],
-      item_status: params[:q][:item_status]
+      item_status: params[:q][:item_status],
+      trading_status_eq: params[:q][:trading_status_eq]
     }
   end
 
