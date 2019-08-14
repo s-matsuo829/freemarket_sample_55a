@@ -45,7 +45,31 @@ html, body {
   margin:0 auto;
 
   &__icon {
-  float:right;
+  //float:right;
+  //position:absolute;
+  //height:40px;
+  //width:40px;
+  //padding-top:15px;
+  //margin:0 auto;
+  //right:20px;
+
+  position:absolute;
+  //height:40px;
+  //width:40px;
+  //padding-top:15px;
+  //margin:0 auto;
+  top: 15px;
+  right:40px;
+  font-size: 3px;
+  font-family: 'FontAwesome';
+
+  fa {
+    font-size: 3px;
+  }
+  }
+
+  .aaa {
+    float:right;
   position:absolute;
   height:40px;
   width:40px;

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get 'purchase_confirmation'
       get 'payment_complete'
       patch 'switch_status'
+      get 'search'
     end
   end
 

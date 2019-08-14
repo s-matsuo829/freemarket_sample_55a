@@ -4,9 +4,11 @@ class ItemsController < ApplicationController
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
   before_action :check_purchase_confirmation, only: [:purchase_confirmation]
+  before_action :search_result, only: [:index, :search]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
+    #@search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(132)
   end
 
 
@@ -129,6 +131,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    
+    @typed_keyword = params[:keyword]
+    @amount = @search.length
+    #@items = Item.limit(4).order("created_at DESC")
+    #@search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(132)
+  end
+
   private
 
   def item_params
@@ -149,6 +159,10 @@ class ItemsController < ApplicationController
 
   def check_purchase_confirmation
     redirect_to root_path if current_user.id == @item.user_id
+  end
+
+  def search_result
+    @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
   end
 
 end

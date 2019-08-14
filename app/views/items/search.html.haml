@@ -1,0 +1,34 @@
+= render 'header'
+
+.search
+  .search__detail-search
+  
+  .search__result
+    %h2
+      = @typed_keyword
+      %span
+        の検索結果
+    .search__result__item-amount
+      = @amount
+      件表示
+    .search__result__item-list
+      - @search.each do |item|
+        .search__result__item-list__container
+          = link_to item_path do
+            .search__result__item-list__container__image
+              /%span{style: "background-image: url(#{item.image})"}
+              = image_tag item.image.url, alt: (item.name)
+            .search__result__item-list__container__detail
+              %h3
+                = item.name
+              .search__result__item-list__container__detail__info
+                .search__result__item-list__container__detail__info__price
+                  = number_to_currency(item.price, unit: "￥", precision: 0)
+                .search__result__item-list__container__detail__info__like
+                  = fa_icon "heart", text: "1"
+
+.breadcrumb
+  - breadcrumb :item_search
+  = breadcrumbs separator: " &rsaquo; "
+
+= render 'footer'

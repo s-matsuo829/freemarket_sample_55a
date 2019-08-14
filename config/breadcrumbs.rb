@@ -37,6 +37,11 @@ crumb :address_edit do
   parent :user_show
 end
 
+crumb :item_search do
+  link params[:keyword], search_item_path
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -5,9 +5,11 @@
         = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
       
-      = form_tag('/search', method: :get, class: 'pc-header-search-form') do
+      = form_tag(search_item_path(@search), method: :get, class: 'pc-header-search-form') do
         %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
-        = fa_icon "search", class: "pc-header-search-form__input__icon"
+        = button_tag (fa_icon "search"), type: 'submit', class: 'fa pc-header-search-form__input__icon'
+        //= submit_tag 'aa', class: 'fa pc-header-search-form__input__icon', value: '&#xf002;'
+        //= fa_icon "search", class: "pc-header-search-form__input__icon"
     
     .pc-header-nav-box.clearfix
       %nav.pc-header-nav-box__left
