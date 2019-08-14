@@ -1,0 +1,21 @@
+.default-container.clearfix
+  = render "header"
+
+  .breadcrumb
+    - breadcrumb :item_show_all
+    = breadcrumbs separator: " &rsaquo; "
+
+  %main.search_ransack.clearfix
+    .main-content.clearfix
+      %h2
+        商品の詳細検索をする
+      %h3
+      - if @items.present?
+        .main-content__list
+          = render @items
+
+    .main-content__view-all
+      = link_to root_path do
+        トップページに戻る
+
+  = render "footer"
