@@ -9,18 +9,17 @@
     .search_box
       %h3.bold 詳細検索
       = search_form_for(@q, url:search_ransack_items_path, class: 'ransack_form') do |f|
-        .ransack_form__item
-          = f.label :name_cont, 'キーワードを追加する'
-          = f.search_field :name_cont
-        .ransack_form__item
-          = f.label :item_status_eq, '商品の状態'
-          = f.select :item_status_eq ,Item.item_statuses.map{|k, v| [Item.item_statuses_i18n[k], v]}, :include_blank => '指定なし'
-          -# = f.select :item_status_eq ,Item.item_statuses.map{|s|[t("activerecord.enum.status_id.#{s[0]}"), "#{s[0]}"]}
-          -# - Item.item_statuses.each do |i|
-          -#   .form-check-input
-          -#     = f.check_box :item_status, {multiple: true}, i[0], nil
-          -#   .form-check-label 
-          -#     = f.label "item_status_#{i[0]}", i[0].upcase
+        .ransack_form__sort
+        .ransack_form__conditions
+          .ransack_form__conditions__item
+            = f.label :name_or_description_cont, 'キーワードを追加する'
+            = f.search_field :name_or_description_cont
+          .ransack_form__conditions__item
+            = f.label :item_status_eq, '商品の状態'
+            = f.select :item_status_eq ,Item.item_statuses.map{|k, v| [Item.item_statuses_i18n[k], v]}, :include_blank => '指定なし'
+          .ransack_form__item
+            = f.label :item_status_eq, '商品の状態'
+            = f.select :item_status_eq ,Item.item_statuses.map{|k, v| [Item.item_statuses_i18n[k], v]}, :include_blank => '指定なし'
         = f.submit
 
     .main-content.clearfix
