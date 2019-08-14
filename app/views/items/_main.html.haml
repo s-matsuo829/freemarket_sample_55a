@@ -24,7 +24,7 @@
         = render partial: "items/item", locals: {items: @items_user}
 
       .main-content__view-all
-        = link_to show_all_items_path do
+        = link_to show_user_all_items_path do
           すべての商品を見る
 
     - if @items_user.present?
