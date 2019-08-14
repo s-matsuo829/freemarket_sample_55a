@@ -2,16 +2,11 @@
   = render "header"
 
   .breadcrumb
-    - breadcrumb :item_show_all
+    - breadcrumb :search_ransack
     = breadcrumbs separator: " &rsaquo; "
 
   %main.search_ransack.clearfix
     .search_box
-      -# %tr.search_box__sort
-      -#   %th
-      -#     = sort_link(@items, :price, "価格順")
-      -#   %th
-      -#     = sort_link(@items, :created_at, "出品された日順")
       .search_box__condition
         %h3.bold 詳細検索
         = search_form_for(@q, url:search_ransack_items_path, class: 'ransack_form') do |f|
