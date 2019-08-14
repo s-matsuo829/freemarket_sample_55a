@@ -17,8 +17,62 @@
   .search_box {
     width: 200px;
     float:left;
-    background-color: #fff;
-
+    &__sort {}
+    &__condition {
+      // margin: 40px 0 0;
+      display: block;
+      width: 200px;
+      background-color: #fff;
+      padding: 16px;
+      .ransack_form {
+        &__item {
+          margin: 24px 0 0;
+          input {
+            width: 100%;
+            margin: 8px 0 0;
+            height: 36px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+          select {
+            width: 100%;
+            margin: 8px 0 0;
+            background: #fff;
+            position: relative;
+            z-index: 2;
+            height: 36px;
+            padding: 0 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+            outline: 0;
+            // -webkit-appearance: none;
+            -webkit-writing-mode: horizontal-tb
+          }
+        }
+        &__button {
+          padding: 40px 0 0;
+          &__submit {
+            width: 45%;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            line-height: 36px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 
   .main-content {
