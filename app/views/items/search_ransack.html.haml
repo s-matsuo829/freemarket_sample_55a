@@ -14,7 +14,7 @@
           = f.search_field :name_cont
         .ransack_form__item
           = f.label :item_status_eq, '商品の状態'
-          = f.select :item_status_eq ,Item.item_statuses.map{|k, v| [Item.item_statuses_i18n[k], v]}
+          = f.select :item_status_eq ,Item.item_statuses.map{|k, v| [Item.item_statuses_i18n[k], v]}, :include_blank => '指定なし'
           -# = f.select :item_status_eq ,Item.item_statuses.map{|s|[t("activerecord.enum.status_id.#{s[0]}"), "#{s[0]}"]}
           -# - Item.item_statuses.each do |i|
           -#   .form-check-input
