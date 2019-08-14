@@ -34,50 +34,31 @@ html, body {
   flex: 1;
   position:relative;
   &__input {
-  border: 1px solid #ccc;
-  background: #f5f5f5;
-  border-radius: 4px;
-  padding: 0 42px 0 10px;
-  width: 90%;
-  height: 40px;
-  line-height: 1.5;
-  font-size: 16px;
-  margin:0 auto;
-
-  &__icon {
-  //float:right;
-  //position:absolute;
-  //height:40px;
-  //width:40px;
-  //padding-top:15px;
-  //margin:0 auto;
-  //right:20px;
-
-  position:absolute;
-  //height:40px;
-  //width:40px;
-  //padding-top:15px;
-  //margin:0 auto;
-  top: 15px;
-  right:40px;
-  font-size: 3px;
-  font-family: 'FontAwesome';
-
-  fa {
-    font-size: 3px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    border-radius: 4px;
+    padding: 0 42px 0 10px;
+    width: 90%;
+    height: 40px;
+    line-height: 1.5;
+    font-size: 16px;
+    margin:0 auto;
+    &__icon {
+      //float:right;
+      //position:absolute;
+      //height:40px;
+      //width:40px;
+      //padding-top:15px;
+      //margin:0 auto;
+      //right:20px;
+      position:absolute;
+      top: 2px;
+      right:40px;
+      padding: 12px;
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
-  }
-
-  .aaa {
-    float:right;
-  position:absolute;
-  height:40px;
-  width:40px;
-  padding-top:15px;
-  margin:0 auto;
-  right:20px;
-  }
-}
 }
 
 .pc-header-nav-box {

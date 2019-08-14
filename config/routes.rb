@@ -37,13 +37,13 @@ Rails.application.routes.draw do
       post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
       get 'show_user_all'
+      get 'search'
     end
 
     member do
       get 'purchase_confirmation'
       get 'payment_complete'
       patch 'switch_status'
-      get 'search'
     end
   end
 

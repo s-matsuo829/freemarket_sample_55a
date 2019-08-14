@@ -38,7 +38,7 @@ crumb :address_edit do
 end
 
 crumb :item_search do
-  link params[:keyword], search_item_path
+  link params[:keyword], search_items_path
   parent :root
 end
 
