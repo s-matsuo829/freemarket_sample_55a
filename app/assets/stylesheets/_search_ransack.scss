@@ -14,7 +14,14 @@
     text-decoration: underline;
   }
 
+  .search_box {
+    width: 200px;
+    float:left;
+    background-color: #fff;
+  }
+
   .main-content {
+    float:right;
   
     h2 {
       font-size: 28px;
@@ -30,7 +37,7 @@
     }
   
     &__list {
-      width: 800px;
+      width: 780px;
       margin: auto;
       display: block;
       overflow: visible;
@@ -91,14 +98,22 @@
       }
   
     }
+  }
+}
 
-    &__view-all {
-      width: 1020px;
-      margin: auto;
-      padding: 20px 0 30px;
-      font-size: 14px;
-      text-align: right;
-    }
-  
+.view-all {
+  width: 1020px;
+  margin: auto;
+  padding: 0 0 30px;
+  font-size: 14px;
+  text-align: right;
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #b3d4fc;
+    text-decoration: underline;
   }
 }

@@ -130,7 +130,9 @@ class ItemsController < ApplicationController
   end
 
   def search_ransack
-    @items = Item.all.order("created_at DESC").limit(40)
+    @q = Item.ransack(params[:q])
+    @trading = Trading.all
+    @items = @q.result.includes(:trading)
   end
 
   private
@@ -153,6 +155,13 @@ class ItemsController < ApplicationController
 
   def check_purchase_confirmation
     redirect_to root_path if current_user.id == @item.user_id
+  end
+
+  def search_params
+    params[:q] || {
+      name_cont: params[:q][:name_cont],
+      item_status: params[:q][:item_status]
+    }
   end
 
 end
