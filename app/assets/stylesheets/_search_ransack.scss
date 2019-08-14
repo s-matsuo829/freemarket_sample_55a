@@ -56,6 +56,17 @@
             // -webkit-appearance: none;
             -webkit-writing-mode: horizontal-tb
           }
+          .ransack_form__item__price {
+            width: 150px;
+            margin: 8px 0 0;
+            height: 36px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
         }
         &__button {
           padding: 40px 0 0;
