@@ -17,12 +17,12 @@
         = search_form_for(@q, url:search_ransack_items_path, class: 'ransack_form') do |f|
           .ransack_form__item
             = f.label :name_or_description_cont, 'キーワードを追加する'
-            = f.search_field :name_or_description_cont
+            = f.search_field :name_or_description_cont, placeholder: '複数ワードは未実装'
           .ransack_form__item
             = f.label :price, '価格の範囲'
-            = f.search_field :price_gteq, class: 'ransack_form__item__price'
+            = f.search_field :price_gteq, class: 'ransack_form__item__price', placeholder: '¥ min'
             %span 円以上
-            = f.search_field :price_lteq, class: 'ransack_form__item__price'
+            = f.search_field :price_lteq, class: 'ransack_form__item__price', placeholder: '¥ MAX'
             %span 円以下
           .ransack_form__item
             = f.label :item_status_eq, '商品の状態'
