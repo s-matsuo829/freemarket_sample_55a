@@ -1,12 +1,15 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
 
-	$("#dd li ul").hide();
-	$("#dd li").hover(function() {
-		$(">ul", this).stop(true, true).slideDown("fast");
-		$(">a", this).addClass("active");
-	},
-	function() {
-		$(">ul", this).stop(true, true).slideUp("fast");
-		$(">a", this).removeClass("active");
-	});
+  $("#categories-list-parent li ul").hide();
+  
+  $(document).on({
+    "mouseenter": function(){
+      $("ul", this).stop(true, true).slideDown("fast");
+      $(this).addClass("active-red");
+    },
+    "mouseleave": function(){
+      $("ul", this).stop(true,true).slideUp("fast");
+      $(this).removeClass("active-red");
+    }
+    }, "#categories-list-parent li");
 });
