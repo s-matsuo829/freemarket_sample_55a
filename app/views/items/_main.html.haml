@@ -17,27 +17,24 @@
 
     - if @items_user.present?
       %h3
-        = link_to show_all_items_path do
-          = current_user.nickname + "さんの出品したアイテム"
+        = link_to "#{current_user.nickname}さんの出品した商品", {controller: 'items', action: 'show_user_all', name: "show_user_all"}
       .main-content__list
 
         = render partial: "items/item", locals: {items: @items_user}
 
       .main-content__view-all
-        = link_to show_user_all_items_path do
-          すべての商品を見る
+        = link_to "すべての商品を見る", {controller: 'items', action: 'show_user_all', name: "show_user_all"}
+          
 
     - if @items_user.present?
       %h3
-        = link_to show_all_items_path do
-          他のユーザーの新規アイテム
+        = link_to "他のユーザーの新着アイテム", {controller: 'items', action: 'show_user_all', name: "show_other_all"}
       .main-content__list
 
         = render partial: "items/item", locals: {items: @items_other}
 
       .main-content__view-all
-        = link_to show_all_items_path do
-          すべての商品を見る
+        = link_to "すべての商品を見る", {controller: 'items', action: 'show_user_all', name: "show_other_all"}
 
     %h2
       ピックアップカテゴリー

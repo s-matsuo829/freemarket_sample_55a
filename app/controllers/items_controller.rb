@@ -89,6 +89,8 @@ class ItemsController < ApplicationController
 
   def show_user_all
     @items = current_user.items.limit(20).order("created_at DESC")
+    @items_other = Item.where.not(user_id: current_user.id).limit(20).order("created_at DESC")
+    render "items/#{params[:name]}"
   end
 
   def purchase_confirmation

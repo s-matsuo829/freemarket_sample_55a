@@ -1,0 +1,17 @@
+.default-container
+  = render "header"
+
+  %main.show_user_all.clearfix
+    .main-content.clearfix
+      %h2
+        他のユーザーの全ての商品をみる
+      %h3
+      - if @items.present?
+        .main-content__list.clearfix
+          = render partial: "items/user_item", locals: {user_items: @items_other}
+
+    .main-content__view-all
+      = link_to root_path do
+        トップページに戻る
+
+  = render "footer"
