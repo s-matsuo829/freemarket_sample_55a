@@ -1,7 +1,6 @@
 .pc-header {
   box-shadow: 0 1px 4px rgba(0,0,0,0.16);
 }
-
 .search {
   display: flex;
   justify-content: space-between;
@@ -9,9 +8,17 @@
   width: 1020px;
   height: 700px;
   &__detail-search {
-    background-color: #fff;
     width: 280px;
-    height: 400px;
+    height: 80px;
+    a {
+      display: block;
+      text-align: center;
+      line-height: 80px;
+      border-radius: 4px;
+      font-size: 18px;
+      color: rgb(24, 23, 23);
+      background-color: rgb(228, 111, 111);
+    }
   }
   &__result {
     width: 700px;

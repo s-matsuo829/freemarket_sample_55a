@@ -2,8 +2,8 @@
 
 .search
   .search__detail-search
-    /= form_tag '', method: :get
-    /= select_tag :select1, class: 'arrange', options_for_select([["並び替え","1"], ["価格の安い順","2"], ["価格の高い順","3"], ["出品の古い順","4"], ["出品の新しい順","4"], ["いいね!の多い順","4"]])
+    = link_to '' do
+      詳細検索モードへ
   .search__result
     %h2
       - if @typed_keyword.present? then
