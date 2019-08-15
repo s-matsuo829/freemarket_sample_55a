@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("created_at DESC")
-    @items_limit_4 = @items.limit(4)
+    @items_limit_4 = @items.left_joins(:trading).where(tradings: {status: "出品中"}).limit(4)
     if user_signed_in?
       @items_user = current_user.items.limit(4).order("created_at DESC")
       @items_other = @items.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(4)
