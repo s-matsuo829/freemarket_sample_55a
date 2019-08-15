@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update]
-  before_action :check_user, only: [:edit]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
+  before_action :check_user, only: [:edit, :switch_status]
+  before_action :check_trading_status, only: [:edit, :switch_status]
+  before_action :check_purchase_confirmation, only: [:purchase_confirmation]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -19,9 +21,11 @@ class ItemsController < ApplicationController
     @number_of_normals = normal_trades.count
     bad_trades = Trading.where(item_id: @user.items.ids, rating: 2)
     @number_of_bads = bad_trades.count
+
     
     @like = Like.new
    
+
   end
   
   def new
@@ -58,6 +62,7 @@ class ItemsController < ApplicationController
       price: item_params[:price],
       user_id: current_user.id
     )
+
     if @item.save
       @trading = Trading.create(
         item_id: @item.id,
@@ -93,8 +98,57 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to root_path
+  end
+
   def show_all
-    @items = Item.all.limit(20).order("created_at DESC")
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).order("created_at DESC").limit(40)
+  end
+
+  def show_user_all
+    @items = current_user.items.limit(20).order("created_at DESC")
+  end
+
+  def purchase_confirmation
+    @address = current_user.address
+  end
+
+  def payment_complete
+  end
+
+  def pay
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+    Payjp::Charge.create(
+    amount: params[:amount],
+    card:params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to payment_complete_item_path
+  end
+
+  def switch_status
+    @trading = @item.trading
+    if @trading.status == "出品中"
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 3,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to item_path(@item.id)
+    elsif @trading.status == "出品停止中"
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 0,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to item_path(@item.id)
+    else
+      redirect_to item_path(@item.id)
+    end
   end
 
   private
@@ -109,6 +163,14 @@ class ItemsController < ApplicationController
 
   def check_user
     redirect_to root_path unless @item.user_id == current_user.id
+  end
+
+  def check_trading_status
+    redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
+  end
+
+  def check_purchase_confirmation
+    redirect_to root_path if current_user.id == @item.user_id
   end
 
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  prepend_before_action :check_captcha, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -35,5 +36,15 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
       # flash[:alert] = "ログアウトしました"
       root_path
+  end
+
+  private
+
+  def check_captcha
+    self.resource = resource_class.new sign_in_params
+    resource.validate
+    unless verify_recaptcha(model: resource)
+      respond_with_navigational(resource) { render :new }
+    end
   end
 end

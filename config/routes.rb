@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show, :edit] do
     resources :cards, only: [:new, :create, :index]
-    resources :addresses, only: [:new, :create, :show]
+    resources :addresses, only: [:new, :create, :show, :edit, :update]
 
     member do
       get 'mypage_identification'
@@ -28,15 +28,23 @@ Rails.application.routes.draw do
       get 'signup_complete'
       get 'signup'
       get 'logout'
-      get 'purchase_confirmation'
     end
   end
 
 
-  resources :items, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :items do
     resources :likes, only: [:create, :destroy]
+
     collection do
+      post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
+      get 'show_user_all'
+    end
+
+    member do
+      get 'purchase_confirmation'
+      get 'payment_complete'
+      patch 'switch_status'
     end
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -44,4 +52,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
