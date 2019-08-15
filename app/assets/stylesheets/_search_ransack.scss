@@ -19,7 +19,6 @@
     float:left;
     &__sort {}
     &__condition {
-      // margin: 40px 0 0;
       display: block;
       width: 200px;
       background-color: #fff;
@@ -53,7 +52,6 @@
             line-height: 1.5;
             cursor: pointer;
             outline: 0;
-            // -webkit-appearance: none;
             -webkit-writing-mode: horizontal-tb
           }
           .ransack_form__item__price {

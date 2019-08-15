@@ -43,16 +43,4 @@ class Item < ApplicationRecord
     item_statues.without("---")
   end
 
-  private
-
-  # ransacker :item_status, formatter: proc { |value|
-  #   sym = Item.item_statuses.invert[value]
-  #   if sym.blank?
-  #     raise "unexpected status accessed: #{value}"
-  #   else
-  #     sym
-  #   end
-  # } do |parent|
-  #   parent.table[:item_status]
-  # end
 end
