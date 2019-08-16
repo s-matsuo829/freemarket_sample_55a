@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_all, :search_ransack]
-  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation, :pay]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
-  before_action :check_purchase_confirmation, only: [:purchase_confirmation]
+  before_action :check_purchase_confirmation, only: [:purchase_confirmation, :pay]
   before_action :fuzzy_search, only: [:index, :search]
 
   def index
@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
       @items_other = @items.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(4)
     end
   end
-
 
   def show
     @item = Item.find(params[:id])
@@ -107,13 +106,24 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-    Payjp::Charge.create(
-    amount: params[:amount],
-    card:params['payjp-token'],
-    currency: 'jpy'
-    )
-    redirect_to payment_complete_item_path
+    @trading = @item.trading
+    if @trading.status == "出品中"
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp::Charge.create(
+      amount: params[:amount],
+      card:params['payjp-token'],
+      currency: 'jpy'
+      )
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 2,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to payment_complete_item_path
+    else
+      redirect_to item_path(@item.id)
+    end
   end
 
   def switch_status
@@ -170,6 +180,8 @@ class ItemsController < ApplicationController
 
   def check_purchase_confirmation
     redirect_to root_path if current_user.id == @item.user_id
+    @trading = @item.trading
+    redirect_to root_path unless @trading.status == "出品中"
   end
 
   def fuzzy_search
