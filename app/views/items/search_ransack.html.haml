@@ -34,7 +34,7 @@
       %h3.clearfix
       - if @items.present?
         .main-content__list.clearfix
-          = render @items
+          = render partial: "items/user_item", locals: {user_items: @items}
 
   .view-all.clearfix
     = link_to root_path do
