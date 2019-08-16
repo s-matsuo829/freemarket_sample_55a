@@ -9,7 +9,8 @@
           新着アイテム
       .main-content__list
 
-        = render partial: "items/item", locals: {items: @items_limit_4}
+        = render partial: "items/item", locals: {items: @items_limit_4, likes: @likes}
+
 
       .main-content__view-all
         = link_to show_all_items_path do
