@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update, :destroy, :switch_status]
+  before_action :authenticate_user!, except: [:index, :show, :show_all, :search_ransack]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
+  before_action :check_purchase_confirmation, only: [:purchase_confirmation]
+  before_action :fuzzy_search, only: [:index, :search]
 
   def index
     @items = Item.order("created_at DESC")
@@ -98,7 +100,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase_confirmation
-    @item = Item.find(params[:id])
     @address = current_user.address
   end
 
@@ -106,7 +107,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    # Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     Payjp::Charge.create(
     amount: params[:amount],
@@ -139,6 +139,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @typed_keyword = params[:keyword]
+    @amount = @search.length
+  end
+
+  def search_ransack
+    @q = Item.ransack(params[:q])
+    @trading = Trading.all
+    @items = @q.result.includes(:trading)
+  end
+
   private
 
   def item_params
@@ -155,6 +166,22 @@ class ItemsController < ApplicationController
 
   def check_trading_status
     redirect_to show_user_all_items_path(current_user.id) unless @item.trading.status == "出品中" || @item.trading.status == "出品停止中"
+  end
+
+  def check_purchase_confirmation
+    redirect_to root_path if current_user.id == @item.user_id
+  end
+
+  def fuzzy_search
+    @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
+  end
+
+  def search_params
+    params[:q] || {
+      name_or_description_cont: params[:q][:name_or_description_cont],
+      item_status: params[:q][:item_status],
+      trading_status_eq: params[:q][:trading_status_eq]
+    }
   end
 
 end

@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       get 'show_all'
       get 'show_user_all'
       get 'show_other_all'
+      get 'search'
+      get 'search_ransack'
     end
 
     member do
