@@ -30,20 +30,28 @@
     .confirmation__shipping-info
       %h3
         配送先
-      %address
-        〒
-        = @address.postalcode
-        %br
-        = @address.prefecture
-        = @address.city
-        = @address.number
-        = @address.building if @address.building
-        %br
-        = current_user.last_name
-        = current_user.first_name
-      %p
-        = link_to edit_user_address_path(current_user.id, current_user.address.id) do
-          変更する
-          = fa_icon 'chevron-right'
+      - if @address.present?
+        %address
+          〒
+          = @address.postalcode
+          %br
+          = @address.prefecture
+          = @address.city
+          = @address.number
+          = @address.building if @address.building
+          %br
+          = current_user.last_name
+          = current_user.first_name
+        %p
+          = link_to edit_user_address_path(current_user.id, current_user.address.id), data:{turbolinks: :false} do
+            変更する
+            = fa_icon 'chevron-right'
+      - else
+        %address
+          住所が未登録です
+        %p
+          = link_to new_user_address_path(current_user.id), data:{turbolinks: :false} do
+            登録する
+            = fa_icon 'chevron-right'
 
   = render 'devise/shared/gray_footer'

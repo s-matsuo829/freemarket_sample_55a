@@ -70,7 +70,7 @@
                       %span.items-new-text-mini__red 必須
                     .select-wrap
                       %i.fa.fa-chevron-down
-                      = f.select :delivery_type, @items, Item.delivery_types.keys
+                      = f.select :delivery_type, Item.delivery_types.keys
                       -# = f.select :category, [["---", ""], ["送料込み(出品者負担)", 2], ["着払い(購入者負担)", 1]]
                   .form-group-wrapper
                     .form-group
