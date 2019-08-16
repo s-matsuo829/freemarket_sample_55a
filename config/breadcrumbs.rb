@@ -37,6 +37,16 @@ crumb :address_edit do
   parent :user_show
 end
 
+crumb :item_search do
+  link params[:keyword], search_items_path
+  parent :root
+end
+
+crumb :search_ransack do
+  link "詳細検索", search_ransack_items_path
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

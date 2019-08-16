@@ -1,4 +1,34 @@
-%p
-  支払いが完了しました。
-= link_to root_path do
-  トップページへ戻ります。
+.payment_complete
+  .payment_complete__mercari-logo
+    = link_to root_path do
+      = image_tag 'mercari_logo.png', alt: 'メルカリ'
+  .payment_complete__top-image
+    = image_tag 'thanks.png', alt: 'Thanks!'
+  %p.payment_complete__appreciate
+    メルカリをご利用いただきましてありがとうございます！
+    %br
+    お支払いが完了しました。
+  %p.payment_complete__middle
+    = fa_icon 'star'
+    またのご利用、心からお持ちしております
+    = fa_icon 'star'
+  %p.payment_complete__bottom
+    トップページへ戻るには
+    = link_to root_path do
+      ここ
+    をクリックしてください。
+  .payment_complete__line
+  .payment_complete__info
+    %p.payment_complete__info__item-name
+      今回購入した商品
+    .payment_complete__info__item-detail
+      .payment_complete__info__item-detail__image{style: "background-image: url(#{@item.image})"}
+      %ul
+        %li
+          商品名：
+          %span
+            = @item.name
+        %li
+          価格：
+          %span
+            = number_to_currency(@item.price, unit: '¥', precision: 0)

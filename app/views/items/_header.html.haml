@@ -5,9 +5,10 @@
         = link_to root_path do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3236810361", size: "134x36", class: "pc-header-top__logo__image"
       
-      = form_tag('/search', method: :get, class: 'pc-header-search-form') do
+      = form_tag(search_items_path, method: :get, class: 'pc-header-search-form') do
         %input.pc-header-search-form__input{name: "keyword", placeholder: "何かお探しですか？", type: "text", value: ""}
-        = fa_icon "search", class: "pc-header-search-form__input__icon"
+        = button_tag (fa_icon "search"), type: 'submit', class: 'pc-header-search-form__input__icon'
+        //= fa_icon "search", class: "pc-header-search-form__input__icon"
     
     .pc-header-nav-box.clearfix
       %nav.pc-header-nav-box__left#categories-list-parent
@@ -35,7 +36,7 @@
                 いいね！一覧
               
             %li{ data: {id: "pc-header-user-nav", key: "notification_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
-              = link_to root_path, data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
+              = link_to search_ransack_items_path, data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
                 = fa_icon "bell", text: "お知らせ", class: "pc-header-menu__link__icon"
               
               %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{ data: { id: "pc-header-user-items"}}

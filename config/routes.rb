@@ -39,6 +39,9 @@ Rails.application.routes.draw do
       post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
       get 'show_user_all'
+      get 'show_other_all'
+      get 'search'
+      get 'search_ransack'
     end
 
     member do

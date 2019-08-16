@@ -93,7 +93,6 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
-
 gem 'font-awesome-rails'
 
 gem 'ancestry'
@@ -101,3 +100,5 @@ gem 'ancestry'
 gem 'gretel'
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'ransack'
+gem 'enum_help'

@@ -76,9 +76,14 @@
           プロフィール
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to edit_user_address_path(current_user.id, current_user.address.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
-          発送元・お届け先住所変更
-          = fa_icon 'angle-right', class: 'icon-angle-right'
+        - if current_user.address.present?
+          = link_to edit_user_address_path(current_user.id, current_user.address.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+            発送元・お届け先住所の変更
+            = fa_icon 'angle-right', class: 'icon-angle-right'
+        - else
+          = link_to new_user_address_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+            発送元・お届け先住所の登録
+            = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
         = link_to  user_cards_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           支払い方法
