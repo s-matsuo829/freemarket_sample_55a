@@ -1,5 +1,9 @@
 = render 'header'
 
+.breadcrumb
+  - breadcrumb :item_search
+  = breadcrumbs separator: " &rsaquo; "
+  
 .search
   .search__detail-search
     = link_to search_ransack_items_path do
@@ -29,9 +33,5 @@
                   = number_to_currency(item.price, unit: "￥", precision: 0)
                 .search__result__item-list__container__detail__info__like
                   = fa_icon "heart", text: "1"
-
-.breadcrumb
-  - breadcrumb :item_search
-  = breadcrumbs separator: " &rsaquo; "
 
 = render 'footer'
