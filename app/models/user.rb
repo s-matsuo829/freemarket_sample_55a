@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   has_many :sns_credentials, dependent: :destroy
-
+  has_many :likes, dependent: :destroy
+  has_many :liked_items, through: :likes, source: :item
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -49,7 +50,12 @@ class User < ApplicationRecord
   validates :birthday,
     presence: true,
     format: { with: reg_date_year }
+   
 
+
+   def already_liked?(item)
+     self.likes.exists?(item_id: item.id)
+   end
 
    def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first

@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
 
-  
+
   gem 'pry-rails'
 
 
@@ -94,6 +94,9 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
 gem 'font-awesome-rails'
+
+gem 'ancestry'
+
 gem 'gretel'
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"

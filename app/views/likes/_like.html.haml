@@ -1,0 +1,21 @@
+- if user_signed_in?
+  - if current_user.already_liked?(@item)
+    %button.item_buttons__left--like
+      = link_to item_like_path(item_id: @item.id,id: @item.likes[0].id), method: :delete, remote: true do
+        = fa_icon 'heart', class: 'icon-heart', id: "likes_buttons_#{@item.id}"
+        %span いいね!
+        %span.fade-in-down
+          = @item.likes.count
+  - else
+    %button.item_buttons__left--like
+      = link_to item_likes_path(@item.id), method: :post, remote: true do
+        = fa_icon 'heart-o', class: 'icon-heart-o', id: "likes_buttons_#{@item.id}"
+        %span いいね!
+        %span.fade-in-down
+          = @item.likes.count
+- else 
+  %button.item_buttons__left--like
+    = fa_icon 'heart-o', class: 'icon-heart-o'
+    %span いいね!
+    %span.fade-in-down
+      = @item.likes.count

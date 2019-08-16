@@ -1,0 +1,17 @@
+.genre-box
+  %ul.pc-header-nav__parent-wrap{data: {mega: 1}}
+    - @parents.each do |parent|
+      %li.pc-header-nav__parent
+        = parent.name
+  
+        .sub-box
+          %ul.pc-header-nav__child-wrap{data: {mega: 2}}
+            - parent.children.each do |child|
+              %li.pc-header-nav__child
+                = child.name
+                 
+                .detail-box
+                  %ul.pc-header-nav__grand-child-wrap{data: {mega: 3}}
+                    - child.children.each do |grandchild|
+                      %li.pc-header-nav__grand-child
+                        = grandchild.name

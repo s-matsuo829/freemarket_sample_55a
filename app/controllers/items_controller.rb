@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   before_action :fuzzy_search, only: [:index, :search]
 
   def index
+    @parents = Category.all.order("id ASC").limit(2)
     @items = Item.order("created_at DESC")
     @items_limit_4 = @items.left_joins(:trading).where(tradings: {status: "出品中"}).limit(4)
     if user_signed_in?
@@ -25,11 +26,32 @@ class ItemsController < ApplicationController
     @number_of_normals = normal_trades.count
     bad_trades = Trading.where(item_id: @user.items.ids, rating: 2)
     @number_of_bads = bad_trades.count
-  
+
+    
+    @like = Like.new
+   
+
   end
   
   def new
     @item = Item.new
+    #セレクトボックスの初期値設定
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+       @category_parent_array << parent.name
+    end
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
