@@ -1,14 +1,19 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :show_all]
-  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation, :payment_complete]
+  before_action :authenticate_user!, except: [:index, :show, :show_all, :search_ransack]
+  before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation, :pay, :payment_complete]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
-  before_action :check_purchase_confirmation, only: [:purchase_confirmation]
+  before_action :check_purchase_confirmation, only: [:purchase_confirmation, :pay]
+  before_action :fuzzy_search, only: [:index, :search]
 
   def index
-    @items = Item.limit(4).order("created_at DESC")
+    @items = Item.order("created_at DESC")
+    @items_limit_4 = @items.left_joins(:trading).where(tradings: {status: "出品中"}).limit(4)
+    if user_signed_in?
+      @items_user = current_user.items.limit(4).order("created_at DESC")
+      @items_other = @items.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(4)
+    end
   end
-
 
   def show
     @item = Item.find(params[:id])
@@ -89,6 +94,10 @@ class ItemsController < ApplicationController
     @items = current_user.items.limit(20).order("created_at DESC")
   end
 
+  def show_other_all
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(20).order("created_at DESC")
+  end
+
   def purchase_confirmation
     @address = current_user.address
   end
@@ -97,13 +106,24 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-    Payjp::Charge.create(
-    amount: params[:amount],
-    card:params['payjp-token'],
-    currency: 'jpy'
-    )
-    redirect_to payment_complete_item_path
+    @trading = @item.trading
+    if @trading.status == "出品中"
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp::Charge.create(
+      amount: params[:amount],
+      card:params['payjp-token'],
+      currency: 'jpy'
+      )
+      @trading.update(
+        item_id: @trading.item_id,
+        status: 2,
+        rating: "",
+        buyer_id: @trading.buyer_id
+      )
+      redirect_to payment_complete_item_path
+    else
+      redirect_to item_path(@item.id)
+    end
   end
 
   def switch_status
@@ -129,6 +149,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @typed_keyword = params[:keyword]
+    @amount = @search.length
+  end
+
+  def search_ransack
+    @q = Item.ransack(params[:q])
+    @trading = Trading.all
+    @items = @q.result.includes(:trading)
+  end
+
   private
 
   def item_params
@@ -149,6 +180,20 @@ class ItemsController < ApplicationController
 
   def check_purchase_confirmation
     redirect_to root_path if current_user.id == @item.user_id
+    @trading = @item.trading
+    redirect_to root_path unless @trading.status == "出品中"
+  end
+
+  def fuzzy_search
+    @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
+  end
+
+  def search_params
+    params[:q] || {
+      name_or_description_cont: params[:q][:name_or_description_cont],
+      item_status: params[:q][:item_status],
+      trading_status_eq: params[:q][:trading_status_eq]
+    }
   end
 
 end
