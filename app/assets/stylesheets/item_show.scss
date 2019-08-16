@@ -97,6 +97,11 @@
             &__wrap {
               overflow: hidden;
               &__item {
+                img {
+                  width: 300px;
+                  height: 300px;
+                  object-fit: contain;
+                }
                 &__photo {
                   left: 0px;
                   width: 300px;
@@ -121,11 +126,17 @@
               overflow: hidden;
               display: inline-block;
               &--inner {
+                img {
+                  width: 60px;
+                  height: 60px;
+                  object-fit: cover;
+                }
                 &__photo {
                   left: 0px;
                   width: 60px;
                   height: 60px;
                   vertical-align: bottom;
+                  
                 }
               
               

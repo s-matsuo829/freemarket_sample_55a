@@ -45,6 +45,7 @@
     img {
       width: 64px;
       height: 64px;
+      object-fit: cover;
     }
     &__item {
       display: flex;
@@ -52,7 +53,6 @@
       &__title {
         font-size: 18px;
         font-weight: bold;
-        display: inline;
         width: 240px;
         height: 64px;
         margin-left: 16px;

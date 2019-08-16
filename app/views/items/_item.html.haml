@@ -2,7 +2,7 @@
   .main-content__list__container
     = link_to item_path(item.id) do
       .main-content__list__container__image
-        = image_tag item.image.url, size: "213x213"
+        = image_tag item.image.url
       .main-content__list__container__detail
         %h3
           = item.name

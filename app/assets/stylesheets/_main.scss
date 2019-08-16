@@ -54,8 +54,13 @@
       }
     
       &__image {
-        width: 213px;
         height: 213px;
+        width: 213px;
+        img {
+          width: 213px;
+          height: 213px;
+          object-fit: cover;
+        }
       }
 
       &__detail {
