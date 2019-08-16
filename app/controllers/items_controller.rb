@@ -133,6 +133,7 @@ class ItemsController < ApplicationController
   def search
     @typed_keyword = params[:keyword]
     @amount = @search.length
+  end
 
   def search_ransack
     @q = Item.ransack(params[:q])
@@ -164,6 +165,7 @@ class ItemsController < ApplicationController
 
   def fuzzy_search
     @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
+  end
 
   def search_params
     params[:q] || {
