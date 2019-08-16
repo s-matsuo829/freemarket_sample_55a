@@ -51,7 +51,7 @@
                 いいね！一覧
               
             %li{ data: {id: "pc-header-user-nav", key: "notification_list", url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}}
-              = link_to root_path, data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
+              = link_to search_ransack_items_path, data: { url: "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}, class: "pc-header-menu__link" do
                 = fa_icon "bell", text: "お知らせ", class: "pc-header-menu__link__icon"
               
               %ul.pc-header-user-box.pc-header-notification-box.mypage__item-list{ data: { id: "pc-header-user-items"}}

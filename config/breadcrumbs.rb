@@ -42,6 +42,11 @@ crumb :item_search do
   parent :root
 end
 
+crumb :search_ransack do
+  link "詳細検索", search_ransack_items_path
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

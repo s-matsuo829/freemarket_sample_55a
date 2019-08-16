@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :show_all]
+  before_action :authenticate_user!, except: [:index, :show, :show_all, :search_ransack]
   before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
@@ -133,6 +133,11 @@ class ItemsController < ApplicationController
   def search
     @typed_keyword = params[:keyword]
     @amount = @search.length
+
+  def search_ransack
+    @q = Item.ransack(params[:q])
+    @trading = Trading.all
+    @items = @q.result.includes(:trading)
   end
 
   private
@@ -159,6 +164,13 @@ class ItemsController < ApplicationController
 
   def fuzzy_search
     @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
+
+  def search_params
+    params[:q] || {
+      name_or_description_cont: params[:q][:name_or_description_cont],
+      item_status: params[:q][:item_status],
+      trading_status_eq: params[:q][:trading_status_eq]
+    }
   end
 
 end
