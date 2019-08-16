@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
   before_action :check_purchase_confirmation, only: [:purchase_confirmation]
+  before_action :fuzzy_search, only: [:index, :search]
 
   def index
     @items = Item.limit(4).order("created_at DESC")
@@ -129,6 +130,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @typed_keyword = params[:keyword]
+    @amount = @search.length
+
   def search_ransack
     @q = Item.ransack(params[:q])
     @trading = Trading.all
@@ -156,6 +161,9 @@ class ItemsController < ApplicationController
   def check_purchase_confirmation
     redirect_to root_path if current_user.id == @item.user_id
   end
+
+  def fuzzy_search
+    @search = Item.where('name LIKE(?)', "%#{params[:keyword]}%").order("created_at DESC").limit(132)
 
   def search_params
     params[:q] || {
