@@ -36,7 +36,8 @@ Rails.application.routes.draw do
     collection do
       post 'pay/:id' => 'items#pay', as: 'pay'
       get 'show_all'
-      get 'items/:name', controller: 'items', action: 'show_user_all'
+      get 'show_user_all'
+      get 'show_other_all'
     end
 
     member do

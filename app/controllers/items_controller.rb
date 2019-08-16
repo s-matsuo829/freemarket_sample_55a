@@ -91,8 +91,10 @@ class ItemsController < ApplicationController
 
   def show_user_all
     @items = current_user.items.limit(20).order("created_at DESC")
-    @items_other = Item.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(20).order("created_at DESC")
-    render "items/#{params[:name]}"
+  end
+
+  def show_other_all
+    @items = Item.left_joins(:trading).where(tradings: {status: "出品中"}).where.not(user_id: current_user.id).limit(20).order("created_at DESC")
   end
 
   def purchase_confirmation

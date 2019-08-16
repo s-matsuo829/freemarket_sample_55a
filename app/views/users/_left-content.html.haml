@@ -22,10 +22,9 @@
           出品する
           = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
-        = link_to controller: 'items', action: 'show_user_all', name: "show_user_all" do
-          .mypage-nav__list__item
-            出品した商品 - 出品中
-            = fa_icon 'angle-right', class: 'icon-angle-right'
+        = link_to show_user_all_items_path, class: 'mypage-nav__list__item', data:{turbolinks: :false} do
+          出品した商品 - 出品中
+          = fa_icon 'angle-right', class: 'icon-angle-right'
       %li
         = link_to user_path(current_user.id), class: 'mypage-nav__list__item', data:{turbolinks: :false} do
           出品した商品 - 取引中
