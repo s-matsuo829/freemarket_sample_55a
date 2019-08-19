@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :show_all, :search_ransack]
+  before_action :authenticate_user!, except: [:index, :show, :show_all, :search, :search_ransack]
   before_action :set_item, only: [:edit, :update, :destroy, :switch_status, :purchase_confirmation, :pay, :payment_complete]
   before_action :check_user, only: [:edit, :switch_status]
   before_action :check_trading_status, only: [:edit, :switch_status]
