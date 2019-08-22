@@ -54,6 +54,9 @@
           cursor: pointer;
           text-align: center;
           position: relative;
+          &__font{
+            color: #fff;
+          }
           .icon-facebook-square {
             position: absolute;
             top: 10px;
@@ -72,6 +75,9 @@
           text-align: center;
           position: relative;
           margin: 16px 0 0;
+          &__font{
+            color: black;
+          }
           .icon-google {
             position: absolute;
             top: 10px;
