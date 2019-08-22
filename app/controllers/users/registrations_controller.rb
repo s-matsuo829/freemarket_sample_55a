@@ -63,10 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    if params[:user][:password].nil?
-      binding.pry
+    if params[:user][:password].blank?
       @user = User.create(user_via_sns_params)
       sns = SnsCredential.create(user_id: @user.id,uid: params[:user][:uid], provider: params[:user][:provider])
+      sign_in_and_redirect @user, event: :authentication
     else 
       super
     end
@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_via_sns_params
     password = Devise.friendly_token.first(6)
-    params.require(:user).permit(:nickname, :email, :first_name, :last_name, :first_kana, :last_kana, :birthday, :uid, :provider).merge(password: password, password_confirmation: password)
+    params.require(:user).permit(:nickname, :email, :first_name, :last_name, :first_kana, :last_kana, :birthday).merge(password: password, password_confirmation: password)
   end
 
   def check_captcha
