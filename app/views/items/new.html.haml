@@ -43,13 +43,13 @@
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
                   .form-group
-                    -# .listing-product-detail__category
-                      -# = f.label 'カテゴリー', class: 'listing-default__label items-new-text-mini'
-                      -# %span.listing-default--require.items-new-text-mini__red 必須
-                      -# .listing-select-wrapper
-                        -# .listing-select-wrapper__box.select-wrap
-                          -# = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                          -# %i.fa.fa-chevron-down
+                    .listing-product-detail__category
+                      = f.label 'カテゴリー', class: 'listing-default__label items-new-text-mini'
+                      %span.listing-default--require.items-new-text-mini__red 必須
+                      .listing-select-wrapper
+                        .listing-select-wrapper__box.select-wrap
+                          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                          %i.fa.fa-chevron-down
 
                   .form-group-wrapper
                     .form-group
