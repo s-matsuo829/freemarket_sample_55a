@@ -41,7 +41,7 @@
             %span
               必須
           = f.email_field :email, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
-        - if @user.password.nil?
+        - if @user.password.nil? && @sns.nil?
           .registration__form__item
             %label{for:'password'}
               パスワード

@@ -64,6 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     if params[:user][:password].nil?
+      binding.pry
       @user = User.create(user_via_sns_params)
       sns = SnsCredential.create(user_id: @user.id,uid: params[:user][:uid], provider: params[:user][:provider])
     else 
